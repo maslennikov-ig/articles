@@ -118,11 +118,4 @@ $RECYCLE.BIN/
 # pnpm-lock.yaml
 *.tgz
 
-# ===================================================================
-# Articles & Writing
-# ===================================================================
-# Article drafts and master prompts (not for publication)
-articles/
-
-# Content agents (temporary/helper agents for writing)
-.claude/agents/content/
+.claude
