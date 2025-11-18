@@ -2024,7 +2024,7 @@ function mergeCompoundToponyms(detections: DetectedData[]): DetectedData[] {
 
 **Каналы для фидбека**:
 - **Telegram**: https://t.me/maslennikovig (для прямого диалога, технических вопросов, коммерческих предложений)
-- **Telegram канал**: https://t.me/maslennikovigor (редкие, но интересные посты про AI Dev Team)
+- **Telegram канал**: https://t.me/maslennikovigor (редкие, но интересные посты про AI Dev Team и не только)
 
 **Тон**: Супер открыт к конструктивному диалогу. Без эго, просто хочу поделиться опытом и услышать ваше мнение.
 
