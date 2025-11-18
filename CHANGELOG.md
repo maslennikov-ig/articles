@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2025-11-18
+
+### Added
+- add legal lifehack section to Pikabu article (97c0b43)
+- add Pikabu-style article about ChamelOn business case (ec01e16)
+
 ## [1.1.3] - 2025-11-17
 
 ## [1.1.2] - 2025-11-14
