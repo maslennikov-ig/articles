@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2025-11-22
+
+### Added
+- **commands**: update slash commands (1a3f5d2)
+
 ## [1.2.0] - 2025-11-18
 
 ### Added
