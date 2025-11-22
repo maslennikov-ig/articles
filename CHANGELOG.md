@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.2] - 2025-11-22
+
+### Added
+- **articles**: add LLM Judge validation articles for VC.ru and Habr (344e30f)
+
 ## [1.3.1] - 2025-11-22
 
 ## [1.3.0] - 2025-11-22
