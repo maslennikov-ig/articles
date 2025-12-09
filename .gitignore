@@ -104,6 +104,9 @@ $RECYCLE.BIN/
 # Git worktrees
 .worktrees/
 
+# Answers (personal drafts)
+Answers/
+
 # Backup files
 *.backup
 *.bak
