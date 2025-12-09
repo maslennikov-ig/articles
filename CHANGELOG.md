@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.4] - 2025-12-09
+
+### Added
+- **articles**: add Pikabu version of BuhBot announcement (31f128c)
+
 ## [1.3.3] - 2025-12-09
 
 ## [1.3.2] - 2025-11-22
