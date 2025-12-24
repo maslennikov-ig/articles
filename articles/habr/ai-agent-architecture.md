@@ -742,7 +742,13 @@ AI-агент — это не магия и не "ChatGPT, но лучше". Э�
 4. **Reranking обязателен** — без него RAG работает на 60%
 5. **Late Chunking для технических документов** — +30% качества retrieval
 
-Вопросы, критика, предложения — в комментарии. Или в [Telegram](https://t.me/maslennikovig), если хотите обсудить приватно.
+
+**Автор:** Игорь Масленников
+*Пишу про AI-агентов, LLM-бенчмарки и архитектуру софта.*
+
+📢 **Мой канал в Telegram:** [@maslennikovigor](https://t.me/maslennikovigor) — там я публикую свежие бенчмарки и DevOps-лайфхаки.
+💬 **Личный контакт:** [@maslennikovig](https://t.me/maslennikovig)
+
 
 ---
 
@@ -754,3 +760,5 @@ AI-агент — это не магия и не "ChatGPT, но лучше". Э�
 - [Xiaomi MiMo-V2-Flash](https://github.com/XiaomiMiMo/MiMo-V2-Flash)
 - [LangGraph](https://github.com/langchain-ai/langgraph)
 - [Contextual Retrieval (Anthropic)](https://www.anthropic.com/news/contextual-retrieval)
+
+---
