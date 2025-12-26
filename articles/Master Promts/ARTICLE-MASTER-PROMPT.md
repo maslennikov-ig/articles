@@ -607,8 +607,8 @@ curl -s -X POST https://api.telegram.org/bot{TOKEN}/sendMessage \
 - **~75% faster development**
 
 **Cost**:
-- Traditional IT department: 20 specialists
-- With orchestrator kit: 3 people + 33 agents
+- Traditional IT department: 80+ specialists
+- With orchestrator kit: 3 people + 44 agents
 - **-80% cost reduction**
 
 **Quality**:
