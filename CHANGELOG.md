@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.10] - 2025-12-31
+
+### Other
+- update scripts, update 6 agent(s), +2 more (c5fa34f)
+
 ## [1.3.9] - 2025-12-26
 
 ### Other
