@@ -4,10 +4,10 @@
 
 ```yaml
 platform: habr
-title: "MCP Tool Search в Claude Code — как мы сократили потребление токенов на 85% и забыли про ручную настройку MCP"
+title: "Context Tax is Dead: как MCP Tool Search освободил 76K токенов в Claude Code"
 author: Igor Maslennikov
 date: 2026-01-16
-tags: [Claude Code, MCP, Model Context Protocol, AI, LLM, Context Window, Optimization, DevOps]
+tags: [Claude Code, MCP, Model Context Protocol, AI, LLM, Context Window, Optimization, DevOps, Context Tax]
 language: ru
 length: ~18000-22000 characters
 ```
