@@ -4,10 +4,10 @@
 
 ```yaml
 platform: habr
-title: "Context Tax is Dead: как MCP Tool Search освободил 76K токенов в Claude Code"
+title: "Anthropic выпустили Tool Search — и мы получили +76K токенов в Claude Code"
 author: Igor Maslennikov
 date: 2026-01-16
-tags: [Claude Code, MCP, Model Context Protocol, AI, LLM, Context Window, Optimization, DevOps, Context Tax]
+tags: [Claude Code, MCP, Model Context Protocol, AI, LLM, Context Window, Optimization, Anthropic, Tool Search]
 language: ru
 length: ~18000-22000 characters
 ```
