@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.12] - 2026-01-16
+
+### Added
+- **article**: update title to emphasize Anthropic announcement (e613f47)
+- **article**: update title to "Context Tax is Dead" (5160b9a)
+
+### Other
+- update docs (44e29ef)
+
 ## [1.3.11] - 2026-01-16
 
 ### Added
