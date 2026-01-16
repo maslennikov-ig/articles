@@ -1,4 +1,4 @@
-# Context Tax is Dead: как MCP Tool Search освободил 76K токенов в Claude Code
+# Anthropic выпустили Tool Search — и мы получили +76K токенов в Claude Code
 
 <spoiler title="TL;DR — что случилось 14 января 2026">
 
