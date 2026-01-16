@@ -2,6 +2,19 @@
 
 User-facing release notes for all versions.
 
+## v1.3.12
+
+_Released on 2026-01-16_
+
+### ✨ New Features
+
+- **article**: Update title to emphasize Anthropic announcement
+- **article**: Update title to "Context Tax is Dead"
+
+---
+
+_This release was automatically generated from 3 commits._
+
 ## v1.3.11
 
 _Released on 2026-01-16_
