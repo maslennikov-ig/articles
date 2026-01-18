@@ -765,6 +765,13 @@ Tilda — отличный инструмент. Но: ограниченная 
 
 ## Контакты
 
-Telegram: https://t.me/maslennikovig
+**Автор:** Игорь Масленников
+*Пишу про AI-автоматизацию, LLM-инструменты и архитектуру веб-приложений.*
+
+📢 **Мой канал в Telegram:** [@maslennikovigor](https://t.me/maslennikovigor) — там я публикую разборы AI-инструментов и DevOps-лайфхаки.
+
+💬 **Личный контакт:** [@maslennikovig](https://t.me/maslennikovig) — для вопросов, идей и обратной связи.
+
+🔧 **GitHub:** [claude-code-orchestrator-kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit) — open-source инструменты для AI-автоматизации.
 
 Если попробуете пайплайн — напишите, что сработало, что нет. Буду рад фидбеку.
