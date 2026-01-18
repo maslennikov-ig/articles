@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.14
+
+_Released on 2026-01-18_
+
+### ✨ New Features
+
+- **article**: Add AI website pipeline articles for TenChat and Habr
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.13
 
 _Released on 2026-01-18_

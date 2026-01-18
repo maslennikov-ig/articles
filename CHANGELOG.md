@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.14] - 2026-01-18
+
+### Added
+- **article**: add AI website pipeline articles for TenChat and Habr (c825129)
+
 ## [1.3.13] - 2026-01-18
 
 ### Added
