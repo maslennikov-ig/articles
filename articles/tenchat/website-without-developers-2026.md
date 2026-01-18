@@ -523,11 +523,26 @@ Adapt this component for my coffee shop "Black Bean":
 
 ## Контакты и обратная связь
 
-📱 **Telegram канал** (редкие, но полезные посты): https://t.me/maslennikovigor
+### 📱 Telegram
 
-💬 **Прямой контакт** (вопросы, предложения): https://t.me/maslennikovig
+**Канал** (редкие, но полезные посты): https://t.me/maslennikovigor
+Заходите, читайте мои мысли и статьи. Пишу редко, но когда пишу — стоит прочитать.
 
-Супер открыт к диалогу. Критика, вопросы, идеи — всё welcome.
+**Прямой контакт**: https://t.me/maslennikovig
+Нужно пообщаться? Пишите напрямую. Обсудить проект, задать вопрос по статье или просто поболтать про AI — всегда рад.
+
+### 💬 Обратная связь
+
+**Хочу услышать:**
+- **Критику** — Что не так с этим подходом? Где слабые места?
+- **Кейсы** — Попробовали пайплайн? Расскажите, что сработало, что нет.
+- **Вопросы** — Что-то непонятно? Спрашивайте.
+
+**Каналы для обратной связи:**
+- **GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues
+- **Telegram**: https://t.me/maslennikovig
+
+**Тон:** Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.
 
 ---
 
@@ -550,16 +565,3 @@ Adapt this component for my coffee shop "Black Bean":
 💬 Вопросы: https://t.me/maslennikovig
 
 #AI #бизнес #сайт #MVP #маркетинг #лендинг #дизайн #экономия
-
----
-
-## Image Prompts
-
-**Primary (★★★★★):**
-"Isometric 3D illustration showing transformation process: a green coffee bean on the left morphing into a steaming espresso cup on the right, connected by flowing digital particles and code snippets. Professional business style, navy blue and warm brown color palette, clean white background, modern minimal aesthetic. The transformation suggests AI-powered creation process."
-
-**Alternative (★★★★☆):**
-"Split-screen comparison: Left side shows cluttered developer desk with monitors, code, stressed person, money flying away. Right side shows clean laptop with AI interface, single entrepreneur smiling, coffee cup, same professional website on screen. Business infographic style, blue and gold accents, clear visual contrast between complexity and simplicity."
-
-**Mobile-focused (★★★☆☆):**
-"Smartphone showing premium coffee brand website with scroll animation frozen mid-motion — coffee bean transforming into espresso. Hand holding phone, finger about to scroll. Soft studio lighting, shallow depth of field, professional product photography style. Suggests interactive mobile experience."
