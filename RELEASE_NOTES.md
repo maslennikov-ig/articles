@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.15
+
+_Released on 2026-01-19_
+
+### 🐛 Bug Fixes
+
+- **article**: Update contact sections with proper links
+
+---
+
+_This release was automatically generated from 2 commits._
+
 ## v1.3.14
 
 _Released on 2026-01-18_
