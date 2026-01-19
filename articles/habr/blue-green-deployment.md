@@ -1825,7 +1825,6 @@ upstream web_backend {
 
 **Каналы для обратной связи:**
 - **GitHub Issues**: https://github.com/maslennikov-ig/mc-2/issues (баги, фичи)
-- **GitHub Discussions**: https://github.com/maslennikov-ig/mc-2/discussions (идеи, вопросы)
 - **Telegram**: https://t.me/maslennikovig (личный диалог)
 
 **Tone**: Максимально открыт к конструктивному диалогу. Без эго, просто хочу сделать лучше.
