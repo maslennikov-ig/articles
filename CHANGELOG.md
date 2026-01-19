@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.15] - 2026-01-19
+
+### Fixed
+- **article**: update contact sections with proper links (320ffdb)
+
+### Other
+- update docs (a74c27f)
+
 ## [1.3.14] - 2026-01-18
 
 ### Added
