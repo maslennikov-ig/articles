@@ -310,7 +310,7 @@ language: ru
 
 **Claude Code Orchestrator Kit** — open-source система оркестрации (MIT лицензия, бесплатно).
 
-**GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
+**GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 **NPM**: `npm install -g claude-code-orchestrator-kit`
 
 **Быстрый старт**:
@@ -335,7 +335,7 @@ cp .env.example .env.local  # Настройте credentials
 
 ### Вариант 3: Просто посмотреть
 
-**GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (изучите код, архитектуру, агентов)
+**GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 
 **Документация**:
 - `docs/Agents Ecosystem/ARCHITECTURE.md` — архитектура системы
@@ -396,7 +396,7 @@ AI-оркестрация в разработке — это не футурис
 - **Вопросы** — Что-то непонятно? Спрашивайте.
 
 **Каналы для обратной связи**:
-- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (для багов, фич)
+- **GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **Telegram**: https://t.me/maslennikovig (для идей, вопросов, прямого разговора)
 
 **Тон**: Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.
