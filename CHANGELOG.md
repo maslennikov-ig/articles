@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.16] - 2026-01-23
+
+### Added
+- **skills**: enhance TenChat, Habr, VC.ru article skills with platform culture and promotion tips (e04527e)
+
 ## [1.3.15] - 2026-01-19
 
 ### Fixed

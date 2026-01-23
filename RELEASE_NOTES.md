@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.16
+
+_Released on 2026-01-23_
+
+### ✨ New Features
+
+- **Skills**: Enhance TenChat, Habr, VC.ru article skills with platform culture and promotion tips
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.15
 
 _Released on 2026-01-19_
