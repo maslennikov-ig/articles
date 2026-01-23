@@ -49,7 +49,7 @@ language: ru
 
 Игорь Масленников, в IT с 2013 года, последние 2 года развиваю AI Dev Team в DNA IT. У нас 3 человека + 44 AI-агента выполняют работу ~20 специалистов. Стоимость -80%, время разработки с 2-3 месяцев до 1-2 недель.
 
-Развиваю [Claude Code Orchestrator Kit](https://github.com/igormaslennikov-io/claude-code-orchestrator-kit) — open-source набор из 44 агентов, 20+ команд, 30+ скиллов для Claude Code.
+Развиваю [Claude Code Orchestrator Kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit) — open-source набор из 44 агентов, 20+ команд, 30+ скиллов для Claude Code.
 
 **Проблема:** За 2 года работы с Claude Code я понял, что большинство разработчиков используют его "из коробки". Не настраивают permissions, не знают про hooks, не используют MCP Tool Search. А потом жалуются на "тупой AI, который постоянно спрашивает подтверждения".
 
@@ -873,7 +873,7 @@ claude --tools Read,Write,Bash
 
 Все конфигурации — в open-source проекте **Claude Code Orchestrator Kit**:
 
-**Репозиторий:** [github.com/igormaslennikov-io/claude-code-orchestrator-kit](https://github.com/igormaslennikov-io/claude-code-orchestrator-kit)
+**Репозиторий:** [github.com/maslennikov-ig/claude-code-orchestrator-kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit)
 
 **Лицензия:** MIT (бесплатно, можно использовать в коммерческих проектах)
 

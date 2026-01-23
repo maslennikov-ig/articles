@@ -17,7 +17,7 @@
 
 **Результат:** Один файл `.mcp.json`, никаких скриптов, автоматическая оптимизация. Просто работает.
 
-**Репозиторий:** [github.com/igormaslennikov-io/claude-code-orchestrator-kit](https://github.com/igormaslennikov-io/claude-code-orchestrator-kit)
+**Репозиторий:** [github.com/maslennikov-ig/claude-code-orchestrator-kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit)
 
 </spoiler>
 
@@ -25,7 +25,7 @@
 
 Игорь Масленников, в IT с 2013 года, последние 2 года развиваю AI Dev Team в DNA IT. У нас 3 человека + 44 AI-агента выполняют работу ~20 специалистов. Стоимость -80%, время разработки с 2-3 месяцев до 1-2 недель.
 
-Развиваю [Claude Code Orchestrator Kit](https://github.com/igormaslennikov-io/claude-code-orchestrator-kit) — open-source набор из 44 агентов, 20+ команд, 30+ скиллов для Claude Code.
+Развиваю [Claude Code Orchestrator Kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit) — open-source набор из 44 агентов, 20+ команд, 30+ скиллов для Claude Code.
 
 **У меня 6 активных проектов на Claude Code:**
 - **claude-code-orchestrator-kit** — публичный open-source
@@ -668,7 +668,7 @@ mv mcp/.mcp.*.json mcp/legacy/  # На всякий случай
 
 Все конфигурации — в open-source проекте **Claude Code Orchestrator Kit**:
 
-**Репозиторий:** [github.com/igormaslennikov-io/claude-code-orchestrator-kit](https://github.com/igormaslennikov-io/claude-code-orchestrator-kit)
+**Репозиторий:** [github.com/maslennikov-ig/claude-code-orchestrator-kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit)
 
 **Лицензия:** MIT (бесплатно, можно использовать в коммерческих проектах)
 
@@ -684,7 +684,7 @@ mv mcp/.mcp.*.json mcp/legacy/  # На всякий случай
 
 ```bash
 # 1. Клонируем
-git clone https://github.com/igormaslennikov-io/claude-code-orchestrator-kit.git
+git clone https://github.com/maslennikov-ig/claude-code-orchestrator-kit.git
 cd claude-code-orchestrator-kit
 
 # 2. Копируем .mcp.json в свой проект
@@ -755,10 +755,11 @@ Anthropic только начали. В статье упомянули:
 
 ### 📱 Telegram
 
-**Канал** (редкие, но интересные посты): https://t.me/aigencypro
-Заходите, читайте мысли и статьи. Пишу редко, но когда пишу — стоит прочитать.
+**Канал** (редкие, но полезные посты): https://t.me/maslennikovigor
 
-**Прямой контакт**: https://t.me/aigencypro
+**Прямой контакт**: https://t.me/maslennikovig
+
+**GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues
 Нужно поговорить? Пишите напрямую. Всегда рад общению.
 
 ### 💬 Обратная связь: я максимально открыт
@@ -770,8 +771,8 @@ Anthropic только начали. В статье упомянули:
 - **Вопросы** — что-то непонятно? Спрашивайте.
 
 **Каналы для фидбека:**
-- **GitHub Issues**: https://github.com/igormaslennikov-io/claude-code-orchestrator-kit/issues (для багов, фич)
-- **Telegram**: https://t.me/aigencypro (для прямого общения)
+- **GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues (для багов, фич)
+- **Telegram**: https://t.me/maslennikovig (для прямого общения)
 
 **Тон**: Максимально открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.
 
@@ -782,12 +783,12 @@ Anthropic только начали. В статье упомянули:
 - [Anthropic: Advanced Tool Use](https://www.anthropic.com/engineering/advanced-tool-use) — оригинальная статья про MCP Tool Search
 - [Claude Code MCP Docs](https://code.claude.com/docs/en/mcp) — официальная документация
 - [Scott Spence: Optimising MCP Server Context Usage](https://scottspence.com/posts/optimising-mcp-server-context-usage-in-claude-code) — детальный breakdown потребления токенов
-- [Claude Code Orchestrator Kit](https://github.com/igormaslennikov-io/claude-code-orchestrator-kit) — наш репозиторий
+- [Claude Code Orchestrator Kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit) — наш репозиторий
 
 ---
 
 **Игорь Масленников**
 *Пишу про AI-агентов, LLM-архитектуру и автоматизацию разработки.*
 
-📢 **Telegram:** [@aigencypro](https://t.me/aigencypro) — бенчмарки, DevOps-лайфхаки, AI-новости
-🐙 **GitHub:** [igormaslennikov-io](https://github.com/igormaslennikov-io)
+📢 **Telegram:** [@maslennikovig](https://t.me/maslennikovig)
+🐙 **GitHub:** [maslennikov-ig](https://github.com/maslennikov-ig)
