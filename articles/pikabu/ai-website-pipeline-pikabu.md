@@ -307,7 +307,7 @@ git push amvera main
 
 **Прямой контакт**: https://t.me/maslennikovig
 
-**GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues
+**GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 
 ---
 

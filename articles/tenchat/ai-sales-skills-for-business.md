@@ -461,7 +461,7 @@ ICP: стартапы, IT-компании, продуктовые команд�
 - **Вопросы** — что непонятно? Спрашивайте.
 
 **Каналы для фидбека**:
-- **GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues (для багов, фич)
+- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (для багов, фич)
 - **Telegram**: https://t.me/maslennikovig (для прямого разговора)
 
 **Тон**: Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.

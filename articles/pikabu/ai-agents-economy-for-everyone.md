@@ -314,7 +314,7 @@ Orchestrator Kit — это не про замену программистов.
 - **Вопросы** — что-то непонятно? Спрашивай.
 
 **Каналы для обратной связи**:
-- **GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues (баги, фичи)
+- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (баги, фичи)
 - **Telegram**: https://t.me/maslennikovig (идеи, вопросы, прямой диалог)
 
 **Тон**: максимально открыт к конструктивному диалогу. Без эго, просто хочу сделать систему лучше.
