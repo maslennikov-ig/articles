@@ -5,9 +5,9 @@
 - **DNA IT Company Size**: 80+ специалистов (NOT 20!) - это размер всей компании
 - **AI Dev Team Size**: 3 человека + 44 AI-агента
 - **Productivity Comparison**: AI-система заменяет работу ~20 специалистов (это про продуктивность, не размер компании)
-- **CEO/Author**: Игорь Масленников (@aigencypro в Telegram)
-- **Telegram Channel**: https://t.me/aigencypro
-- **GitHub**: https://github.com/igormaslennikov-io/claude-code-orchestrator-kit
+- **CEO/Author**: Игорь Масленников (@maslennikovig в Telegram)
+- **Telegram Channel**: https://t.me/maslennikovigor
+- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **npm Package**: @anthropics-tool/claude-code-orchestrator-kit
 - **License**: MIT (бесплатно и открыто)
 
@@ -23,7 +23,7 @@
 
 При указании контактов использовать:
 1. GitHub Issues (для багов и предложений)
-2. Telegram @aigencypro (для прямой связи)
+2. Telegram @maslennikovig (для прямой связи)
 
 НЕ использовать GitHub Discussions (ссылка не работает).
 
