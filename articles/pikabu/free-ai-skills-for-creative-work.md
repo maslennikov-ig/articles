@@ -362,7 +362,7 @@ npm install -g claude-code-orchestrator-kit
 - **Вопросы** — Что-то непонятно? Спрашивай.
 
 **Каналы связи:**
-- **GitHub**: [https://github.com/maslennikov-ig/claude-code-orchestrator-kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit) (для багов, фич-реквестов)
+- **GitHub** (бесплатные инструменты для автоматизации разработки): [https://github.com/maslennikov-ig/claude-code-orchestrator-kit](https://github.com/maslennikov-ig/claude-code-orchestrator-kit)
 - **Telegram**: [https://t.me/maslennikovig](https://t.me/maslennikovig) (для прямого диалога)
 
 **Тональность:** Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.

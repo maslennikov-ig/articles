@@ -331,7 +331,7 @@ Blue-Green deployment — один из кирпичиков этой систе
 
 **Каналы для связи:**
 - **Telegram**: https://t.me/maslennikovig (для прямого разговора)
-- **GitHub**: https://github.com/maslennikov-ig (для технических деталей)
+- **GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 
 **Тон**: Максимально открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.
 

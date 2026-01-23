@@ -461,7 +461,7 @@ ICP: стартапы, IT-компании, продуктовые команд�
 - **Вопросы** — что непонятно? Спрашивайте.
 
 **Каналы для фидбека**:
-- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (для багов, фич)
+- **GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **Telegram**: https://t.me/maslennikovig (для прямого разговора)
 
 **Тон**: Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.
@@ -488,7 +488,7 @@ ICP: стартапы, IT-компании, продуктовые команд�
 3. Используйте `content-research-writer` для создания контента
 4. Используйте `senior-prompt-engineer` для оптимизации промптов
 
-**GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
+**GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 **NPM**: `npm install -g claude-code-orchestrator-kit`
 
 **Ссылки**:

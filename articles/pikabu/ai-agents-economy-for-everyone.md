@@ -258,7 +258,7 @@ Orchestrator Kit — это не про замену программистов.
 
 ### Если тебе правда интересно:
 
-- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
+- **GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **Запусти /health-bugs** на своём проекте
 - **Посмотри, что найдёт**
 - **Потом говори, работает или нет**
@@ -314,7 +314,7 @@ Orchestrator Kit — это не про замену программистов.
 - **Вопросы** — что-то непонятно? Спрашивай.
 
 **Каналы для обратной связи**:
-- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (баги, фичи)
+- **GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **Telegram**: https://t.me/maslennikovig (идеи, вопросы, прямой диалог)
 
 **Тон**: максимально открыт к конструктивному диалогу. Без эго, просто хочу сделать систему лучше.

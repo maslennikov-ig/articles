@@ -398,7 +398,7 @@ language: ru
 - **Вопросы** — Что-то непонятно? Спрашивайте.
 
 **Каналы для обратной связи:**
-- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit (для багов, фич)
+- **GitHub** (бесплатные инструменты для автоматизации разработки): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **Telegram**: https://t.me/maslennikovig (для идей, вопросов, прямого разговора)
 
 **Тон**: Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.
