@@ -536,7 +536,7 @@ Adapt this component for my coffee shop "Black Bean":
 - **Вопросы** — Что-то непонятно? Спрашивайте.
 
 **Каналы для обратной связи:**
-- **GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues
+- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 - **Telegram**: https://t.me/maslennikovig
 
 **Тон:** Супер открыт к конструктивному диалогу. Без эго, просто хочу сделать это лучше.

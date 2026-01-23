@@ -252,7 +252,7 @@ Blue-Green требует 2x ресурсов во время деплоя (дв
 
 **Прямой контакт**: https://t.me/maslennikovig
 
-**GitHub Issues**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit/issues
+**GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
 
 ---
 

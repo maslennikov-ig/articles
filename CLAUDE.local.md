@@ -22,7 +22,7 @@
 ## Contact Preferences
 
 При указании контактов использовать:
-1. GitHub Issues (для багов и предложений)
+1. GitHub (бесплатный репозиторий с инструментами)
 2. Telegram @maslennikovig (для прямой связи)
 
 НЕ использовать GitHub Discussions (ссылка не работает).
