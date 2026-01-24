@@ -2,6 +2,19 @@
 
 User-facing release notes for all versions.
 
+## v1.3.17
+
+_Released on 2026-01-24_
+
+### 🐛 Bug Fixes
+
+- **articles**: Add GitHub description to links
+- **articles**: Update GitHub links from Issues to repository
+
+---
+
+_This release was automatically generated from 3 commits._
+
 ## v1.3.16
 
 _Released on 2026-01-23_

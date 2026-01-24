@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.17] - 2026-01-24
+
+### Fixed
+- **articles**: add GitHub description to links (1303fc8)
+- **articles**: update GitHub links from Issues to repository (cb67f24)
+
+### Other
+- update docs (428a26a)
+
 ## [1.3.16] - 2026-01-23
 
 ### Added
