@@ -1,6 +1,6 @@
 ---
 platform: habr
-title: "Moltbot: 83 сценария использования open-source AI-агента (с примерами для России)"
+title: "Moltbot: 83 сценария использования open-source AI-агента"
 subtitle: "Бесплатный агент с 100K+ звёзд, который реально выполняет задачи — не просто отвечает текстом"
 author: Igor Maslennikov
 date: 2026-01-31
