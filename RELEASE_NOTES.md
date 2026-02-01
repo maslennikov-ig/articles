@@ -2,6 +2,14 @@
 
 User-facing release notes for all versions.
 
+## v1.3.19
+
+_Released on 2026-02-01_
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.18
 
 _Released on 2026-02-01_
