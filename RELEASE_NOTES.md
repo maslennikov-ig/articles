@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.18
+
+_Released on 2026-02-01_
+
+### ✨ New Features
+
+- **articles**: Add Moltbot AI agent articles for Pikabu and Habr
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.17
 
 _Released on 2026-01-24_

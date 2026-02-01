@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.18] - 2026-02-01
+
+### Added
+- **articles**: add Moltbot AI agent articles for Pikabu and Habr (facc80c)
+
 ## [1.3.17] - 2026-01-24
 
 ### Fixed
