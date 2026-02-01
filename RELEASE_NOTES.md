@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.20
+
+_Released on 2026-02-01_
+
+### ✨ New Features
+
+- **articles**: Add MoltBook AI social network article for TenChat
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.19
 
 _Released on 2026-02-01_

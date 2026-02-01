@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.20] - 2026-02-01
+
+### Added
+- **articles**: add MoltBook AI social network article for TenChat (a90da2a)
+
 ## [1.3.19] - 2026-02-01
 
 ### Other
