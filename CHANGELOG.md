@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.23] - 2026-02-04
+
+### Added
+- **articles**: add SecondBrain TenChat announcement for Telegram (33ec06f)
+
 ## [1.3.22] - 2026-02-04
 
 ### Other
