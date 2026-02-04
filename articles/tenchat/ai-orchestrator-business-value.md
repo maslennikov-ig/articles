@@ -22,7 +22,7 @@ language: ru
 
 Не потому что модно. А потому что:
 
-- **Дешевле на 80%**: 3 человека + 44 AI-агента вместо 20 специалистов
+- **Дешевле на 80%**: 54 специалиста + 44 AI-агента работают эффективнее за счёт AI-автоматизации
 - **Быстрее в 5-6 раз**: 1-2 недели вместо 2-3 месяцев
 - **Качественнее**: автоматические проверки кода, проактивное сканирование уязвимостей, CSAT 9.6/10
 
@@ -48,7 +48,7 @@ language: ru
 
 Предъявите смету от другой компании — сделаем на 10% дешевле. При том же качестве. При тех же сроках.
 
-**Почему можем**: наша архитектура "Пчелиный улей" (3 человека + 44 агента) позволяет держать низкие издержки без потери качества.
+**Почему можем**: наша архитектура "Пчелиный улей" (54 специалиста + 44 агента) позволяет держать низкие издержки без потери качества.
 
 ### 4. Бесплатная консультация с AI-консультантом Ариной
 
@@ -60,7 +60,7 @@ language: ru
 
 Традиционная команда работает **линейно**. Сначала дизайн, потом фронтенд, потом бэкенд, потом тестирование. 2-3 месяца.
 
-Мы работаем **параллельно**: **3 человека (архитектор, product owner, lead dev) управляют 44 AI-агентами**.
+Мы работаем **параллельно**: **проектная команда 3-7 человек управляет 44 AI-агентами**.
 
 **Return Control Pattern**: клиент принимает решение на каждом этапе. AI не работает хаотично, как в "vibe coding". Главный оркестратор координирует агентов, передаёт контроль обратно людям для валидации, принимает следующее решение.
 
@@ -72,11 +72,11 @@ language: ru
 
 **Традиционная IT-компания (DNA IT)**: 80+ специалистов. Проект на 2-3 месяца. Команда 5-7 человек. Затраты: ФОТ + накладные расходы.
 
-**AI Dev Team**: 3 человека + 44 AI-агента. Проект на 1-2 недели. Затраты: ФОТ 3 человек + подписка на AI-сервисы.
+**AI Dev Team**: 54 специалиста + 44 AI-агента. Проект на 1-2 недели. Затраты: ФОТ проектной команды (3-7 человек) + подписка на AI-сервисы.
 
 **Математика простая**:
 - Традиционная команда: 5 специалистов × 2.5 месяца = 12.5 человеко-месяцев
-- AI Dev Team: 3 человека × 0.25 месяца = 0.75 человеко-месяцев
+- AI Dev Team: команда 3-7 человек × 0.25 месяца = 0.75-1.75 человеко-месяцев
 
 **Экономия: ~94% по времени, ~80% по деньгам** (остальное — лицензии, инфраструктура).
 
@@ -177,10 +177,11 @@ language: ru
 
 ### Роли
 
-**3 человека**:
+**Проектная команда (3-7 человек на проект)**:
 - **Архитектор** — принимает технические решения, проектирует систему
 - **Product Owner** — связь с клиентом, управление требованиями
 - **Lead Developer** — контроль качества кода, интеграция компонентов
+- **+ дополнительные специалисты** по потребностям проекта
 
 **44 AI-агента** (специализированные):
 - **bug-hunter / bug-fixer** — обнаружение и исправление багов
@@ -352,7 +353,7 @@ AI-оркестрация в разработке — это не футурис
 - ✅ **514 реализованных проектов** (battle-tested, не пилоты)
 - ✅ **CSAT 9.6/10** (клиенты довольны)
 - ✅ **ROI 72%** в среднем за первый год
-- ✅ **-80% затрат** на разработку (3 человека + 44 агента вместо 20 специалистов)
+- ✅ **-80% затрат** на разработку (54 специалиста + 44 агента, работающие эффективнее за счёт AI-автоматизации)
 - ✅ **1-2 недели** вместо 2-3 месяцев на проект (-75% времени)
 - ✅ **5-7 проектов параллельно** вместо 1-2 (3-5x масштабирование)
 - ✅ **Автоматические проверки качества** (type-check, build, tests после каждой задачи)
@@ -417,7 +418,7 @@ AI-оркестрация в разработке — это не футурис
 **Реальные кейсы**:
 📊 Анонимизация ПД: 5.7 млн экономии в год
 ⚡ 1-2 недели вместо 2-3 месяцев
-💰 3 человека + 44 AI-агента вместо 20 специалистов
+💰 54 специалиста + 44 AI-агента — эффективность за счёт AI-автоматизации
 
 **Claude Code Orchestrator Kit** — open-source (MIT), battle-tested, с гарантиями.
 
@@ -432,13 +433,13 @@ AI-оркестрация в разработке — это не футурис
 ## Image Prompts for Cover
 
 ### Prompt 1 (★★★★★)
-Professional business scene: confident business team (3 people - architect, product owner, developer) standing in modern office, surrounded by holographic swarm of 44 glowing AI agent icons arranged like honeycomb pattern ("beehive architecture"). Central figures in sharp focus, AI agents semi-transparent with soft blue glow forming protective formation around team. Modern corporate aesthetic, navy blue and gold color palette, dramatic lighting from above, clean composition. Foreground: handshake gesture symbolizing guarantee. Text overlay space at top. Photorealistic style, corporate photography quality. Aspect ratio 16:9.
+Professional business scene: confident business team (5-7 people - architects, product owners, developers) standing in modern office, surrounded by holographic swarm of 44 glowing AI agent icons arranged like honeycomb pattern ("beehive architecture"). Central figures in sharp focus, AI agents semi-transparent with soft blue glow forming protective formation around team. Modern corporate aesthetic, navy blue and gold color palette, dramatic lighting from above, clean composition. Foreground: handshake gesture symbolizing guarantee. Text overlay space at top. Photorealistic style, corporate photography quality. Aspect ratio 16:9.
 
 ### Prompt 2 (★★★★★)
-Business infographic split composition: LEFT panel shows traditional development (20 grey silhouettes, calendar "2-3 months", money stack). CENTER vertical divider with bold "-80% COST" and checkmarks for guarantees (MVP in 7 days, money-back guarantee, 10% cheaper than competitors). RIGHT panel shows AI Dev Team (3 blue human silhouettes + swarm of 44 small glowing AI agent dots in honeycomb formation, calendar "1-2 weeks", reduced money stack). Professional color scheme: navy blue, electric blue, gold accents, white background. Clean modern infographic style, suitable for business presentation. Aspect ratio 16:9.
+Business infographic split composition: LEFT panel shows traditional development (large team silhouettes, calendar "2-3 months", money stack). CENTER vertical divider with bold "-80% COST" and checkmarks for guarantees (MVP in 7 days, money-back guarantee, 10% cheaper than competitors). RIGHT panel shows AI Dev Team (project team of 5-7 blue human silhouettes + swarm of 44 small glowing AI agent dots in honeycomb formation, calendar "1-2 weeks", reduced money stack). Professional color scheme: navy blue, electric blue, gold accents, white background. Clean modern infographic style, suitable for business presentation. Aspect ratio 16:9.
 
 ### Prompt 3 (★★★☆☆)
-Isometric 3D visualization of "beehive architecture": central hub (main orchestrator) connected to 44 smaller hexagonal nodes (AI agents) arranged in honeycomb pattern. Three human figures (architect, product owner, lead dev) standing at control positions around hub. Multiple parallel project streams flowing through different sections of honeycomb (represented by different color glows: blue, green, purple). Return Control Pattern visualized as glowing paths from agents back to central hub to humans. Modern tech illustration, gradient background (dark blue to light blue), professional lighting, translucent hexagons showing data/code inside. Aspect ratio 16:9.
+Isometric 3D visualization of "beehive architecture": central hub (main orchestrator) connected to 44 smaller hexagonal nodes (AI agents) arranged in honeycomb pattern. Project team of 5-7 human figures standing at control positions around hub. Multiple parallel project streams flowing through different sections of honeycomb (represented by different color glows: blue, green, purple). Return Control Pattern visualized as glowing paths from agents back to central hub to humans. Modern tech illustration, gradient background (dark blue to light blue), professional lighting, translucent hexagons showing data/code inside. Aspect ratio 16:9.
 
 ---
 
