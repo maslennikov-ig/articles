@@ -82,6 +82,11 @@ BuhBot начинался как шутка с названием. Превра�
 
 ---
 
+**Канал:** https://t.me/maslennikovigor
+**Написать нам:** https://t.me/maslennikovig
+
+---
+
 ## 2. Пост для Telegram (анонс)
 
 **Текст:**
@@ -105,6 +110,7 @@ BuhBot начинался как шутка с названием. Превра�
 
 📝 **Статья:** [Ссылка на статью в Telegraph]
 🌐 **Сайт:** https://buhbot.aidevteam.ru/
+📱 **Канал:** https://t.me/maslennikovigor
 
 #BuhBot #FinTech #Automation
 

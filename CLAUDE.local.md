@@ -2,9 +2,10 @@
 
 ## Company Facts (DNA IT / AI Dev Team)
 
-- **DNA IT Company Size**: 80+ специалистов (NOT 20!) - это размер всей компании
-- **AI Dev Team Size**: 3 человека + 44 AI-агента
-- **Productivity Comparison**: AI-система заменяет работу ~20 специалистов (это про продуктивность, не размер компании)
+- **DNA IT Company Size**: 80+ специалистов - это размер всей компании
+- **AI Dev Team Size**: 54 специалиста + 44 AI-агента
+- **Per Project**: 3-7 человек на проект + AI-агенты
+- **Productivity Comparison**: AI-система усиливает каждого специалиста, каждый проект ведут 3-7 человек + AI-агенты
 - **CEO/Author**: Игорь Масленников (@maslennikovig в Telegram)
 - **Telegram Channel**: https://t.me/maslennikovigor
 - **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit

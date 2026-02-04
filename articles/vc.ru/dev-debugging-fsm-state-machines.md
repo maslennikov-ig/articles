@@ -860,7 +860,7 @@ npm install -g claude-code-orchestrator-kit
 ```
 
 **Что внутри**:
-- 33+ специализированных AI-агентов
+- 44 специализированных AI-агента
 - Health workflows (bug detection, security scanning, dependency audit)
 - Worktree commands (параллельная разработка 5-7 проектов)
 - MCP switcher (динамическое управление context budget)
@@ -868,7 +868,7 @@ npm install -g claude-code-orchestrator-kit
 
 **Боевое применение**:
 - AI Dev Team (DNA IT) использует это в продакшене
-- -80% стоимость разработки (3 человека + 33 агента вместо 20 специалистов)
+- -80% стоимость разработки (54 специалиста + 44 AI-агента, работающих в разы эффективнее за счёт AI)
 - 1-2 недели вместо 2-3 месяцев на проект
 - 5-7 проектов в параллели вместо 1-2
 
