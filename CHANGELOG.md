@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.24] - 2026-02-04
+
+### Added
+- **articles**: add Tactical Agentic Coding article and Telegram announcements (aec8dec)
+
 ## [1.3.23] - 2026-02-04
 
 ### Added
