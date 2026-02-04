@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.24
+
+_Released on 2026-02-04_
+
+### ✨ New Features
+
+- **articles**: Add Tactical Agentic Coding article and Telegram announcements
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.23
 
 _Released on 2026-02-04_
