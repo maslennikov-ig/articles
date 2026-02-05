@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.26
+
+_Released on 2026-02-05_
+
+### ✨ New Features
+
+- **articles**: Add call-to-action bridge and update AI OS article
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.25
 
 _Released on 2026-02-05_
