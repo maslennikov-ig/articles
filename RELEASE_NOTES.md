@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.25
+
+_Released on 2026-02-05_
+
+### ✨ New Features
+
+- **articles**: Add TenChat article on AI Operating System for business
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.24
 
 _Released on 2026-02-04_

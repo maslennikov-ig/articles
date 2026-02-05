@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.25] - 2026-02-05
+
+### Added
+- **articles**: add TenChat article on AI Operating System for business (78c573a)
+
 ## [1.3.24] - 2026-02-04
 
 ### Added
