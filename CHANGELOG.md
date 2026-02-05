@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.27] - 2026-02-05
+
+### Fixed
+- **articles**: improve CTA to be more honest and less salesy (25a19ce)
+
 ## [1.3.26] - 2026-02-05
 
 ### Added

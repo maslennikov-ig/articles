@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.27
+
+_Released on 2026-02-05_
+
+### 🐛 Bug Fixes
+
+- **articles**: Improve CTA to be more honest and less salesy
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.26
 
 _Released on 2026-02-05_
