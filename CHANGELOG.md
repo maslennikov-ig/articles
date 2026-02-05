@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.26] - 2026-02-05
+
+### Added
+- **articles**: add call-to-action bridge and update AI OS article (914c8c0)
+
 ## [1.3.25] - 2026-02-05
 
 ### Added
