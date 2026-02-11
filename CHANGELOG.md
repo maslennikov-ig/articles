@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.30] - 2026-02-11
+
+### Added
+- **articles**: add agent-teams cover images (6 variants) (1bfd122)
+
 ## [1.3.29] - 2026-02-06
 
 ### Other
