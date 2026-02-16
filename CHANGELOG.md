@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.31] - 2026-02-16
+
+### Added
+- **articles**: add "Don't learn programming" article (Habr, TenChat, Pikabu) + Telegram announcement + cover images (29fea47)
+
 ## [1.3.30] - 2026-02-11
 
 ### Added

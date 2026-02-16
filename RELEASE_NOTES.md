@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.31
+
+_Released on 2026-02-16_
+
+### ✨ New Features
+
+- **articles**: Add "Don't learn programming" article (Habr, TenChat, Pikabu) + Telegram announcement + cover images
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.30
 
 _Released on 2026-02-11_
