@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.33] - 2026-02-20
+
+### Added
+- **articles**: add Project Silica glass storage article (Habr, Pikabu) + Telegram announcement + cover images (79ce2ac)
+
 ## [1.3.32] - 2026-02-19
 
 ### Other
