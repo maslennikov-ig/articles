@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.34
+
+_Released on 2026-02-23_
+
+### ✨ New Features
+
+- **articles**: Add AI productivity paradox articles (Habr, Pikabu, TenChat) + Telegram announcement + cover images
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.33
 
 _Released on 2026-02-20_

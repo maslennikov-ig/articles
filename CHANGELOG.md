@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.34] - 2026-02-23
+
+### Added
+- **articles**: add AI productivity paradox articles (Habr, Pikabu, TenChat) + Telegram announcement + cover images (7ecbae5)
+
 ## [1.3.33] - 2026-02-20
 
 ### Added
