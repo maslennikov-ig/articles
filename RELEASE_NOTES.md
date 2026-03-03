@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.36
+
+_Released on 2026-03-03_
+
+### ✨ New Features
+
+- **articles**: Add VC.ru adaptation of "Не учись на программиста" with preemptive FAQ and cover image
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.35
 
 _Released on 2026-03-03_
