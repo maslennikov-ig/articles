@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.36] - 2026-03-03
+
+### Added
+- **articles**: add VC.ru adaptation of "Не учись на программиста" with preemptive FAQ and cover image (dedf41b)
+
 ## [1.3.35] - 2026-03-03
 
 ### Added
