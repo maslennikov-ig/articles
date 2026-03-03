@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.35] - 2026-03-03
+
+### Added
+- **articles**: add vibe-coding technical debt articles (Habr, TenChat) + Telegram announcement + cover images (5dbb70e)
+
 ## [1.3.34] - 2026-02-23
 
 ### Added
