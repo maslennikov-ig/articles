@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.39] - 2026-03-10
+
+### Added
+- **articles**: add full fact-check analysis with sources to all three articles (f9efaa9)
+
 ## [1.3.38] - 2026-03-10
 
 ### Added
