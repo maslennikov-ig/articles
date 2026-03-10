@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.41] - 2026-03-10
+
+### Added
+- **articles**: add Telegram announcements for top-50 gen AI articles (113f7d2)
+
 ## [1.3.40] - 2026-03-10
 
 ### Other
