@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.38] - 2026-03-10
+
+### Added
+- **articles**: add AI fact-checking articles for Habr, Pikabu, VC.ru with Telegram announcements and cover images (ec5e82a)
+
 ## [1.3.37] - 2026-03-06
 
 ### Other
