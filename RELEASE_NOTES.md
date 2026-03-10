@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.38
+
+_Released on 2026-03-10_
+
+### ✨ New Features
+
+- **articles**: Add AI fact-checking articles for Habr, Pikabu, VC.ru with Telegram announcements and cover images
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.37
 
 _Released on 2026-03-06_
