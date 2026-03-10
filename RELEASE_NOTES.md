@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.41
+
+_Released on 2026-03-10_
+
+### ✨ New Features
+
+- **articles**: Add Telegram announcements for top-50 gen AI articles
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.40
 
 _Released on 2026-03-10_
