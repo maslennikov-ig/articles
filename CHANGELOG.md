@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.44] - 2026-04-06
+
+### Added
+- add Claude Cowork automation articles for Habr, Pikabu, TenChat (8c61555)
+
+### Other
+- add template-bridge-evolution images (b04123f)
+
 ## [1.3.43] - 2026-03-24
 
 ### Other
