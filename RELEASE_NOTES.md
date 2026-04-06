@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.44
+
+_Released on 2026-04-06_
+
+### ✨ New Features
+
+- Add Claude Cowork automation articles for Habr, Pikabu, TenChat
+
+---
+
+_This release was automatically generated from 2 commits._
+
 ## v1.3.43
 
 _Released on 2026-03-24_
