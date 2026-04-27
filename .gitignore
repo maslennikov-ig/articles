@@ -27,6 +27,9 @@
 *.tmp
 .cache/
 
+# Playwright MCP runtime cache
+.playwright-mcp/
+
 # Logs
 *.log
 logs/
