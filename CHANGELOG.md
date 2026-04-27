@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.45] - 2026-04-27
+
+### Other
+- save article drafts (#1) (1e4efb4)
+- add new articles and update CLAUDE config (d73e8a4)
+
 ## [1.3.44] - 2026-04-06
 
 ### Added
