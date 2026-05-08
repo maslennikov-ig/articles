@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.47] - 2026-05-08
+
+### Other
+- add ProgramBench article cycle + LLM benchmarks PDF lead magnet (6abc881)
+- punchier titles for Codex vs Claude compaction cycle (4978f8f)
+- add Codex vs Claude compaction article cycle (Habr/Pikabu/TenChat + Telegram poll) (4fbd9f4)
+- add Angela publishing guide and multi-platform drafts (e4c684b)
+
 ## [1.3.46] - 2026-04-27
 
 ### Other
