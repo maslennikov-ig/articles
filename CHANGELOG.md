@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.48] - 2026-05-18
+
+### Other
+- add codex-orchestration-skills cycle (Habr/Pikabu/TenChat/Telegram) + archive old articles (704a340)
+
 ## [1.3.47] - 2026-05-08
 
 ### Other
