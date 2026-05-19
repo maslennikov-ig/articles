@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Карта решений по Claude и Claude Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:        #0d0d0d;
+    --bg-card:   #161616;
+    --bg-card-2: #1c1c1c;
+    --border:    #2a2a2a;
+    --border-2:  #383838;
+    --text:      #e5e2e1;
+    --text-dim:  #b5b3b2;
+    --text-mute: #8a8a8a;
+    --accent:    #00f5d4;
+    --accent-2:  #00d4b5;
+    --warn:      #ffb84d;
+    --warn-bg:   rgba(255,184,77,0.06);
+    --warn-bd:   rgba(255,184,77,0.25);
+    --good:      #6ee7b7;
+    --good-bg:   rgba(110,231,183,0.06);
+    --good-bd:   rgba(110,231,183,0.25);
+    --bad:       #ff6b6b;
+    --bad-bg:    rgba(255,107,107,0.06);
+    --bad-bd:    rgba(255,107,107,0.25);
+  }
+
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, system-ui, 'Helvetica Neue', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: 14mm 13mm; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0 0 0.4em;
+  }
+  h1 { font-size: 28pt; line-height: 1.08; letter-spacing: -0.02em; }
+  h2 { font-size: 18pt; margin-top: 0; margin-bottom: 0.6em; }
+  h3 { font-size: 13pt; margin-top: 1.4em; margin-bottom: 0.5em; color: var(--accent); }
+  h4 { font-size: 10pt; margin-top: 1em; margin-bottom: 0.3em; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.12em; }
+  p { margin: 0 0 0.7em; color: var(--text-dim); }
+  strong { color: var(--text); font-weight: 600; }
+  em { color: var(--accent); font-style: normal; }
+  a { color: var(--accent); text-decoration: none; }
+  ul { padding-left: 1.1em; margin: 0.4em 0 1em; }
+  li { margin-bottom: 0.35em; color: var(--text-dim); }
+  li::marker { color: var(--accent); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2.2em 0; }
+  code {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9pt;
+    color: var(--accent);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1em 0 1.4em;
+    font-size: 9.5pt;
+  }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text-dim);
+  }
+  thead th {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--text-mute);
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border-2);
+    background: var(--bg-card);
+  }
+  td strong { color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+
+  .hero {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #131313 0%, #0d0d0d 100%);
+    padding: 36px;
+    margin-bottom: 26px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 60%; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(0,245,212,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 13pt;
+    color: var(--text);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-brand::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0,245,212,0.7);
+  }
+  .hero-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+  }
+  .hero h1 { font-size: 30pt; line-height: 1.06; margin-bottom: 14px; }
+  .hero .lede { color: var(--text-dim); font-size: 12pt; max-width: 95%; margin: 0; }
+  .hero-meta {
+    display: flex; gap: 32px;
+    margin-top: 28px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .meta-block .label {
+    font-size: 8.5pt; color: var(--text-mute);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .meta-block .value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12pt; font-weight: 600;
+    color: var(--text);
+  }
+  .meta-block .value.accent { color: var(--accent); }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin: 14px 0;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .card-header h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 15pt;
+  }
+  .pill {
+    display: inline-block;
+    background: rgba(0,245,212,0.1);
+    border: 1px solid rgba(0,245,212,0.3);
+    color: var(--accent);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .tool-card { padding: 28px 30px; }
+  .tool-card .intro {
+    color: var(--text-dim);
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-section { margin: 18px 0; }
+  .tool-section.when {
+    background: var(--good-bg);
+    border-left: 3px solid var(--good);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .tool-section.when-not {
+    background: var(--bad-bg);
+    border-left: 3px solid var(--bad);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .tool-section.pitfalls {
+    background: var(--warn-bg);
+    border-left: 3px solid var(--warn);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .tool-section h4 {
+    margin-top: 0;
+    color: var(--text);
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+  }
+  .tool-section.when h4 { color: var(--good); }
+  .tool-section.when-not h4 { color: var(--bad); }
+  .tool-section.pitfalls h4 { color: var(--warn); }
+  .tool-section ul { margin: 8px 0 0; padding-left: 1.2em; }
+  .tool-section li { margin-bottom: 0.3em; color: var(--text-dim); font-size: 10pt; }
+
+  .memo {
+    background: var(--bg-card-2);
+    border: 1px solid rgba(0,245,212,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 18px 0 0;
+  }
+  .memo .label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8.5pt;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+  }
+  .memo p { margin: 0; color: var(--text); font-size: 10pt; }
+  .memo .pair {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 12px;
+    margin-top: 4px;
+  }
+  .memo .pair strong { color: var(--accent); }
+
+  .combo {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 12px 0;
+  }
+  .combo h4 {
+    color: var(--text);
+    font-size: 11pt;
+    margin: 0 0 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .combo h4 .label {
+    color: var(--accent);
+    font-size: 8.5pt;
+    margin-right: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .combo p { margin: 0; color: var(--text-dim); font-size: 10pt; }
+
+  .dont-list {
+    background: var(--bad-bg);
+    border: 1px solid var(--bad-bd);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 12px 0;
+  }
+  .dont-list ul { margin: 0; padding-left: 1.1em; }
+  .dont-list li { margin-bottom: 0.5em; color: var(--text-dim); font-size: 10pt; }
+  .dont-list li strong { color: var(--bad); font-weight: 600; }
+
+  .meter {
+    display: flex;
+    margin: 18px 0 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .meter-segment {
+    flex: 1;
+    padding: 12px 14px;
+    text-align: center;
+    font-size: 9pt;
+    border-right: 1px solid var(--border);
+  }
+  .meter-segment:last-child { border-right: none; }
+  .meter-segment .range {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .meter-segment.green { background: var(--good-bg); }
+  .meter-segment.green .range { color: var(--good); }
+  .meter-segment.yellow { background: var(--warn-bg); }
+  .meter-segment.yellow .range { color: var(--warn); }
+  .meter-segment.red { background: var(--bad-bg); }
+  .meter-segment.red .range { color: var(--bad); }
+  .meter-segment .text { color: var(--text-dim); font-size: 8.5pt; }
+
+  .footer-card {
+    margin-top: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+  .footer-card h3 {
+    color: var(--text);
+    font-size: 14pt;
+    margin: 0 0 10px;
+  }
+  .footer-card p { margin-bottom: 1em; }
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-link .label {
+    font-size: 8.5pt;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+  }
+  .footer-link .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5pt;
+    color: var(--accent);
+    word-break: break-all;
+  }
+  .doc-footer {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-mute);
+    font-size: 8.5pt;
+  }
+  .doc-footer .brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .small-cap {
+    font-size: 8pt;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  h2 { page-break-before: always; }
+  section.hero + h2 { page-break-before: avoid; }
+  h2, h3 { page-break-after: avoid; }
+  .card, .tool-card, .combo, .dont-list, .memo, .footer-card { page-break-inside: avoid; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-brand">Maslennikov · AI Dev Team</div>
+    <div class="hero-eyebrow">Lead-magnet · v1.0 · май 2026</div>
+    <h1>Карта решений<br/>по Claude и Claude Code</h1>
+    <p class="lede">Что использовать когда — <em>матрица из практики</em>. Subagents, Skills, Cowork, Opus 4.7 и <code>/fast</code>, MCP-серверы: когда брать, когда не брать, типичные ошибки и комбо-приёмы.</p>
+    <div class="hero-meta">
+      <div class="meta-block">
+        <div class="label">Версия</div>
+        <div class="value accent">1.0</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Дата</div>
+        <div class="value">Май 2026</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Автор</div>
+        <div class="value">Игорь Масленников</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Канал</div>
+        <div class="value">@maslennikovigor</div>
+      </div>
+    </div>
+  </section>
+
+  <h2>Зачем эта шпаргалка</h2>
+  <p>За последние три месяца Anthropic выкатили столько новинок, что в их собственной документации запутаться легче, чем разобраться. Subagents, Skills, Claude Cowork, Opus 4.7 с миллионом токенов и режимом <code>/fast</code>, экосистема MCP-серверов — каждая фича решает свою задачу, и применить их «все сразу» — гарантированный способ съесть бюджет токенов и не получить пользы.</p>
+  <p>Эта одностраничная карта отвечает на самый частый вопрос: <strong>«вот моя задача — какой из инструментов Claude её решает лучше всего?»</strong></p>
+  <p>Карта построена так, чтобы можно было распечатать и держать рядом с рабочим столом. Дальше — пять карточек по каждому инструменту: <em>что брать, что не брать, типичные ошибки</em>. И отдельно — комбо-приёмы, которые реально работают, плюс антипаттерны, которые не работают никогда.</p>
+
+  <h2>Главная матрица: задача → инструмент</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">Что нужно сделать</th>
+        <th style="width: 30%;">Лучший инструмент</th>
+        <th style="width: 20%;">Почему</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Собрать информацию по большой кодовой базе</strong></td><td>Параллельные subagents (3+ Explore)</td><td>Контекст основной сессии остаётся чистым</td></tr>
+      <tr><td><strong>Аудит безопасности + зависимости + dead code</strong></td><td>Параллельные spec-агенты</td><td>15 минут параллельно вместо вечера последовательно</td></tr>
+      <tr><td><strong>Повторяющаяся процедура (релиз, ревью, статья)</strong></td><td>Skill в <code>SKILL.md</code></td><td>Подгружается только когда нужна</td></tr>
+      <tr><td><strong>Бытовая рутина: папки, чеки, sync файлов</strong></td><td>Claude Cowork</td><td>Десктоп + файловая система + connectors</td></tr>
+      <tr><td><strong>Финансовая аналитика, payroll, bookkeeping</strong></td><td>Cowork + Claude for Small Business</td><td>15 готовых skills + connectors к QuickBooks/Stripe</td></tr>
+      <tr><td><strong>Длинная сессия с агрессивным рассуждением</strong></td><td>Opus 4.7 + ручной <code>/compact</code> до 200K</td><td>1M контекст — маркетинг, реально полезных ~300K</td></tr>
+      <tr><td><strong>Быстрые итерации по варианту решения</strong></td><td>Opus 4.7 в режиме <code>/fast</code></td><td>Тот же Opus, ответ за 15–20 секунд</td></tr>
+      <tr><td><strong>Работа с актуальной документацией библиотек</strong></td><td>MCP-сервер <code>context7</code></td><td>Свежий API в момент работы</td></tr>
+      <tr><td><strong>UI-тестирование и скриншоты живых страниц</strong></td><td>MCP-сервер <code>playwright</code></td><td>Один промт — есть готовый снимок</td></tr>
+      <tr><td><strong>Поиск компонентов и быстрая интеграция UI</strong></td><td>MCP-сервер <code>shadcn</code></td><td>Каталог с поиском и установкой одной командой</td></tr>
+      <tr><td><strong>Многошаговое рассуждение по сложной задаче</strong></td><td>MCP-сервер <code>sequential-thinking</code></td><td>Меньше прыжков логики</td></tr>
+      <tr><td><strong>Обычный диалог, brainstorming, объяснение</strong></td><td>Стандартный чат, без всего</td><td>Не перегружать там, где можно проще</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Параллельные subagents</h2>
+  <div class="card tool-card">
+    <div class="card-header">
+      <h3>Карточка 1 · Параллельные subagents</h3>
+      <span class="pill">Top-1 за квартал</span>
+    </div>
+    <p class="intro">Запуск нескольких специализированных Claude-агентов одной командой. Каждый получает свой контекст, свой <code>subagent_type</code>, свой набор инструментов. Можно ставить в фон через <code>run_in_background: true</code>.</p>
+
+    <div class="tool-section when">
+      <h4>Когда брать</h4>
+      <ul>
+        <li>Сбор информации по большому коду (Explore-агенты)</li>
+        <li>Параллельный аудит — security, dependencies, dead code</li>
+        <li>Подготовка релиза — несколько независимых проверок</li>
+        <li>Сравнительное исследование альтернатив</li>
+        <li>Длинные задачи, где основной чат не должен ждать</li>
+      </ul>
+    </div>
+
+    <div class="tool-section when-not">
+      <h4>Когда НЕ брать</h4>
+      <ul>
+        <li>Задача не декомпозируется на независимые куски</li>
+        <li>Результаты придётся мерджить — лучше последовательно</li>
+        <li>Простая правка одного файла — overhead больше пользы</li>
+      </ul>
+    </div>
+
+    <div class="tool-section pitfalls">
+      <h4>Типичные ошибки</h4>
+      <ul>
+        <li>Запустить 5 агентов на сложную задачу с пересекающимися областями — половина дублируется</li>
+        <li>Забыть передать каждому агенту нужный контекст — отчёты приходят полупустые</li>
+        <li>Использовать для задач, где ценны промежуточные шаги — теряется наблюдаемость</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="card tool-card">
+    <div class="card-header">
+      <h3>Карточка 2 · Skills</h3>
+      <span class="pill">Модульный CLAUDE.md</span>
+    </div>
+    <p class="intro">Маленькие модульные <code>SKILL.md</code>-файлы с инструкциями для конкретной процедуры. Claude Code находит и подгружает их по триггеру. Альтернатива большому монолитному <code>CLAUDE.md</code>.</p>
+
+    <div class="tool-section when">
+      <h4>Когда брать</h4>
+      <ul>
+        <li>Задача повторяема по смыслу, но не по конкретным шагам (статья, релиз-чек-лист)</li>
+        <li>Процедуры, которые иначе занимали бы место в <code>CLAUDE.md</code> без постоянной нужды</li>
+        <li>Действия, которые сложно описать алгоритмически, но легко — пошагово</li>
+        <li>Когда хочется делиться рецептами с командой</li>
+      </ul>
+    </div>
+
+    <div class="tool-section when-not">
+      <h4>Когда НЕ брать</h4>
+      <ul>
+        <li>Задача решается простым скриптом — пиши скрипт</li>
+        <li>Одноразовая операция — оверкилл</li>
+        <li>Когда нужно строгое детерминированное поведение — skill не гарантирует</li>
+      </ul>
+    </div>
+
+    <div class="tool-section pitfalls">
+      <h4>Типичные ошибки</h4>
+      <ul>
+        <li>Запихнуть в один skill пять разных задач — он перестаёт срабатывать правильно</li>
+        <li>Не указать триггер в описании — Claude не подгрузит вовремя</li>
+        <li>Делать skill про «какая у тебя профессия» вместо «как её выполнять» — это работа для agent</li>
+      </ul>
+    </div>
+
+    <div class="memo">
+      <div class="label">Памятка про разграничение</div>
+      <div class="pair">
+        <span><strong>Agent</strong></span><span>= какая у тебя профессия (writer, backend-dev, security-auditor)</span>
+        <span><strong>Skill</strong></span><span>= как эту профессию выполнять (структурировать статью, накатить миграцию)</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Claude Cowork</h2>
+  <div class="card tool-card">
+    <div class="card-header">
+      <h3>Карточка 3 · Claude Cowork</h3>
+      <span class="pill">GA с 9 апреля 2026</span>
+    </div>
+    <p class="intro">Desktop-агент Anthropic для macOS и Windows. Работает с файловой системой и подключёнными сервисами (Google Drive, Gmail, Slack, DocuSign, QuickBooks, Stripe и др.). Перед каждой операцией показывает план — можно одобрить, поправить, отменить.</p>
+
+    <div class="tool-section when">
+      <h4>Когда брать</h4>
+      <ul>
+        <li>Бардак в Downloads / на рабочем столе — разбор по категориям</li>
+        <li>Папка скриншотов чеков → табличка с суммами</li>
+        <li>Синхронизация двух папок между устройствами</li>
+        <li>Сборка отчётов из писем за период</li>
+        <li>Малый бизнес: payroll, bookkeeping (через Claude for Small Business)</li>
+      </ul>
+    </div>
+
+    <div class="tool-section when-not">
+      <h4>Когда НЕ брать</h4>
+      <ul>
+        <li>Серьёзная аналитическая работа с ценой ошибки</li>
+        <li>Задачи, где нужен явный код и git-история</li>
+        <li>Сценарии, где требуется обширное многошаговое рассуждение</li>
+      </ul>
+    </div>
+
+    <div class="tool-section pitfalls">
+      <h4>Типичные ошибки</h4>
+      <ul>
+        <li>Дать доступ ко всей файловой системе сразу — давай по папкам</li>
+        <li>Принять план не глядя — иногда Cowork предлагает странное</li>
+        <li>Использовать вместо Claude Code для разработки — это два разных продукта</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Opus 4.7 и /fast</h2>
+  <div class="card tool-card">
+    <div class="card-header">
+      <h3>Карточка 4 · Opus 4.7 + /fast</h3>
+      <span class="pill">Модельный апгрейд</span>
+    </div>
+    <p class="intro">Свежая модель Anthropic с заявленным контекстом 1M токенов. Команда <code>/fast</code> — ускоренная инференсная конфигурация того же Opus (не другая модель), ответ прилетает в 2–2.5 раза быстрее. <strong>Но дороже в 6 раз: $30/$150 за 1M input/output</strong> против $5/$25 у стандартного Opus 4.7.</p>
+
+    <div class="tool-section when">
+      <h4>Когда брать</h4>
+      <ul>
+        <li>Интерактивные задачи, где каждая секунда задержки реально мешает (живой дебаг, дизайн API)</li>
+        <li>Полный Opus 4.7 без <code>/fast</code> — для критичных задач, где важна точность и время не критично</li>
+        <li>Когда нужна максимальная глубина рассуждения — стандартный Opus, не <code>/fast</code></li>
+      </ul>
+    </div>
+
+    <div class="tool-section when-not">
+      <h4>Когда НЕ брать</h4>
+      <ul>
+        <li><strong>Автономные задачи и долгие рефакторы</strong> — переплачиваешь ×6 за скорость, на которую не смотришь</li>
+        <li><strong>Batch и CI/CD пайплайны</strong> — латентность не критична, стандарт дешевле</li>
+        <li>Не лезть выше 300–400K контекста — MRCR падает с 78% (Opus 4.6) до 32% (Opus 4.7)</li>
+        <li>Простые задачи без рассуждения — используй Haiku 4.5</li>
+      </ul>
+    </div>
+
+    <div class="tool-section pitfalls">
+      <h4>Типичные ошибки</h4>
+      <ul>
+        <li><strong>Включить <code>/fast</code> mid-conversation</strong> — pricing flat, и ×6 цена применяется ко ВСЕМУ предыдущему контексту задним числом, а не только к новым токенам</li>
+        <li><strong>Не замечать косвенной деградации</strong> — на <code>/fast</code> токены сжигаются ×6 быстрее, rate-limit упирается раньше, сессия глохнет, не успев довести задачу. Формально качество то же, по факту — короче</li>
+        <li>Полагаться на 1M контекст без ручного <code>/compact</code> — пропустишь момент, модель уже не вытянет</li>
+        <li>Запускать долгие сессии без срабатывания <code>/compact</code> заранее — деградация накапливается</li>
+      </ul>
+    </div>
+
+    <div class="memo">
+      <div class="label">Памятка про /fast — пересмотрел позицию</div>
+      <p style="margin-bottom: 6px;">Сначала <code>/fast</code> казалась прорывом. Бенчмарки одинаковые (SWE-bench Verified 87.6% и там, и там), модель та же — Anthropic честно говорят.</p>
+      <p>Но ×6 цена + flat pricing при переключении mid-conversation + быстрое исчерпание rate-limit'ов = по ощущениям <em>дороже и хуже одновременно</em>. Беру только когда реально сижу за компьютером и каждая секунда задержки бесит. Для автономных задач — стандартный Opus.</p>
+    </div>
+
+    <h4>Памятка про контекст</h4>
+    <div class="meter">
+      <div class="meter-segment green">
+        <span class="range">0–200K</span>
+        <span class="text">Можно гонять как есть</span>
+      </div>
+      <div class="meter-segment yellow">
+        <span class="range">200–400K</span>
+        <span class="text">Пора задумываться о /compact</span>
+      </div>
+      <div class="meter-segment red">
+        <span class="range">400K+</span>
+        <span class="text">Модель галлюцинирует, переключайся</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>MCP-серверы</h2>
+  <div class="card tool-card">
+    <div class="card-header">
+      <h3>Карточка 5 · MCP-серверы</h3>
+      <span class="pill">Открытый стандарт</span>
+    </div>
+    <p class="intro">Model Context Protocol — открытый стандарт, расширяющий Claude Code внешними инструментами. К маю 2026 экосистема резко окрепла.</p>
+
+    <h4>Минимальный набор для практика</h4>
+    <ul>
+      <li><strong><code>context7</code></strong> — свежая документация по любой библиотеке. Конец устаревшим ответам</li>
+      <li><strong><code>playwright</code></strong> — запуск браузера, скриншоты страниц для UI-задач</li>
+      <li><strong><code>shadcn</code></strong> — каталог компонентов с поиском и быстрой установкой</li>
+      <li><strong><code>sequential-thinking</code></strong> — структурированное многошаговое рассуждение</li>
+    </ul>
+
+    <div class="tool-section when">
+      <h4>Когда подключать в продакшен</h4>
+      <ul>
+        <li>Минимум неделя гоняешь на личных задачах</li>
+        <li>Проверил, что не крашит сессию на пограничных сценариях</li>
+        <li>Понимаешь, какие действия он может выполнить — у MCP-сервера могут быть widely разные права</li>
+      </ul>
+    </div>
+
+    <div class="tool-section when-not">
+      <h4>Когда НЕ подключать</h4>
+      <ul>
+        <li>Community-проект без активности в репозитории больше 2–3 месяцев</li>
+        <li>Сервер просит избыточных прав без обоснования</li>
+        <li>Дублирует функциональность встроенного инструмента</li>
+      </ul>
+    </div>
+
+    <div class="tool-section pitfalls">
+      <h4>Типичные ошибки</h4>
+      <ul>
+        <li>Подключить 10 серверов сразу — конфликт инструментов, Claude путается</li>
+        <li>Не настроить allowedPrompts — каждое действие требует подтверждения, замедляет работу</li>
+        <li>Доверять community-серверам без верификации источника</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Комбо-приёмы, которые работают</h2>
+
+  <div class="combo">
+    <h4><span class="label">Combo · 1</span>Subagents + Skills</h4>
+    <p>Один Explore-агент находит файлы → возвращает список. Skill <code>write-pr-description</code> принимает список → генерирует описание PR. Каждый занимается своим, контексты не пересекаются.</p>
+  </div>
+
+  <div class="combo">
+    <h4><span class="label">Combo · 2</span>Skills + MCP</h4>
+    <p>Skill <code>migrate-from-supabase-v3-to-v4</code> внутри вызывает MCP <code>context7</code> для свежей документации Supabase Auth v4 → не путается в устаревшем API.</p>
+  </div>
+
+  <div class="combo">
+    <h4><span class="label">Combo · 3</span>Cowork + Claude for Small Business</h4>
+    <p>Skill <code>monthly-financial-report</code> → Cowork тянет данные из QuickBooks и Stripe через connectors → собирает отчёт. Раньше — час бухгалтера. Сейчас — десять минут.</p>
+  </div>
+
+  <div class="combo">
+    <h4><span class="label">Combo · 4</span>Opus 4.7 + /fast + ручной /compact</h4>
+    <p>Длинная агентская сессия → каждые 150K токенов вручную вызываем <code>/compact</code> с понятными <code>instructions</code> → продолжаем работать без деградации. Не ждём, пока модель сама начнёт переспрашивать.</p>
+  </div>
+
+  <h2>Что НЕ комбинировать</h2>
+
+  <div class="dont-list">
+    <ul>
+      <li><strong>Hooks + длинные сессии в worktree</strong> — поведение хрупкое, hook может не сработать. Лучше явные команды в начале промта.</li>
+      <li><strong>Memory system + короткие задачи</strong> — накладные расходы на ведение памяти не оправдывают пользу. Memory — для долгих проектов с регулярными возвратами.</li>
+      <li><strong>Plan mode + simple задача</strong> — overhead больше пользы. Plan mode — для среднесложных задач с реальной декомпозицией.</li>
+      <li><strong>1M контекст + Opus 4.7</strong> — даже Anthropic в system card рекомендуют 4.6 как fallback для long-context retrieval. Используй 4.7 только до ~300K.</li>
+    </ul>
+  </div>
+
+  <div class="footer-card">
+    <h3>Обновления и контакты</h3>
+    <p>Эта матрица — срез на май 2026. Anthropic релизит быстро, и через квартал какие-то рекомендации поменяются. Обновлённую версию буду выкладывать в Telegram-канале — там же выкладываю инструменты, к которым прихожу в работе.</p>
+    <p>Полная статья с разбором каждой фичи, личными кейсами и виральной историей про парня, который через Claude нашёл пароль от Bitcoin-кошелька на $400 000, — на Хабр, ищется по заголовку «Если пропустили Claude последние 3 месяца».</p>
+
+    <div class="footer-links">
+      <div class="footer-link">
+        <div class="label">Канал</div>
+        <div class="value">t.me/maslennikovigor</div>
+      </div>
+      <div class="footer-link">
+        <div class="label">Прямой контакт</div>
+        <div class="value">@maslennikovig</div>
+      </div>
+      <div class="footer-link">
+        <div class="label">GitHub (MIT)</div>
+        <div class="value">github.com/maslennikov-ig/claude-code-orchestrator-kit</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <div>
+      <span class="brand">Maslennikov · AI Dev Team</span><br/>
+      <span class="small-cap">Карта решений по Claude · v1.0 · май 2026</span>
+    </div>
+    <div style="text-align: right;">
+      <span class="small-cap">Следующее обновление</span><br/>
+      по мере выхода релизов Anthropic
+    </div>
+  </div>
+
+</body>
+</html>
