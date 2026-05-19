@@ -24,7 +24,7 @@ article_file: articles/habr/whats-new-claude-3-months-digest.md
 • Claude Cowork в GA — десктопный агент, под который и заточена история про кошелёк
 • Мартовский bug v2.1.88 — как Anthropic нечаянно выжгли лимиты всей моей команде за день
 • Agent Teams — попробовал, не зашло, объясняю с чем
-• Plugin Marketplace + Agent View — экосистема, которая дотягивается до workflow
+• Plugin Marketplace с auto-update + Agent View — экосистема, которая обновляется сама
 
 Плюс честное признание во вступлении: subagents, skills, MCP — НЕ новинки квартала. Им год+. Я не делаю вид, что это сюрприз.
 

@@ -493,7 +493,7 @@
       <h3>Карточка 2 · Skills + Plugin Marketplace</h3>
       <span class="pill">Skills с октября 2025 · Marketplace растёт</span>
     </div>
-    <p class="intro">Маленькие модульные <code>SKILL.md</code>-файлы с инструкциями для конкретной процедуры. Claude Code находит и подгружает их по триггеру. Альтернатива большому монолитному <code>CLAUDE.md</code>. За квартал вокруг skills вырос полноценный <strong>Plugin Marketplace</strong>: auto-update подписанных marketplaces, <code>--plugin-url</code> и <code>--plugin-dir</code> с .zip, промпты <code>/skills</code> и <code>/plugin</code> с type-to-filter. В community-каталогах к маю — около 2810 skills и 425 plugins.</p>
+    <p class="intro">Маленькие модульные <code>SKILL.md</code>-файлы с инструкциями для конкретной процедуры. Claude Code находит и подгружает их по триггеру. Альтернатива большому монолитному <code>CLAUDE.md</code>. За квартал вокруг skills вырос полноценный <strong>Plugin Marketplace</strong>, и главная его ценность — <strong>автоматическое обновление</strong>: поставил один раз, дальше Claude Code сам подтягивает свежие версии при запуске. Плюс <code>--plugin-url</code> и <code>--plugin-dir</code> с .zip, промпты <code>/skills</code> и <code>/plugin</code> с type-to-filter. В community-каталогах к маю — около 2810 skills и 425 plugins.</p>
 
     <div class="tool-section when">
       <h4>Когда брать</h4>
@@ -645,7 +645,7 @@
         <li>Задача масштаба «компилятор на 100K строк» или массивный multi-language refactoring</li>
         <li>Когда нужна координация между frontend / backend / tests с peer-to-peer обменом</li>
         <li>Параллельные code review, где reviewers сравнивают findings</li>
-        <li>Эксперимент с координацией — если бюджет токенов не ограничен</li>
+        <li>Эксперимент с координацией — если подписка всегда покрывает работу с запасом и rate-limit ни разу не упирался в потолок</li>
       </ul>
     </div>
 
@@ -655,7 +655,7 @@
         <li><strong>Типовая разработка</strong> — одно <code>/effort=extra-high</code> часто работает лучше, чем три teammates со своими контекстами</li>
         <li>Простая декомпозиция на независимые задачи — обычные параллельные subagents проще и дешевле</li>
         <li><strong>Production-workflow</strong> — experimental-флаг не для боевого использования</li>
-        <li>Ограниченный budget по токенам — съест лимиты за пару сессий</li>
+        <li>Обычная Pro/Max-подписка — Agent Teams выжигают rate-limit за минуты, после пары сессий придётся ждать сброса окна</li>
       </ul>
     </div>
 
