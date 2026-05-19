@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.51] - 2026-05-19
+
+### Other
+- **claude-digest**: final polish across all variants — subscription wording + auto-update emphasis (8ea0a3d)
+
 ## [1.3.50] - 2026-05-19
 
 ### Other
