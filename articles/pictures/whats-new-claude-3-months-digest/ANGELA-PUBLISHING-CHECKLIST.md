@@ -2,7 +2,7 @@
 
 Анжела, привет. Готов цикл из 4 материалов про новинки Claude и Claude Code за период февраль–май 2026 — дайджест в формате «если пропустили, то вот пять штук». Главный крючок — история про парня, который через Claude нашёл пароль от Bitcoin-кошелька на $400K.
 
-К этому циклу есть **lead-magnet** — PDF-карта решений «Что использовать когда» (`articles/lead-magnets/claude-decision-matrix-2026.pdf`, 9 страниц). Перед публикацией Habr-статьи её нужно **закрепить в Telegram-канале**, потому что все три статьи и Telegram-анонс ссылаются на «закреплённый пост с PDF».
+К этому циклу есть **lead-magnet** — PDF-карта решений «Что использовать когда» (`articles/pictures/whats-new-claude-3-months-digest/claude-decision-matrix-2026.pdf`, 13 страниц). Перед публикацией Habr-статьи её нужно **закрепить в Telegram-канале**, потому что все три статьи и Telegram-анонс ссылаются на «закреплённый пост с PDF». PDF включает шесть карточек по инструментам (subagents+Agent View, skills+Plugin Marketplace, Cowork, Opus 4.7 + /effort + /fast, Agent Teams, MCP) и отдельный блок про мартовский bug v2.1.88.
 
 Если что-то непонятно — пиши, разберёмся.
 
@@ -27,7 +27,7 @@
 
 ### Шаг 0. Закрепить PDF в Telegram-канале (САМОЕ ПЕРВОЕ)
 
-Файл: `articles/lead-magnets/claude-decision-matrix-2026.pdf`
+Файл: `articles/pictures/whats-new-claude-3-months-digest/claude-decision-matrix-2026.pdf`
 
 - Загрузи PDF в @maslennikovigor отдельным постом. Подпись к посту примерно такая:
 

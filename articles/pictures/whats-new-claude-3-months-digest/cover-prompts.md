@@ -30,11 +30,11 @@ A wide horizontal infographic, 16:9 aspect ratio, soft dark slate background wit
 Five evenly-spaced rectangular cards in a single row across the canvas. Each card has a thin glowing border in a different accent color (cyan, violet, amber, soft pink, mint green from left to right) and a numbered badge in the upper-left corner ("1", "2", "3", "4", "5").
 
 Card contents from left to right:
-1. A network-graph icon (nodes and lines spawning outward). Title on card: "Subagents". Subtitle in Russian: "Параллельные агенты".
-2. A modular blocks icon (small interlocking puzzle pieces). Title: "Skills". Subtitle in Russian: "Модульные рецепты".
-3. A desktop monitor icon with a folder being organized. Title: "Cowork". Subtitle in Russian: "Агент для офиса".
-4. A speedometer/gauge icon. Title: "Opus 4.7 + /fast". Subtitle in Russian: "Быстрее, но не миллион".
-5. A plug/connector icon with arrows. Title: "MCP-серверы". Subtitle in Russian: "Расширения".
+1. A speedometer/gauge icon. Title on card: "Opus 4.7 + /effort". Subtitle in Russian: "Рабочая модель квартала".
+2. A desktop monitor icon with a folder being organized. Title: "Claude Cowork". Subtitle in Russian: "Десктоп-агент, GA".
+3. A red warning triangle icon with a downward arrow. Title: "v2.1.88". Subtitle in Russian: "Мартовский bug — анти-новинка".
+4. A network-graph icon with three small connected nodes. Title: "Agent Teams". Subtitle in Russian: "Experimental, ×3-7 токенов".
+5. A modular blocks icon with a small magnifying glass overlay. Title: "Plugin Marketplace". Subtitle in Russian: "Skills с auto-update".
 
 Above the row of cards, a large clean heading in Russian: "Что вы пропустили в Claude за 3 месяца".
 
@@ -71,7 +71,7 @@ Style: editorial cinematic, warm color palette, no human figures visible (just t
 - **Формат:** PNG или JPG
 - **Стиль:** без фотореализма людей, без распознаваемых лиц
 - **Цветовая палитра:** тёмный фон + цветные акценты (для Prompt 1 — violet/orange; для Prompt 2 — несколько разных accent-цветов на карточках; для Prompt 3 — тёплая ночная палитра)
-- **Текст на изображении:** на русском, кроме имён моделей/продуктов (`Claude`, `Subagents`, `Skills`, `Cowork`, `Opus 4.7`, `/fast`, `MCP`, `Bitcoin`) и технических идентификаторов
+- **Текст на изображении:** на русском, кроме имён моделей/продуктов (`Claude`, `Opus 4.7`, `/effort`, `/fast`, `Cowork`, `Agent Teams`, `Plugin Marketplace`, `Bitcoin`, `v2.1.88`) и технических идентификаторов
 
 ## Что НЕ нужно генерировать
 

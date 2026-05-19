@@ -394,7 +394,7 @@
     <div class="hero-brand">Maslennikov · AI Dev Team</div>
     <div class="hero-eyebrow">Lead-magnet · v1.0 · май 2026</div>
     <h1>Карта решений<br/>по Claude и Claude Code</h1>
-    <p class="lede">Что использовать когда — <em>матрица из практики</em>. Subagents, Skills, Cowork, Opus 4.7 и <code>/fast</code>, MCP-серверы: когда брать, когда не брать, типичные ошибки и комбо-приёмы.</p>
+    <p class="lede">Что использовать когда — <em>матрица из практики</em>. Subagents с Agent View, Skills с Plugin Marketplace, Cowork, Opus 4.7 с <code>/effort</code> и <code>/fast</code>, Agent Teams: когда брать, когда не брать, типичные ошибки и комбо-приёмы.</p>
     <div class="hero-meta">
       <div class="meta-block">
         <div class="label">Версия</div>
@@ -416,9 +416,9 @@
   </section>
 
   <h2>Зачем эта шпаргалка</h2>
-  <p>За последние три месяца Anthropic выкатили столько новинок, что в их собственной документации запутаться легче, чем разобраться. Subagents, Skills, Claude Cowork, Opus 4.7 с миллионом токенов и режимом <code>/fast</code>, экосистема MCP-серверов — каждая фича решает свою задачу, и применить их «все сразу» — гарантированный способ съесть бюджет токенов и не получить пользы.</p>
+  <p>Сначала — честно: subagents, skills и MCP-протокол существуют у Anthropic уже больше года. Делать вид, что это новинки квартала, — нечестно. А вот за период февраль–май 2026 реально вышло другое: <strong>Agent Teams</strong> (5 февраля), <strong>Claude Cowork в GA</strong> (9 апреля), <strong>Opus 4.7 с командами <code>/effort</code> и <code>/fast</code></strong> (поздний апрель), <strong>Plugin Marketplace</strong> с auto-update, <strong>Agent View</strong> (12 мая). Плюс отдельная история про мартовский token bug v2.1.88, который выжег лимиты целой команде. Каждая фича решает свою задачу, и применить их «все сразу» — гарантированный способ съесть бюджет токенов и не получить пользы.</p>
   <p>Эта одностраничная карта отвечает на самый частый вопрос: <strong>«вот моя задача — какой из инструментов Claude её решает лучше всего?»</strong></p>
-  <p>Карта построена так, чтобы можно было распечатать и держать рядом с рабочим столом. Дальше — пять карточек по каждому инструменту: <em>что брать, что не брать, типичные ошибки</em>. И отдельно — комбо-приёмы, которые реально работают, плюс антипаттерны, которые не работают никогда.</p>
+  <p>Карта построена так, чтобы можно было распечатать и держать рядом с рабочим столом. Дальше — шесть карточек по каждому инструменту: <em>что брать, что не брать, типичные ошибки</em>. Плюс отдельный блок про мартовский bug (анти-новинка квартала) и комбо-приёмы, которые реально работают.</p>
 
   <h2>Главная матрица: задача → инструмент</h2>
 
@@ -431,8 +431,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td><strong>Собрать информацию по большой кодовой базе</strong></td><td>Параллельные subagents (3+ Explore)</td><td>Контекст основной сессии остаётся чистым</td></tr>
+      <tr><td><strong>Собрать информацию по большой кодовой базе</strong></td><td>Параллельные subagents (3+ Explore) + Agent View</td><td>Контекст основной сессии остаётся чистым</td></tr>
       <tr><td><strong>Аудит безопасности + зависимости + dead code</strong></td><td>Параллельные spec-агенты</td><td>15 минут параллельно вместо вечера последовательно</td></tr>
+      <tr><td><strong>Сложная задача с глубоким рассуждением</strong></td><td>Opus 4.7 + <code>/effort=extra-high</code></td><td>Часто лучше Agent Teams и в 3–7 раз дешевле</td></tr>
+      <tr><td><strong>Координация большой задачи через peer-to-peer</strong></td><td>Agent Teams (experimental, ×3–7 токенов)</td><td>Только когда задача масштаба «компилятор на 100K строк»</td></tr>
+      <tr><td><strong>Найти готовый skill под задачу</strong></td><td>Plugin Marketplace через <code>/skills</code> или <code>/plugin</code></td><td>2810 skills и 425 plugins в community marketplaces</td></tr>
       <tr><td><strong>Повторяющаяся процедура (релиз, ревью, статья)</strong></td><td>Skill в <code>SKILL.md</code></td><td>Подгружается только когда нужна</td></tr>
       <tr><td><strong>Бытовая рутина: папки, чеки, sync файлов</strong></td><td>Claude Cowork</td><td>Десктоп + файловая система + connectors</td></tr>
       <tr><td><strong>Финансовая аналитика, payroll, bookkeeping</strong></td><td>Cowork + Claude for Small Business</td><td>15 готовых skills + connectors к QuickBooks/Stripe</td></tr>
@@ -446,13 +449,13 @@
     </tbody>
   </table>
 
-  <h2>Параллельные subagents</h2>
+  <h2>Параллельные subagents и Agent View</h2>
   <div class="card tool-card">
     <div class="card-header">
-      <h3>Карточка 1 · Параллельные subagents</h3>
-      <span class="pill">Top-1 за квартал</span>
+      <h3>Карточка 1 · Subagents + Agent View</h3>
+      <span class="pill">Год+ · Agent View с мая 2026</span>
     </div>
-    <p class="intro">Запуск нескольких специализированных Claude-агентов одной командой. Каждый получает свой контекст, свой <code>subagent_type</code>, свой набор инструментов. Можно ставить в фон через <code>run_in_background: true</code>.</p>
+    <p class="intro">Запуск нескольких специализированных Claude-агентов одной командой. Каждый получает свой контекст, свой <code>subagent_type</code>, свой набор инструментов. Можно ставить в фон через <code>run_in_background: true</code>. С 12 мая 2026 появился <strong>Agent View</strong> — централизованный UI для управления всеми параллельными сессиями и background-задачами.</p>
 
     <div class="tool-section when">
       <h4>Когда брать</h4>
@@ -484,13 +487,13 @@
     </div>
   </div>
 
-  <h2>Skills</h2>
+  <h2>Skills и Plugin Marketplace</h2>
   <div class="card tool-card">
     <div class="card-header">
-      <h3>Карточка 2 · Skills</h3>
-      <span class="pill">Модульный CLAUDE.md</span>
+      <h3>Карточка 2 · Skills + Plugin Marketplace</h3>
+      <span class="pill">Skills с октября 2025 · Marketplace растёт</span>
     </div>
-    <p class="intro">Маленькие модульные <code>SKILL.md</code>-файлы с инструкциями для конкретной процедуры. Claude Code находит и подгружает их по триггеру. Альтернатива большому монолитному <code>CLAUDE.md</code>.</p>
+    <p class="intro">Маленькие модульные <code>SKILL.md</code>-файлы с инструкциями для конкретной процедуры. Claude Code находит и подгружает их по триггеру. Альтернатива большому монолитному <code>CLAUDE.md</code>. За квартал вокруг skills вырос полноценный <strong>Plugin Marketplace</strong>: auto-update подписанных marketplaces, <code>--plugin-url</code> и <code>--plugin-dir</code> с .zip, промпты <code>/skills</code> и <code>/plugin</code> с type-to-filter. В community-каталогах к маю — около 2810 skills и 425 plugins.</p>
 
     <div class="tool-section when">
       <h4>Когда брать</h4>
@@ -567,20 +570,21 @@
     </div>
   </div>
 
-  <h2>Opus 4.7 и /fast</h2>
+  <h2>Opus 4.7 + /effort + /fast</h2>
   <div class="card tool-card">
     <div class="card-header">
-      <h3>Карточка 4 · Opus 4.7 + /fast</h3>
-      <span class="pill">Модельный апгрейд</span>
+      <h3>Карточка 4 · Opus 4.7 + /effort + /fast</h3>
+      <span class="pill">Модель + 2 команды управления</span>
     </div>
-    <p class="intro">Свежая модель Anthropic с заявленным контекстом 1M токенов. Команда <code>/fast</code> — ускоренная инференсная конфигурация того же Opus (не другая модель), ответ прилетает в 2–2.5 раза быстрее. <strong>Но дороже в 6 раз: $30/$150 за 1M input/output</strong> против $5/$25 у стандартного Opus 4.7.</p>
+    <p class="intro">Свежая модель Anthropic (поздний апрель 2026) с нативным 1M контекстом. Две команды управления поведением: <code>/effort</code> задаёт уровень рассуждения (low / medium / high / extra-high / xhigh), <code>/fast</code> — ускоренная инференсная конфигурация того же Opus, ответ в 2–2.5 раза быстрее. Бенчмарки <code>/fast</code> и стандарта одинаковые (SWE-bench Verified 87.6%). <strong>Но <code>/fast</code> дороже в 6 раз: $30/$150 за 1M input/output</strong> против $5/$25 у стандартного Opus 4.7.</p>
 
     <div class="tool-section when">
       <h4>Когда брать</h4>
       <ul>
-        <li>Интерактивные задачи, где каждая секунда задержки реально мешает (живой дебаг, дизайн API)</li>
+        <li><code>/effort=extra-high</code> — рабочая модель для сложных задач (архитектура, рефакторинг, многошаговая отладка)</li>
+        <li><code>/fast</code> — интерактивные задачи, где каждая секунда задержки реально мешает (живой дебаг, дизайн API)</li>
         <li>Полный Opus 4.7 без <code>/fast</code> — для критичных задач, где важна точность и время не критично</li>
-        <li>Когда нужна максимальная глубина рассуждения — стандартный Opus, не <code>/fast</code></li>
+        <li>Когда нужна максимальная глубина рассуждения — стандартный Opus с <code>/effort=extra-high</code>, не <code>/fast</code></li>
       </ul>
     </div>
 
@@ -627,10 +631,53 @@
     </div>
   </div>
 
+  <h2>Agent Teams</h2>
+  <div class="card tool-card">
+    <div class="card-header">
+      <h3>Карточка 5 · Agent Teams</h3>
+      <span class="pill">5 февраля 2026 · experimental</span>
+    </div>
+    <p class="intro">Экспериментальная фича, активируется через <code>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code>. Это <strong>не просто параллельные subagents</strong> (они существуют год). Это новый уровень оркестрации: Team Lead + Teammates, peer-to-peer mailbox-общение, shared task list с автоматическим управлением зависимостями. Стоит <strong>×3–7</strong> от обычной сессии.</p>
+
+    <div class="tool-section when">
+      <h4>Когда брать</h4>
+      <ul>
+        <li>Задача масштаба «компилятор на 100K строк» или массивный multi-language refactoring</li>
+        <li>Когда нужна координация между frontend / backend / tests с peer-to-peer обменом</li>
+        <li>Параллельные code review, где reviewers сравнивают findings</li>
+        <li>Эксперимент с координацией — если бюджет токенов не ограничен</li>
+      </ul>
+    </div>
+
+    <div class="tool-section when-not">
+      <h4>Когда НЕ брать (большинство задач)</h4>
+      <ul>
+        <li><strong>Типовая разработка</strong> — одно <code>/effort=extra-high</code> часто работает лучше, чем три teammates со своими контекстами</li>
+        <li>Простая декомпозиция на независимые задачи — обычные параллельные subagents проще и дешевле</li>
+        <li><strong>Production-workflow</strong> — experimental-флаг не для боевого использования</li>
+        <li>Ограниченный budget по токенам — съест лимиты за пару сессий</li>
+      </ul>
+    </div>
+
+    <div class="tool-section pitfalls">
+      <h4>Типичные ошибки</h4>
+      <ul>
+        <li>Спавнить 5+ teammates на задачу, которая решается одним Opus с <code>/effort=extra-high</code></li>
+        <li>Использовать на production-проекте — experimental-API может ломаться между релизами</li>
+        <li>Не следить за расходом токенов — Agent Teams выжигают rate-limit за минуты</li>
+      </ul>
+    </div>
+
+    <div class="memo">
+      <div class="label">Контр-тезис из моей практики</div>
+      <p>Дважды пробовал Agent Teams, оба раза вернулся к одному Opus 4.7 на <code>/effort=extra-high</code>. На повседневной разработке одна сильная модель с глубоким рассуждением часто даёт более целостный ответ, чем три скоординированных teammates, каждый из которых думал в своём контексте. И в 3–7 раз дешевле.</p>
+    </div>
+  </div>
+
   <h2>MCP-серверы</h2>
   <div class="card tool-card">
     <div class="card-header">
-      <h3>Карточка 5 · MCP-серверы</h3>
+      <h3>Карточка 6 · MCP-серверы</h3>
       <span class="pill">Открытый стандарт</span>
     </div>
     <p class="intro">Model Context Protocol — открытый стандарт, расширяющий Claude Code внешними инструментами. К маю 2026 экосистема резко окрепла.</p>
@@ -701,7 +748,16 @@
       <li><strong>Memory system + короткие задачи</strong> — накладные расходы на ведение памяти не оправдывают пользу. Memory — для долгих проектов с регулярными возвратами.</li>
       <li><strong>Plan mode + simple задача</strong> — overhead больше пользы. Plan mode — для среднесложных задач с реальной декомпозицией.</li>
       <li><strong>1M контекст + Opus 4.7</strong> — даже Anthropic в system card рекомендуют 4.6 как fallback для long-context retrieval. Используй 4.7 только до ~300K.</li>
+      <li><strong>Agent Teams + ограниченный budget</strong> — выжжешь rate-limit за минуты. Бери только если задача масштаба компилятора и токены не считаешь.</li>
     </ul>
+  </div>
+
+  <h2>Памятка про мартовский bug</h2>
+  <div class="card" style="border-color: rgba(255,107,107,0.3); background: linear-gradient(180deg, rgba(255,107,107,0.05), transparent 80%), var(--bg-card);">
+    <h3 style="color: var(--bad); margin-top: 0;">Анти-новинка квартала: v2.1.88 (31 марта 2026)</h3>
+    <p>31 марта Anthropic выкатили версию Claude Code v2.1.88, и в тот же день народ начал жаловаться: токены сжигались в <strong>4–10 раз быстрее обычного</strong> на тех же задачах. На GitHub-issue #42272 — «66% бюджета за 2 вопроса». Десятки идентичных кейсов. Anthropic в тот же день признали проблему и начали фиксить.</p>
+    <p>В корне была регрессия в обработке plugin overhead и context accumulation — длинные сессии пересчитывали предыдущий контекст квадратично. К середине апреля выкатили фиксы, удвоили 5-часовые rate-limit'ы для Pro и Max, плюс рекомендовали <code>DISABLE_NON_ESSENTIAL_MODEL_CALLS=1</code> для тех, кто хочет приструнить background-расход.</p>
+    <p style="margin-bottom: 0;"><strong>Урок:</strong> на активной разработке держать одну версию Claude Code больше недели — опасно. Правило: до пятницы — авто-обновление, по пятницам — заморозка. Если выкатят что-то странное, никто не сгорит в выходной.</p>
   </div>
 
   <div class="footer-card">
