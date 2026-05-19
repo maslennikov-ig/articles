@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.50] - 2026-05-19
+
+### Other
+- **claude-digest**: rewrite top-5 to reflect actual Q1-Q2 2026 releases (293500c)
+- **lead-magnets**: move Claude decision-matrix into per-cycle pictures folder (b1df288)
+
 ## [1.3.49] - 2026-05-19
 
 ### Other
