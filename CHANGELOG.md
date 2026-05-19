@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.49] - 2026-05-19
+
+### Other
+- add Claude 3-months digest cycle (Habr/TenChat/Pikabu + Telegram announcement + PDF lead-magnet) (0ca3cb1)
+
 ## [1.3.48] - 2026-05-18
 
 ### Other
