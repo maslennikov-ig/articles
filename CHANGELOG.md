@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.52] - 2026-05-20
+
+### Other
+- **codex-digest**: add Habr digest, Telegram announcement and Angela checklist for Codex Jan-May 2026 (5d54ba0)
+
 ## [1.3.51] - 2026-05-19
 
 ### Other
