@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.54] - 2026-05-20
+
+### Other
+- **codex-digest**: replace pinned-post references with direct ARCHIVE_LINK placeholder (d0098b4)
+
 ## [1.3.53] - 2026-05-20
 
 ### Other
