@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.55] - 2026-05-20
+
+### Other
+- **pictures**: add Codex digest cover variants and organize Claude digest covers (c2a197d)
+
 ## [1.3.54] - 2026-05-20
 
 ### Other
