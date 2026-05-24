@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.56] - 2026-05-24
+
+### Added
+- **articles**: add LLM battle-test May 2026 cycle — китайцы выигрывают по цене и качеству (896a165)
+
 ## [1.3.55] - 2026-05-20
 
 ### Other

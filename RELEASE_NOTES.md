@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.56
+
+_Released on 2026-05-24_
+
+### ✨ New Features
+
+- **articles**: Add LLM battle-test May 2026 cycle — китайцы выигрывают по цене и качеству
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.55
 
 _Released on 2026-05-20_
