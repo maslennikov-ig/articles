@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.57
+
+_Released on 2026-05-24_
+
+### ✨ New Features
+
+- **Skills**: TL;DR-обязательность для Habr + правило разумных англицизмов (A28)
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.56
 
 _Released on 2026-05-24_

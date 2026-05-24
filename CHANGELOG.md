@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.57] - 2026-05-24
+
+### Added
+- **skills**: TL;DR-обязательность для Habr + правило разумных англицизмов (A28) (c53b1d6)
+
 ## [1.3.56] - 2026-05-24
 
 ### Added
