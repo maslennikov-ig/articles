@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.58] - 2026-05-25
+
+### Added
+- **articles**: цикл CodeGraph vs Graphify — Habr/TenChat/Pikabu + Telegram-анонс (1c23555)
+
 ## [1.3.57] - 2026-05-24
 
 ### Added

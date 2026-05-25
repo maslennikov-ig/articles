@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.58
+
+_Released on 2026-05-25_
+
+### ✨ New Features
+
+- **articles**: цикл CodeGraph vs Graphify — Habr/TenChat/Pikabu + Telegram-анонс
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.57
 
 _Released on 2026-05-24_
