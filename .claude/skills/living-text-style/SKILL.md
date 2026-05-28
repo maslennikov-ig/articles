@@ -6,9 +6,9 @@ description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-art
 # Living Text Style — Preventive Layer
 
 This skill is the preventive companion to `ai-text-checker` (detective). The
-detective catalogs 32 AI-writing patterns and cleans drafts after the fact.
+detective catalogs AI-writing patterns and cleans drafts after the fact.
 This skill teaches the author to avoid the worst 12 patterns up-front and to
-write with voice instead of producing a sterile, scrub-able text.
+write with voice instead of producing a sterile, easy-to-scrub text.
 
 ## When to invoke
 
@@ -24,12 +24,12 @@ Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cos
 |---|----------|--------|------------|
 | 1 | «не просто X, а Y» / «не только X, но и Y» | AI-параллелизм | ↔ A9 |
 | 2 | «является ключевым/важным», «представляет собой» | inflated significance | ↔ A1, ↔ A8 |
-| 3 | «стоит отметить», «важно подчеркнуть», «необходимо учитывать» | filler-frame | ↔ A7, ↔ A26 |
+| 3 | «стоит отметить», «важно подчеркнуть», «необходимо учитывать» | filler-frame | ↔ A26, ↔ A7 |
 | 4 | «подчёркивая», «демонстрируя», «способствуя» (деепричастия в хвосте) | participle cliché | ↔ A3 |
 | 5 | «в современном мире», «в эпоху цифровизации», «в мире/сфере/области X» | template intro | ↔ A27, Layer B |
 | 6 | «ключевой / важнейший / решающий / поворотный / знаковый» | AI vocabulary | ↔ A7 |
 | 7 | «будущее выглядит ярко», «впереди захватывающие времена» | template positive ending | ↔ A24 |
-| 8 | «отличный вопрос», «вы абсолютно правы» | sycophancy | ↔ A21 |
+| 8 | «отличный вопрос», «вы абсолютно правы» | sycophancy | ↔ A21, ↔ A19 |
 | 9 | «надеюсь, это поможет», «дайте знать», «конечно!» | chatbot artifact | ↔ A19 |
 | 10 | Title Case В Каждом Слове Заголовка | English-style heading | ↔ A16 |
 | 11 | **Bold** на каждом ключевом слове | bold overuse | ↔ A14 |
@@ -85,7 +85,7 @@ above, apply these techniques so the result sounds like a living person:
 | на данный момент | сейчас |
 | в целях X | чтобы X |
 
-## Pre-draft self-check (что автор спрашивает у себя ПЕРЕД сдачей)
+## Pre-draft self-check (что держим в уме при написании)
 
 1. Звучит ли текст естественно вслух?
 2. Разнообразен ли ритм предложений (короткие + длинные)?
@@ -106,6 +106,11 @@ When adding/removing a don't here, update the matching pattern in
 `.claude/agents/content/workers/ai-text-checker.md` (Layer A) and bump the
 `↔ Detector` reference column. Drift between preventive and detective layers
 degrades the system.
+
+Note: the `↔ Detector` column may also reference non-numeric anchors like
+`Layer B` (project-specific stamps). The drift check below only covers numeric
+`A{X}` tags. Verify non-numeric anchors manually when reorganizing
+`ai-text-checker.md`.
 
 Drift check after edits:
 
