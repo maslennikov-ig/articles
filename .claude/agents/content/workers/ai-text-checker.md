@@ -319,41 +319,56 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - "Кодер" used interchangeably with "инженер" / "разработчик" → suggest distinction
 - Hidden marketing of own services without proportional reader value → flag
 - Position AGAINST community ("программисты не нужны") — even if unintended → flag
+- Em-dash density: > 2 em-dashes per paragraph → flag (NEVER auto-replace `—` with `-`; em-dash is the Russian typographic standard on Habr)
+- Rhetorical questions: > 3 per article → flag (A32)
 
 **`vc`** — VC.ru:
 - ROI / growth claims without methodology → flag
 - Missing critique of limitations / alternatives → flag
 - Marketing tone without business substance → flag
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace; em-dash is Russian standard)
+- Rhetorical questions: > 3 per article → flag (A32)
 
 **`dzen`** — Yandex Dzen:
 - Faceless intro that risks completion-rate drop in first 2 paragraphs → flag
 - Missing first-paragraph hook → flag
 - Information density too low for the algorithm → flag
 - Anglicisms (A28) — STRICT: broad audience; translate jargon with a clear equivalent
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Rhetorical questions: > 3 per article → flag (A32)
 
 **`pikabu`** — Pikabu:
 - Symmetric / predictable rhythm ("dead intros") → flag
 - Missing self-irony or character → flag
 - Elitist tone → flag
 - Anglicisms (A28) — STRICT: translate everything except proper nouns / unavoidable abbreviations
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format tolerates fewer)
 
 **`telegraph`** — Telegraph (Telegram long-form):
 - 70/30 prose-to-format ratio violated (stricter than the 60/40 default) → flag
 - Long unbroken paragraphs that hurt mobile readability → flag
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Rhetorical questions: > 3 per article → flag (A32)
 
 **`tenchat`** — TenChat (B2B):
 - Missing real business context (Zeus algorithm needs concreteness) → flag
 - Profile / positioning gaps → flag
 - Anglicisms (A28) — STRICT: business audience prefers Russian; translate jargon with a clear equivalent
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Rhetorical questions: > 3 per article → flag (A32)
 
 **`telegram`** — Telegram short posts:
 - Missing personal detail (at least one per post) → flag
 - Marketing tone instead of conversational → flag
 - Repeated CTA / signature phrasing across posts → flag
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format)
 
 **`telegram-announcement`** — Telegram article announcements:
 - Retelling the source article instead of providing a hook → flag
 - Missing original-platform context → flag
+- Rhetorical questions: > 1 → flag (A32 — short format, one is the maximum)
 
 ---
 
