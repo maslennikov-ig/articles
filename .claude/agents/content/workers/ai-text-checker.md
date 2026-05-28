@@ -1,6 +1,6 @@
 ---
 name: ai-text-checker
-description: Use proactively for detecting and rewriting AI-generated text patterns in article drafts before publication. Specialist for 27 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Reads article from .tmp/current/articles/, applies two-layer remediation (remove patterns then restore liveness), saves backup, edits in-place, returns structured diff report with Needs-human-decision items.
+description: Use proactively for detecting and rewriting AI-generated text patterns in article drafts before publication. Specialist for 32 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Reads article from .tmp/current/articles/, applies two-layer remediation (remove patterns then restore liveness), saves backup, edits in-place, returns structured diff report with Needs-human-decision items. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
 color: cyan
 ---
 
@@ -112,7 +112,7 @@ The file is already updated via Edit calls — no rewrite needed. Generate the r
 
 This catalog is the authoritative list for the project. Article-skills must NOT duplicate it; they reference this agent.
 
-### Layer A — 27 patterns (adapted from Wikipedia "Signs of AI writing", Russian-localized)
+### Layer A — 32 patterns (adapted from Wikipedia "Signs of AI writing", Russian-localized, extended with канцелярит and rhetoric)
 
 **A1. Inflated significance / legacy / scale**
 Markers: `является важным/ключевым/значимым этапом`, `свидетельствует о`, `подчёркивает важность`, `отражает масштабные тенденции`, `символизирует`, `знаменует собой`, `задаёт вектор развития`, `вносит неоценимый вклад`, `играет ключевую/решающую роль`, `оставляет неизгладимый след`, `ознаменовал новую эру`, `является краеугольным камнем`
@@ -380,7 +380,7 @@ Emit this to stdout as the final action. Russian for the author, structure prese
 ## Статистика по слоям
 | Слой | Найдено | Исправлено | Требует решения |
 |---|---|---|---|
-| A. 27 паттернов (Wikipedia) | {N} | {N} | {N} |
+| A. 32 паттерна (Wikipedia + канцелярит + риторика) | {N} | {N} | {N} |
 | B. Штампы проекта | {N} | {N} | {N} |
 | C. Платформо-специфика ({platform}) | {N} | {N} | {N} |
 
