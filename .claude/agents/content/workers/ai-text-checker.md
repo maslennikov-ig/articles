@@ -257,6 +257,36 @@ Symptom: English/translit terms used by inertia when a clear Russian equivalent 
 
 Fix policy: auto-replace overkill anglicisms that have an unambiguous Russian equivalent; flag for the author only when the English term is a borderline-established calque where the choice is stylistic.
 
+**A29. Nominalizations (отглагольные существительные вместо глаголов)**
+Symptom: Action frozen into a noun, often via `проводить / осуществлять / оказывать` + noun. Bureaucratese inflates "expert" tone but reads heavy.
+Markers: `проводить работу`, `осуществлять контроль`, `оказывать помощь`, `принимать участие`, `вести борьбу`, `производить расчёт`, `давать оценку`, `совершать ошибку`, `осуществлять предоставление`.
+Fix: Use the verb directly.
+- `проводить работу` → `работать`
+- `осуществлять контроль` → `контролировать`
+- `оказывать помощь` → `помогать`
+- `осуществлять предоставление услуг` → `оказывать услуги` / `предоставлять`
+
+**A30. Genitive chains (цепочки родительных падежей)**
+Symptom: 4+ nouns in genitive case stacked in one phrase — impossible to parse who relates to whom.
+Example: `Процесс развития движения за укрепление сотрудничества в области культуры народов региона`.
+Fix: Break into a normal sentence with a verb. `Культурное сотрудничество народов региона развивается.`
+Detection heuristic: 4 or more consecutive nouns in genitive within one nominal phrase → flag (do not auto-rewrite — restructuring depends on author intent).
+
+**A31. Passive over active (пассив там, где субъект известен)**
+Markers: `было принято решение`, `работа выполняется сотрудниками`, `был обнаружен`, `будет рассмотрено`, `решение принимается руководством`.
+Fix: Convert to active voice when the subject is known.
+- `Решение было принято руководством` → `Руководство решило`
+- `Работа выполняется сотрудниками` → `Сотрудники работают`
+Keep passive when the subject is genuinely unknown or irrelevant (`Здание построено в 1812 году`).
+
+**A32. Rhetorical questions overuse**
+Symptom: More than 2–3 rhetorical questions per article — typical AI imitation of "engagement". A single rhetorical question is fine; a parade of them is a tell.
+Detection: count `?` at end of sentence where the question is not addressed to a real participant.
+Fix policy (platform-dependent — see Layer C below):
+- `habr` / `vc` / `dzen` / `telegraph` / `tenchat`: > 3 per article → flag for author. Auto-remove only the most generic ones (e.g. `Не правда ли?`, `Согласны?`).
+- `pikabu` / `telegram`: > 2 per post → auto-remove the weakest; conversational format tolerates fewer of them.
+- `telegram-announcement`: > 1 → flag.
+
 ### Layer B — Project-specific stamps (extracted from existing article-skills)
 
 These were duplicated across 8 article-skills. Centralized here:
