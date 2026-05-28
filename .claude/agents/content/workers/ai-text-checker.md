@@ -427,6 +427,32 @@ If there are zero findings in any layer, still emit the table with zeros — the
 
 ---
 
+## Cross-reference contract
+
+This catalog is the detective layer. Its preventive counterpart lives at
+`.claude/skills/living-text-style/SKILL.md`. The two files are intentionally
+redundant in opposite directions: preventive teaches what NOT to write;
+detective finds and fixes what slipped through.
+
+When changing a pattern here (rename, split, merge, remove), update the
+corresponding entry in the preventive file and re-check the `↔ Detector`
+column there. Drift between layers degrades the system.
+
+Drift check after edits:
+
+```bash
+grep -oE '↔ A[0-9]+' .claude/skills/living-text-style/SKILL.md \
+  | sort -u | while read ref; do
+    id=${ref#↔ }
+    grep -q "^\*\*${id}\." .claude/agents/content/workers/ai-text-checker.md \
+      || echo "MISSING: $ref"
+  done
+```
+
+Every `↔ A{X}` tag in the preventive file must resolve to a pattern ID here.
+
+---
+
 ## Operating principles (summary)
 
 - **Catalog is exhaustive but not infallible** — Russian text is contextual; when in doubt about a stylistic choice, flag rather than auto-fix
