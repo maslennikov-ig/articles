@@ -265,6 +265,7 @@ Fix: Use the verb directly.
 - `осуществлять контроль` → `контролировать`
 - `оказывать помощь` → `помогать`
 - `осуществлять предоставление услуг` → `оказывать услуги` / `предоставлять`
+Note: bare `осуществлять` (verb without nominalized object) is handled by A22/A25 — do not double-count.
 
 **A30. Genitive chains (цепочки родительных падежей)**
 Symptom: 4+ nouns in genitive case stacked in one phrase — impossible to parse who relates to whom.
@@ -279,12 +280,12 @@ Fix: Convert to active voice when the subject is known.
 - `Работа выполняется сотрудниками` → `Сотрудники работают`
 Keep passive when the subject is genuinely unknown or irrelevant (`Здание построено в 1812 году`).
 
-**A32. Rhetorical questions overuse**
+**A32. Rhetorical questions overuse (злоупотребление риторическими вопросами)**
 Symptom: More than 2–3 rhetorical questions per article — typical AI imitation of "engagement". A single rhetorical question is fine; a parade of them is a tell.
-Detection: count `?` at end of sentence where the question is not addressed to a real participant.
+Detection: count `?` at end of sentence. A rhetorical question is one whose answer is implied or where no real participant is being asked. Tiebreaker for "weakest" (lowest-value, safest to auto-remove): generic closers like `Не правда ли?`, `Согласны?`, `Как думаете?`, `Правда ведь?`, `А что вы думаете?` — these add no information and rarely belong in the author's voice.
 Fix policy (platform-dependent — see Layer C below):
-- `habr` / `vc` / `dzen` / `telegraph` / `tenchat`: > 3 per article → flag for author. Auto-remove only the most generic ones (e.g. `Не правда ли?`, `Согласны?`).
-- `pikabu` / `telegram`: > 2 per post → auto-remove the weakest; conversational format tolerates fewer of them.
+- `habr` / `vc` / `dzen` / `telegraph` / `tenchat`: > 3 per article → flag for author. Auto-remove only the generic closers from the tiebreaker list above.
+- `pikabu` / `telegram`: > 2 per post → auto-remove generic closers from the tiebreaker list above; if none are generic, downgrade to flag-only and let the author choose.
 - `telegram-announcement`: > 1 → flag.
 
 ### Layer B — Project-specific stamps (extracted from existing article-skills)
@@ -319,14 +320,14 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - "Кодер" used interchangeably with "инженер" / "разработчик" → suggest distinction
 - Hidden marketing of own services without proportional reader value → flag
 - Position AGAINST community ("программисты не нужны") — even if unintended → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (NEVER auto-replace `—` with `-`; em-dash is the Russian typographic standard on Habr)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`vc`** — VC.ru:
 - ROI / growth claims without methodology → flag
 - Missing critique of limitations / alternatives → flag
 - Marketing tone without business substance → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace; em-dash is Russian standard)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`dzen`** — Yandex Dzen:
@@ -334,7 +335,7 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - Missing first-paragraph hook → flag
 - Information density too low for the algorithm → flag
 - Anglicisms (A28) — STRICT: broad audience; translate jargon with a clear equivalent
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`pikabu`** — Pikabu:
@@ -342,27 +343,27 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - Missing self-irony or character → flag
 - Elitist tone → flag
 - Anglicisms (A28) — STRICT: translate everything except proper nouns / unavoidable abbreviations
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format tolerates fewer)
 
 **`telegraph`** — Telegraph (Telegram long-form):
 - 70/30 prose-to-format ratio violated (stricter than the 60/40 default) → flag
 - Long unbroken paragraphs that hurt mobile readability → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`tenchat`** — TenChat (B2B):
 - Missing real business context (Zeus algorithm needs concreteness) → flag
 - Profile / positioning gaps → flag
 - Anglicisms (A28) — STRICT: business audience prefers Russian; translate jargon with a clear equivalent
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`telegram`** — Telegram short posts:
 - Missing personal detail (at least one per post) → flag
 - Marketing tone instead of conversational → flag
 - Repeated CTA / signature phrasing across posts → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace)
+- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
 - Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format)
 
 **`telegram-announcement`** — Telegram article announcements:
