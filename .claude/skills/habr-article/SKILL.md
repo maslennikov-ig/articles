@@ -157,6 +157,15 @@ description: Написание технических статей для Ха�
 
 **Перед написанием статьи — задай автору вопросы.** Без реального контекста статья будет выглядеть как AI-генерат.
 
+## ФАЗА 0.1 — Загрузить правила живого письма
+
+Before any drafting, invoke `Skill('living-text-style')` and keep its rules in
+context for ФАЗА 1–2. This is the preventive layer — write right the first time;
+the detective layer (`cleanup-ai-noise` in ФАЗА 3) catches what slipped through.
+
+Do not skip this step. Skipping degrades draft quality and inflates ФАЗА 3
+cleanup cost.
+
 Задай 3-5 вопросов из списка (выбери релевантные):
 
 1. **Личная история:** "Расскажи конкретную ситуацию, когда ты столкнулся с этой проблемой. Дата, проект, что пошло не так?"
