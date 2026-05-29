@@ -2,6 +2,29 @@
 
 User-facing release notes for all versions.
 
+## v1.3.59
+
+_Released on 2026-05-29_
+
+### ✨ New Features
+
+- **Skills**: Tenchat-article — hard 80-char headline limit
+- **Skills**: Telegram-announcement invokes living-text-style at workflow step 0
+- **Skills**: Article-skills invoke living-text-style at ФАЗА 0.1
+- **AI Agents**: Layer C em-dash density + rhetoric policy per platform
+- **AI Agents**: Ai-text-checker A29-A32 (канцелярит + риторика)
+- **Skills**: Add living-text-style preventive layer
+
+### 🐛 Bug Fixes
+
+- **Skills**: Review feedback for ФАЗА 0.1 integration
+- **AI Agents**: Ai-text-checker review feedback (I1-I3, M4)
+- **Skills**: Living-text-style review feedback
+
+---
+
+_This release was automatically generated from 12 commits._
+
 ## v1.3.58
 
 _Released on 2026-05-25_

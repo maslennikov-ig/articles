@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.59] - 2026-05-29
+
+### Added
+- **skills**: tenchat-article — hard 80-char headline limit (440c1c7)
+- **skills**: telegram-announcement invokes living-text-style at workflow step 0 (e6749ce)
+- **skills**: article-skills invoke living-text-style at ФАЗА 0.1 (810530f)
+- **agents**: Layer C em-dash density + rhetoric policy per platform (a546fdc)
+- **agents**: ai-text-checker A29-A32 (канцелярит + риторика) (658f41f)
+- **skills**: add living-text-style preventive layer (a5b57d9)
+
+### Fixed
+- **skills**: review feedback for ФАЗА 0.1 integration (6ce052e)
+- **agents**: ai-text-checker review feedback (I1-I3, M4) (ff1f1f0)
+- **skills**: living-text-style review feedback (1a78812)
+
+### Other
+- **skills**: cleanup-ai-noise mentions preventive companion (b4e16d5)
+- **agents**: ai-text-checker cross-reference contract with living-text-style (0b2c408)
+- **agents**: renumber ai-text-checker catalog 27 → 32 (77fe9f0)
+
 ## [1.3.58] - 2026-05-25
 
 ### Added
