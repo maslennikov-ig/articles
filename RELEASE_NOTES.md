@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.61
+
+_Released on 2026-06-02_
+
+### ✨ New Features
+
+- **articles**: добавлен skill graphify-project (моя адаптация) во все материалы цикла
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.60
 
 _Released on 2026-06-02_

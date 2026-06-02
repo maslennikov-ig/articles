@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.61] - 2026-06-02
+
+### Added
+- **articles**: добавлен skill graphify-project (моя адаптация) во все материалы цикла (f8e5d07)
+
 ## [1.3.60] - 2026-06-02
 
 ### Added
