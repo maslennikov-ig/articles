@@ -25,11 +25,16 @@ AI-ассистенты (Cursor, Codex, Claude Code) при поиске по к
 
 **Ссылки на инструменты (CodeGraph, Graphify, Gortex) НЕ стоят в текстах статей сознательно.** Все ссылки + команды установки + два промпта внедрения мы даём ТОЛЬКО в Telegram-канале — это повод перейти и подписаться. В статьях инструменты упомянуты только по именам. Не добавляй ссылки в тексты статей.
 
-**К Telegram-каналу прикладываются два готовых файла-промпта** — они уже лежат в этой же папке:
-- `graphify-implementation-prompt.md`
-- `codegraph-implementation-prompt.md`
+**К Telegram-каналу прикладываются ТРИ артефакта** — все лежат в этой же папке:
+1. `graphify-implementation-prompt.md` — текстовый промпт внедрения Graphify
+2. `codegraph-implementation-prompt.md` — текстовый промпт внедрения CodeGraph
+3. `graphify-project/SKILL.md` — Claude Code skill (вся папка `graphify-project/` целиком, читатель кладёт её в `~/.claude/skills/`)
 
-Приложи их к посту в Telegram как файлы-вложения (или дай ссылки на GitHub-blob). Это и есть главная польза поста, ради которой человек переходит из Хабра в канал.
+Все три приложи к посту в Telegram. Варианты подачи:
+- два текстовых промпта — как файлы-вложения или ссылки на GitHub-blob;
+- skill — лучше всего ссылкой на папку на GitHub (`https://github.com/maslennikov-ig/articles/tree/main/articles/pictures/codegraph-vs-graphify/graphify-project`), чтобы человек мог скачать её целиком сохраняя структуру папки.
+
+Это и есть главная польза поста, ради которой человек переходит из Хабра в канал.
 
 ---
 
@@ -75,7 +80,7 @@ AI-ассистенты (Cursor, Codex, Claude Code) при поиске по к
 В файле 4 варианта. Берём **Вариант 1 (рекомендуемый)** — первый блок после «## Вариант 1».
 
 - В тексте есть плейсхолдер `[LINK]` — заменить на URL Habr-статьи из Шага 1.
-- В посте есть отсылка к двум промптам внедрения — приложи к посту файлы `graphify-implementation-prompt.md` и `codegraph-implementation-prompt.md` из этой же папки (как вложения или ссылки на GitHub-blob).
+- В посте есть отсылка к двум промптам внедрения И к skill — приложи: `graphify-implementation-prompt.md`, `codegraph-implementation-prompt.md` и папку `graphify-project/` (ссылкой на GitHub-tree, чтобы человек скачал её целиком). См. блок «Что прикладываем к Telegram-каналу» выше.
 - Опубликовать в @maslennikovigor.
 - **Время публикации**: будни 13:00–16:00 МСК или 18:00–22:00 МСК.
 
@@ -100,7 +105,7 @@ AI-ассистенты (Cursor, Codex, Claude Code) при поиске по к
 2. **На Habr** — превью для ленты вставь в отдельную секцию редактора, не в основной текст.
 3. **На Pikabu** — `##` заменены на жирный/встроенный заголовок, markdown-таблиц нет.
 4. **На TenChat** — заголовки секций жирным (как в файле), без markdown-таблиц.
-5. **В Telegram-анонсе** — `[LINK]` заменён на URL Habr-статьи; два файла-промпта из папки `articles/pictures/codegraph-vs-graphify/` приложены к посту.
+5. **В Telegram-анонсе** — `[LINK]` заменён на URL Habr-статьи; к посту приложены ТРИ артефакта из папки `articles/pictures/codegraph-vs-graphify/` (два промпта-файла + ссылка на папку `graphify-project/` со skill).
 6. **Ссылки на инструменты НЕ добавлены в тексты статей** — они только в Telegram (это by design).
 
 ---
