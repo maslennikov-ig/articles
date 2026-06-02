@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.62] - 2026-06-02
+
+### Fixed
+- **articles**: честная переформулировка про graphify-project skill — не «лучше стока», а «рядом» (dfb1ebb)
+
+### Other
+- update docs (0f909ec)
+
 ## [1.3.61] - 2026-06-02
 
 ### Added

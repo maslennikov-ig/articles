@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.62
+
+_Released on 2026-06-02_
+
+### 🐛 Bug Fixes
+
+- **articles**: честная переформулировка про graphify-project skill — не «лучше стока», а «рядом»
+
+---
+
+_This release was automatically generated from 2 commits._
+
 ## v1.3.61
 
 _Released on 2026-06-02_
