@@ -102,6 +102,14 @@ graphify cluster-only . --no-viz
 
 Run these commands after all tracked setup files are written. If the agent commits, rebases, or otherwise changes `HEAD` after building the graph, run them again. Before final reporting, compare `git rev-parse --short=8 HEAD` with `Built from commit` in `graphify-out/GRAPH_REPORT.md`; for setup work they must match unless the final state intentionally has only uncommitted local changes, which must be reported.
 
+If `.graphifyignore` was tightened to exclude sources that may already be in an existing graph, rebuild from a clean local graph directory instead of relying only on incremental update:
+
+```bash
+rm -rf graphify-out
+graphify update .
+graphify cluster-only . --no-viz
+```
+
 Then run 2-3 focused smoke checks, for example:
 
 ```bash
@@ -137,9 +145,10 @@ Before reporting completion:
 3. Confirm `.codex/hooks.json` contains only the intended Codex `PreToolUse` Graphify hook.
 4. Confirm Graphify git hooks are not installed unless explicitly requested.
 5. Confirm `graphify-out/GRAPH_REPORT.md` `Built from commit` matches current `HEAD` after setup or after any commit made during setup. If not, rerun `graphify update .` and `graphify cluster-only . --no-viz`.
-6. Update Beads with commands and graph status when Beads is available.
-7. Report `docs-reviewed: updated` or `docs-reviewed: no-change-needed`.
-8. Report `graph-reviewed: updated`, `used`, `no-change-needed`, or `blocked` with command evidence.
+6. Confirm `graphify-out/graph.json` has no forbidden `source_file` entries for excluded runtime/noise roots such as `.worktrees/`, `.claude/`, `node_modules/`, and `graphify-out/`.
+7. Update Beads with commands and graph status when Beads is available.
+8. Report `docs-reviewed: updated` or `docs-reviewed: no-change-needed`.
+9. Report `graph-reviewed: updated`, `used`, `no-change-needed`, or `blocked` with command evidence.
 
 Final report must include:
 
