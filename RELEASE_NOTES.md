@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.60
+
+_Released on 2026-06-02_
+
+### ✨ New Features
+
+- **articles**: добавлены промпты внедрения CodeGraph и Graphify в папку цикла
+
+---
+
+_This release was automatically generated from 2 commits._
+
 ## v1.3.59
 
 _Released on 2026-05-29_
