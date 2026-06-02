@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.63] - 2026-06-02
+
+### Added
+- **articles**: добавлены три обложки цикла CodeGraph vs Graphify (8fe6996)
+
 ## [1.3.62] - 2026-06-02
 
 ### Fixed

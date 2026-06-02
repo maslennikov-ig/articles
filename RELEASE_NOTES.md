@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.63
+
+_Released on 2026-06-02_
+
+### ✨ New Features
+
+- **articles**: добавлены три обложки цикла CodeGraph vs Graphify
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.62
 
 _Released on 2026-06-02_
