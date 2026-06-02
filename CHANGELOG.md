@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.60] - 2026-06-02
+
+### Added
+- **articles**: добавлены промпты внедрения CodeGraph и Graphify в папку цикла (b871cfd)
+
+### Other
+- update docs (e942bc6)
+
 ## [1.3.59] - 2026-05-29
 
 ### Added
