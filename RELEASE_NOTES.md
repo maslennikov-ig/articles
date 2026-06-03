@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.64
+
+_Released on 2026-06-03_
+
+### ✨ New Features
+
+- **articles**: цикл про claude-code-best-practice — Habr, TenChat, Pikabu, анонс + навигатор
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.63
 
 _Released on 2026-06-02_

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.64] - 2026-06-03
+
+### Added
+- **articles**: цикл про claude-code-best-practice — Habr, TenChat, Pikabu, анонс + навигатор (041194d)
+
 ## [1.3.63] - 2026-06-02
 
 ### Added
