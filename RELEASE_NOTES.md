@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.65
+
+_Released on 2026-06-05_
+
+### ✨ New Features
+
+- **articles**: цикл battle-test «Qwen-2507 всё ещё №1 по цене/качеству» — Habr, TenChat, Pikabu, Telegram-анонс + обложки + памятка Анжелы
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.64
 
 _Released on 2026-06-03_

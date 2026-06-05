@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.65] - 2026-06-05
+
+### Added
+- **articles**: цикл battle-test «Qwen-2507 всё ещё №1 по цене/качеству» — Habr, TenChat, Pikabu, Telegram-анонс + обложки + памятка Анжелы (e134f54)
+
 ## [1.3.64] - 2026-06-03
 
 ### Added
