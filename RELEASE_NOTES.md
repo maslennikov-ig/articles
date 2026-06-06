@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.66
+
+_Released on 2026-06-06_
+
+### ✨ New Features
+
+- **articles**: цикл про LazyWeb MCP «референсы вместо говнодизайна» — Habr, TenChat, Pikabu, PDF-бонус (промт+чек-лист для агента), обложки, Telegram-анонс + памятка Анжеле
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.65
 
 _Released on 2026-06-05_
