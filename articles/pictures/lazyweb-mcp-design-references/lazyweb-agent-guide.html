@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Igor Maslennikov" />
+  <meta name="dcterms.date" content="2026-06-06" />
+  <title>Как заставить агента правильно работать с LazyWeb</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="guide-style.css" />
+</head>
+<body>
+<style>
+pre {
+  background: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  padding: 4mm;
+  font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 8.5pt;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+  page-break-inside: auto;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+</style>
+<h1 id="как-заставить-агента-правильно-работать-с-lazyweb">Как заставить
+агента правильно работать с LazyWeb</h1>
+<h2
+id="готовый-промт-чек-лист-как-выбрать-референс-советы-из-практики">Готовый
+промт + чек-лист «как выбрать референс» + советы из практики</h2>
+<p><strong>Игорь Масленников</strong> · AI Dev Team Июнь 2026 · версия
+1.0</p>
+<hr/>
+<blockquote>
+<p>Это спутник к статье <a
+href="../../habr/lazyweb-mcp-design-references.md">«LazyWeb: бесплатный
+MCP, который чинит говнодизайн агентов»</a>. LazyWeb — бесплатный
+MCP-сервер дизайн-референсов (257 тысяч реальных экранов приложений и
+сайтов). Здесь — то, что превращает его из «красивой игрушки» в рабочий
+инструмент: промт, который заставляет агента искать и выбирать референсы
+правильно, и памятка, как отличать хороший референс от мусора.</p>
+</blockquote>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="зачем-этот-гайд">Зачем этот гайд</h2>
+<p>Главная проблема новичка с LazyWeb — не сам инструмент, а то, как
+агент им пользуется. По умолчанию он берёт первый попавшийся результат,
+не смотрит на релевантность, копирует чужой экран один-в-один и не
+делает вариантов. В итоге вместо «насмотренного» дизайна получается
+случайный.</p>
+<p>Лечится это одним: правильным промтом. Ниже — готовый блок, который
+вставляешь агенту (Claude Code, Codex, Cursor — без разницы), и он
+начинает работать с LazyWeb так, как надо: формулирует конкретный
+запрос, отсекает мусор по <code>similarity</code>, делает 3-5 разных
+вариантов, показывает источники и не копирует пиксель-в-пиксель.</p>
+<p>После промта — короткий чек-лист «как выбрать референс» (для ручного
+контроля выдачи) и советы, собранные из практики и сообществ.</p>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="промт-для-агента-copy-paste">Промт для агента (copy-paste)</h2>
+<p>Скопируйте этот блок и дайте агенту один раз в начале сессии (или
+положите в правила проекта — <code>CLAUDE.md</code> /
+<code>AGENTS.md</code>).</p>
+<pre class="text"><code># Роль
+Ты — дизайн-инженер. Перед тем как проектировать ЛЮБОЙ UI-экран, ты обязан
+сначала найти реальные референсы в LazyWeb и опереться на них. Не рисуй
+«из головы» — без референсов модель выдаёт усреднённый по обучающим данным
+результат.
+
+# Когда применять
+Любая задача вида «спроектируй / свёрстай / нарисуй» экран, страницу, флоу
+или компонент интерфейса.
+
+# Алгоритм
+1. Сформулируй КОНКРЕТНЫЙ поисковый запрос: тип экрана + ключевой UX-паттерн
+   + домен. Плохо: &quot;dashboard&quot;. Хорошо: &quot;аналитический дашборд с боковой
+   навигацией и карточками метрик&quot;.
+2. Определи платформу и вызови lazyweb_search с параметром platform:
+   - mobile  — экраны мобильных приложений;
+   - desktop — веб-страницы и SaaS-интерфейсы (в выдаче будет pageUrl на
+     живой сайт).
+3. Сделай 3-5 запросов под разными углами (синонимы, разные формулировки
+   паттерна). limit: 20-30.
+4. Фильтруй выдачу САМ — там есть мусор, это нормально:
+   - бери similarity &gt;= 0.5 и matchCount 2/3 или 3/3;
+   - читай поле visionDescription у КАЖДОГО результата (это текстовое
+     описание того, что на скрине). Если описание не совпадает с задачей —
+     выкидывай, не используй;
+   - выкидывай устаревшее и нерелевантное.
+5. Скачай отобранные картинки СРАЗУ (curl), пока ссылки живы: imageUrl —
+   подписанная ссылка, протухает примерно через час.
+6. Собери 3-5 РАЗНЫХ вариантов экрана, каждый на основе своего референса
+   (а не пять оттенков одного). Для каждого варианта укажи источник:
+   companyName и pageUrl.
+7. Покажи мне варианты на выбор. Не копируй референс один-в-один — переноси
+   UX-логику (раскладку, иерархию, флоу), адаптируй под наш продукт и бренд.
+
+# Итерация по существующему экрану
+Если экран уже есть и его надо улучшить:
+- дай скриншот в lazyweb_compare_image (image_url ИЛИ image_base64 +
+  mime_type) — найдёт визуально похожие;
+- либо возьми screenshot_id удачного результата и вызови lazyweb_find_similar.
+
+# Чего НЕ делать
+- Не брать первый результат без проверки similarity и visionDescription.
+- Не выдавать один вариант — всегда несколько.
+- Не копировать чужой экран пиксель-в-пиксель.
+- Не использовать референс, если visionDescription ему противоречит.
+- Не применять для уникального бренд-дизайна, где задача — НЕ быть похожим
+  на других.
+
+# Если LazyWeb недоступен
+Вызови lazyweb_health. Если сервер не отвечает или MCP не установлен —
+скажи мне об этом и не выдумывай референсы, а спроси, продолжать ли без них.</code></pre>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="памятка-как-выбрать-референс">Памятка: как выбрать референс</h2>
+<p>Для ручного контроля выдачи (или чтобы понимать, что агент делает за
+вас). Хороший референс проходит все пункты:</p>
+<ul>
+<li><strong>Релевантность.</strong> <code>similarity</code> ≥ 0.5,
+<code>matchCount</code> 2/3 или 3/3. Всё, что ниже, — обычно шум.</li>
+<li><strong>Описание совпало.</strong> Прочитал
+<code>visionDescription</code> — он реально про нужный экран, а не
+«похоже по слову».</li>
+<li><strong>Не устаревший.</strong> Визуально свежий. Дизайн из 2015-го
+агент подаст с тем же уверенным видом — отбраковывай.</li>
+<li><strong>Правильная платформа.</strong> <code>mobile</code> для
+приложения, <code>desktop</code> для веба/SaaS. Не мешай.</li>
+<li><strong>Это UX, а не картинка.</strong> Берёшь паттерн (как
+разложено, куда спрятано второстепенное, как ведёт флоу), а не
+палитру.</li>
+<li><strong>Есть источник.</strong> <code>companyName</code> и (для
+десктопа) <code>pageUrl</code> — можно сходить на оригинал и
+проверить.</li>
+<li><strong>Скачан вовремя.</strong> Ссылка живёт ~час. Не отложил «на
+потом».</li>
+<li><strong>Вариантов несколько.</strong> 3-5 штук из разных источников.
+Один референс — это лотерея.</li>
+</ul>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="советы-из-практики-и-сообществ">Советы из практики и
+сообществ</h2>
+<p><strong>Design with evidence, not vibes.</strong> Принцип создателя
+LazyWeb (Ali Abouelatta, экс-Duolingo). Смысл буквальный: каждое
+дизайн-решение должно опираться на реальный экран, а не на «мне так
+кажется». Это и есть весь инструмент в одной фразе.</p>
+<p><strong>Ищи в чужих категориях.</strong> Самый недооценённый режим —
+<code>/lazyweb-design-brainstorm</code>. Делаешь фитнес-приложение?
+Посмотри не только конкурентов, а Headspace (визуализация фокуса),
+Duolingo (геймификация, стрик), карты в играх. «Zig when others zag» —
+лучшие идеи приходят из соседних доменов.</p>
+<p><strong>Skills для разовой задачи, промт — для пайплайна.</strong>
+Если надо «по-быстрому глянуть примеры» — slash-команды (см. ниже). Если
+LazyWeb встроен в постоянный процесс генерации UI — клади промт выше в
+правила проекта.</p>
+<p><strong>Бесплатно — но не всё.</strong> Поиск референсов, research,
+improve, brainstorm — бесплатно, без логина и лимитов. Платный только
+A/B Test Agent ($49/мес) — это про данные экспериментов роста и
+монетизации, к подбору референсов отношения не имеет.</p>
+<p><strong>Полностью бесплатно — в отличие от Mobbin.</strong> Главный
+плюс: LazyWeb бесплатен целиком, без логина и лимитов. У Mobbin база
+больше (400 тысяч+), но он фактически платный — на бесплатном тарифе
+почти пусто. Так что «меньше» не значит «менее доступно».</p>
+<p><strong>Знай про перекос.</strong> База скошена в сторону US и
+западных приложений. Для продукта под не-западный рынок проверяй
+сценарии (оплаты, документы) руками — раскладки универсальны, а вот
+сценарии нет.</p>
+<p><strong>Где искать обсуждение.</strong> На Reddit по LazyWeb пока
+тихо. Живые обсуждения и приёмы — в X (Twitter) и на GitHub: <a
+href="https://github.com/aboul3ata/lazyweb-skill">aboul3ata/lazyweb-skill</a>
+(MIT).</p>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="два-режима-и-slash-команды">Два режима и slash-команды</h2>
+<p>LazyWeb работает двумя способами. Ручной — сам смотришь через skills.
+Агентный — даёшь задачу с промтом выше, агент всё делает сам.</p>
+<p>Важно: команды ниже — это готовые скиллы самого плагина LazyWeb (идут
+в комплекте при установке), а не из этого гайда. Из гайда — только промт
+и чек-лист выше.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/lazyweb-design-research</code></td>
+<td>Глубокий разбор темы + HTML-отчёт со скачанными скринами</td>
+</tr>
+<tr>
+<td><code>/lazyweb-quick-references</code></td>
+<td>Быстро накидать примеров по паттерну, без полного отчёта</td>
+</tr>
+<tr>
+<td><code>/lazyweb-design-improve</code></td>
+<td>Скормить свой текущий экран → получить, что улучшить</td>
+</tr>
+<tr>
+<td><code>/lazyweb-design-brainstorm</code></td>
+<td>Идеи из чужих категорий («zig when others zag»)</td>
+</tr>
+<tr>
+<td><code>/lazyweb-add-inspo-source</code></td>
+<td>Подключить Mobbin / Savee / Dribbble / Behance как источник</td>
+</tr>
+<tr>
+<td><code>/lazyweb-remove-inspo-source</code></td>
+<td>Отключить внешний источник</td>
+</tr>
+</tbody>
+</table>
+<p>Под капотом всё это опирается на четыре MCP-тула:
+<code>lazyweb_search</code>, <code>lazyweb_find_similar</code>,
+<code>lazyweb_compare_image</code>, <code>lazyweb_health</code>.</p>
+<div style="page-break-after: always;">
+
+</div>
+<h2 id="контакты-и-обратная-связь">Контакты и обратная связь</h2>
+<p>Гайд составил <strong>Игорь Масленников</strong> — руковожу AI Dev
+Team, каждый день работаю с агентскими системами на Claude Code и
+Codex.</p>
+<p><strong>Telegram-канал:</strong> <a
+href="https://t.me/maslennikovigor">t.me/maslennikovigor</a> Заметки по
+работе с агентами, разборы инструментов, обновления этого гайда.</p>
+<p><strong>Прямой контакт:</strong> <a
+href="https://t.me/maslennikovig"><span class="citation"
+data-cites="maslennikovig">@maslennikovig</span></a> Гоняли LazyWeb или
+Mobbin MCP на реальных задачах? Напишите, что вышло с качеством
+референсов — допишу в следующую версию с указанием источника.</p>
+<p><strong>Инструменты оркестрации:</strong> <a
+href="https://github.com/maslennikov-ig/claude-code-orchestrator-kit">maslennikov-ig/claude-code-orchestrator-kit</a></p>
+<hr/>
+<p><strong>Дисклеймер</strong></p>
+<p>Версия 1.0 на июнь 2026. Числа (257 тысяч экранов, 400 тысяч+ у
+Mobbin, $49/мес за A/B-агент, «77 дней соло») — по заявкам LazyWeb и его
+источников на момент составления; перед тем как опираться, сверьтесь с
+первоисточником. Имена MCP-тулов и slash-команд могут измениться в новых
+версиях плагина — проверяйте через список доступных инструментов и
+<code>/lazyweb</code> в welcome-режиме.</p>
+<p>Не маркетинговый материал, не платная реклама. LazyWeb — сторонний
+бесплатный инструмент, я к нему не имею отношения. Документ
+распространяется бесплатно, можно пересылать и цитировать с указанием
+источника.</p>
+<p>Версия 1.0 · Июнь 2026</p>
+</body>
+</html>
