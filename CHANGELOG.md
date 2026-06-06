@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.66] - 2026-06-06
+
+### Added
+- **articles**: цикл про LazyWeb MCP «референсы вместо говнодизайна» — Habr, TenChat, Pikabu, PDF-бонус (промт+чек-лист для агента), обложки, Telegram-анонс + памятка Анжеле (fe33c16)
+
 ## [1.3.65] - 2026-06-05
 
 ### Added
