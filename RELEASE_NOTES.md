@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.67
+
+_Released on 2026-06-07_
+
+### ✨ New Features
+
+- **articles**: обложки LazyWeb-цикла (4 PNG) + раскладка «файл→площадка» в памятке Анжеле
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.66
 
 _Released on 2026-06-06_

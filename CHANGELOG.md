@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.67] - 2026-06-07
+
+### Added
+- **articles**: обложки LazyWeb-цикла (4 PNG) + раскладка «файл→площадка» в памятке Анжеле (2e4b213)
+
 ## [1.3.66] - 2026-06-06
 
 ### Added
