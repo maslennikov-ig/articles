@@ -1,13 +1,13 @@
 ---
 name: living-text-style
-description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-article, vcru-article, dzen-article, pikabu-article, tenchat-article, telegraph-article, telegram-article, telegram-announcement). Injects 12 hard don'ts + Voice & Soul techniques + канцелярит replacement table into the author's context so the draft comes out living instead of AI-stamped. Mirror of `ai-text-checker` detective rules, cross-referenced via ↔ A{X} tags.
+description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-article, vcru-article, dzen-article, pikabu-article, tenchat-article, telegraph-article, telegram-article, telegram-announcement). Injects 13 hard don'ts + Voice & Soul techniques + канцелярит replacement table into the author's context so the draft comes out living instead of AI-stamped. Mirror of `ai-text-checker` detective rules, cross-referenced via ↔ A{X} tags.
 ---
 
 # Living Text Style — Preventive Layer
 
 This skill is the preventive companion to `ai-text-checker` (detective). The
 detective catalogs AI-writing patterns and cleans drafts after the fact.
-This skill teaches the author to avoid the worst 12 patterns up-front and to
+This skill teaches the author to avoid the worst 13 patterns up-front and to
 write with voice instead of producing a sterile, easy-to-scrub text.
 
 ## When to invoke
@@ -18,7 +18,7 @@ write with voice instead of producing a sterile, easy-to-scrub text.
 
 Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cost.
 
-## Hard don'ts (top 12 — самые ядовитые AI-маркеры)
+## Hard don'ts (top 13 — самые ядовитые AI-маркеры)
 
 | # | Не делай | Почему | ↔ Detector |
 |---|----------|--------|------------|
@@ -34,6 +34,7 @@ Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cos
 | 10 | Title Case В Каждом Слове Заголовка | English-style heading | ↔ A16 |
 | 11 | **Bold** на каждом ключевом слове | bold overuse | ↔ A14 |
 | 12 | Подряд эмодзи как буллет-маркеры (🚀💡✅) | emoji decoration | ↔ A17 |
+| 13 | «честно», «честно говоря», «если честно», «честная оговорка» + само-очевидные «я не стал выдумывать цифры», «вынес за скобки, а не придумал» | перформативная честность / пустой само-референс | ↔ A33 |
 
 ## Voice & Soul (как добавить голос)
 

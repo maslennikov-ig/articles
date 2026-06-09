@@ -1,6 +1,6 @@
 ---
 name: ai-text-checker
-description: Use proactively for detecting and rewriting AI-generated text patterns in article drafts before publication. Specialist for 32 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Reads article from .tmp/current/articles/, applies two-layer remediation (remove patterns then restore liveness), saves backup, edits in-place, returns structured diff report with Needs-human-decision items. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
+description: Use proactively for detecting and rewriting AI-generated text patterns in article drafts before publication. Specialist for 33 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Reads article from .tmp/current/articles/, applies two-layer remediation (remove patterns then restore liveness), saves backup, edits in-place, returns structured diff report with Needs-human-decision items. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
 color: cyan
 ---
 
@@ -112,7 +112,7 @@ The file is already updated via Edit calls — no rewrite needed. Generate the r
 
 This catalog is the authoritative list for the project. Article-skills must NOT duplicate it; they reference this agent.
 
-### Layer A — 32 patterns (adapted from Wikipedia "Signs of AI writing", Russian-localized, extended with канцелярит and rhetoric)
+### Layer A — 33 patterns (adapted from Wikipedia "Signs of AI writing", Russian-localized, extended with канцелярит, rhetoric and performative honesty)
 
 **A1. Inflated significance / legacy / scale**
 Markers: `является важным/ключевым/значимым этапом`, `свидетельствует о`, `подчёркивает важность`, `отражает масштабные тенденции`, `символизирует`, `знаменует собой`, `задаёт вектор развития`, `вносит неоценимый вклад`, `играет ключевую/решающую роль`, `оставляет неизгладимый след`, `ознаменовал новую эру`, `является краеугольным камнем`
@@ -288,6 +288,13 @@ Fix policy (platform-dependent — see Layer C below):
 - `pikabu` / `telegram`: > 2 per post → auto-remove generic closers from the tiebreaker list above; if none are generic, downgrade to flag-only and let the author choose.
 - `telegram-announcement`: > 1 → flag.
 
+**A33. Performative honesty / self-evident integrity claims (перформативная честность)**
+Symptom: the author keeps declaring their own honesty/fairness with words instead of just stating the fact. A frequent AI tell — imitation of "sincerity". Two sub-forms:
+1. **Honesty filler-words**: `честно`, `честно говоря`, `если честно`, `по-честному`, `честно оговариваю`, `честная оговорка`, `важный момент честности`, `буду честен`, `признаюсь честно`, `не буду врать`, `скажу как есть`, `по правде говоря`, `откровенно говоря`.
+2. **Empty self-reference with zero informational content**: `я не стал выдумывать цифры`, `вынес за скобки, а не придумал`, `я ничего не приукрашиваю`, `говорю как есть` — the reader already infers this; spelling it out signals AI text.
+Fix: delete the word/phrase — the fact speaks for itself. `честно оговариваю: X` → `X`. `Ref честно выиграл` → `Ref выиграл`. `я не стал выдумывать им цифры` → delete (already obvious from `BLOCKED`/context). Keep `честно` only on the rare occasion it carries a real contrast (`думал соврать, но скажу честно` — almost never in practice).
+Detection: count the root `честн`; > 1 occurrence per article → flag the surplus; any `честно` used as an intensifying parenthetical without real contrast → auto-remove. Do NOT confuse with legitimate "honesty" as a *topic* (methodological transparency, "не выдумывал цифры заблокированным") — there, rephrase without the stamp-word rather than dropping the substance.
+
 ### Layer B — Project-specific stamps (extracted from existing article-skills)
 
 These were duplicated across 8 article-skills. Centralized here:
@@ -396,7 +403,7 @@ Emit this to stdout as the final action. Russian for the author, structure prese
 ## Статистика по слоям
 | Слой | Найдено | Исправлено | Требует решения |
 |---|---|---|---|
-| A. 32 паттерна (Wikipedia + канцелярит + риторика) | {N} | {N} | {N} |
+| A. 33 паттерна (Wikipedia + канцелярит + риторика + честность) | {N} | {N} | {N} |
 | B. Штампы проекта | {N} | {N} | {N} |
 | C. Платформо-специфика ({platform}) | {N} | {N} | {N} |
 
