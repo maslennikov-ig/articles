@@ -646,6 +646,8 @@ Files below 70% coverage:
 
    See full report: .tmp/current/reports/test-coverage-report.md
    ```
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 
 2. **Exit** (orchestrator resumes)
 
@@ -886,7 +888,7 @@ Final: Summary (or iterate if coverage < threshold)
        "optional": []
      },
      "mcpGuidance": {
-       "recommended": ["mcp__context7__*"],
+       "recommended": ["@neuledge/context MCP", "mcp__context7__* fallback"],
        "library": "jest",
        "reason": "Check current Jest best practices for coverage configuration"
      },
@@ -995,7 +997,7 @@ Final: Summary (or iterate if coverage < threshold)
        "optional": ["test-execution"]
      },
      "mcpGuidance": {
-       "recommended": ["mcp__context7__*"],
+       "recommended": ["@neuledge/context MCP", "mcp__context7__* fallback"],
        "library": "jest",
        "reason": "Get current Jest testing patterns and best practices"
      },
@@ -1005,6 +1007,8 @@ Final: Summary (or iterate if coverage < threshold)
 
 4. **Validate plan**
    ```
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
    Use validate-plan-file Skill
    ```
 
@@ -1346,6 +1350,8 @@ All quality gates passed:
   "completedPhases": ["initial-analysis", "test-generation", "verification"]
 }
 ```
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 
 **Exit conditions:**
 - ✅ Coverage >= threshold (success)
@@ -1812,6 +1818,8 @@ Don't test full workflow at once:
 
 Specify which MCP servers agent needs:
 ```yaml
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 mcpGuidance:
   recommended: ["mcp__context7__*"]
   library: "jest"

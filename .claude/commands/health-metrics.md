@@ -4,7 +4,7 @@ You are analyzing agent ecosystem health metrics to generate monthly performance
 
 ## Purpose
 
-Generate comprehensive monthly metrics report showing agent performance, quality gates, complexity distribution, Context7 usage, and system health for data-driven optimization decisions.
+Generate comprehensive monthly metrics report showing agent performance, quality gates, complexity distribution, Docs L1/L2 usage, and system health for data-driven optimization decisions.
 
 ## Process
 
@@ -79,7 +79,7 @@ Calculate key insights from metrics data.
 - **Research Usage**: % of high/critical that triggered research
 - **Average Score**: Indicates overall task difficulty
 
-#### Context7 Integration Health
+#### Docs L1/L2 Integration Health
 
 **Metrics**:
 - **Success Rate**: `(successful_queries / total_queries) * 100`
@@ -110,7 +110,7 @@ Compare current month vs previous month (if available).
 - Total invocations (growth indicator)
 - Overall success rate (reliability trend)
 - Quality gate pass rates (code health trend)
-- Context7 usage (adoption trend)
+- Docs L1/L2 usage (adoption trend)
 - Research phases triggered (complexity trend)
 
 **Change Indicators**:
@@ -173,7 +173,7 @@ Based on data analysis, provide actionable recommendations.
 **Key Metrics**:
 - Total bugs found: {count}
 - Total vulnerabilities found: {count}
-- Context7 queries: {count} ({success_rate}% success rate)
+- Docs L1/L2 queries: {count} ({success_rate}% success rate)
 - Quality gates pass rate: {percent}%
 
 ---
@@ -188,7 +188,7 @@ For each agent with >= 90% success rate:
 - **Success Rate**: {percent}% ({successes}/{invocations})
 - **Avg Duration**: {minutes} minutes
 - **Value**: {metric description}
-- **Context7 Usage**: {percent}% ({queries} queries)
+- **Docs L1/L2 Usage**: {percent}% ({queries} queries)
 - **Trend**: {comparison to previous month}
 
 ### Needs Improvement ⚠️
@@ -271,7 +271,7 @@ For each gate with pass rate < 85%:
 
 ---
 
-## Context7 Integration
+## Docs L1/L2 Integration
 
 **Total Queries**: {count}
 **Success Rate**: {percent}% ({successes}/{total})
@@ -324,7 +324,7 @@ For each gate with pass rate < 85%:
 
 | Fallback | Count | % of Invocations |
 |----------|-------|------------------|
-| Context7 unavailable | {count} | {percent}% |
+| Docs L1/L2 unavailable | {count} | {percent}% |
 | Quality gate failure | {count} | {percent}% |
 | Max iterations reached | {count} | {percent}% |
 | Worker failure | {count} | {percent}% |
@@ -424,7 +424,7 @@ For optimizations (nice-to-have improvements):
 |--------|-----------------|------------------|--------|
 | Total invocations | {count} | {count} | {percent}% {indicator} |
 | Success rate | {percent}% | {percent}% | {percent}% {indicator} |
-| Context7 usage | {percent}% | {percent}% | {percent}% {indicator} |
+| Docs L1/L2 usage | {percent}% | {percent}% | {percent}% {indicator} |
 | Quality gate pass rate | {percent}% | {percent}% | {percent}% {indicator} |
 | Research phases | {count} | {count} | {percent}% {indicator} |
 

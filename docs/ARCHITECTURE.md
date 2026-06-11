@@ -400,13 +400,15 @@ graph LR
 ### MCP Server Integration
 
 ```mermaid
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 graph TB
-    Worker[Worker Agent] -->|Need library docs?| Context7Decision{Use Context7?}
+    Worker[Worker Agent] -->|Need library docs?| DocsContextDecision{Use Docs L1/L2?}
     Worker -->|Need database?| SupabaseDecision{Use Supabase?}
     Worker -->|Need UI components?| ShadcnDecision{Use shadcn?}
 
-    Context7Decision -->|Yes| Context7[mcp__context7__*]
-    Context7Decision -->|No| DirectCode[Use general knowledge]
+    DocsContextDecision -->|Yes| Context7[mcp__context7__*]
+    DocsContextDecision -->|No| DirectCode[Use general knowledge]
 
     SupabaseDecision -->|Yes| Supabase[mcp__supabase__*]
     SupabaseDecision -->|No| DirectCode
@@ -576,10 +578,10 @@ sequenceDiagram
 graph TD
     Start[Worker Starts] --> CheckMCP{MCP Available?}
 
-    CheckMCP -->|Context7 Available| UseContext7[Use Context7 for validation]
+    CheckMCP -->|Docs L1/L2 Available| UseDocsContext[Use Docs L1/L2 for validation]
     CheckMCP -->|Context7 Unavailable| Fallback[Use general knowledge]
 
-    UseContext7 --> HighConfidence[High Confidence Results]
+    UseDocsContext --> HighConfidence[High Confidence Results]
     Fallback --> LowerConfidence[Lower Confidence + Warning]
 
     HighConfidence --> Report[Generate Report]
@@ -590,7 +592,7 @@ graph TD
     Status -->|Some MCP Unavailable| PartialSuccess[⚠️ PASSED WITH WARNINGS]
     Status -->|Critical MCP Unavailable| Failure[❌ FAILED]
 
-    style UseContext7 fill:#50C878,color:#fff
+    style UseDocsContext fill:#50C878,color:#fff
     style Fallback fill:#F39C12
     style FullSuccess fill:#27AE60,color:#fff
     style PartialSuccess fill:#F39C12
@@ -598,7 +600,7 @@ graph TD
 ```
 
 **Fallback strategy**:
-- Context7 unavailable → Use general knowledge + reduce confidence
+- Docs L1/L2 unavailable → Use general knowledge + reduce confidence
 - Quality gate fails → Prompt user (fix/skip/abort)
 - Max iterations → Generate summary with partial results
 - Token budget exhausted → Simplified mode → Emergency exit
@@ -691,7 +693,7 @@ graph TB
     CheckPD3 -->|Violates| Halt3[HALT: Must log all changes]
 
     CheckPD4 -->|Compliant| Execute[✅ Execute Work]
-    CheckPD4 -->|Violates| Halt4[HALT: Must validate with Context7]
+    CheckPD4 -->|Violates| Halt4[HALT: Must validate with Docs L1/L2]
 
     Halt1 & Halt2 & Halt3 & Halt4 --> Report[Report Violation to User]
 

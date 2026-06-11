@@ -70,7 +70,7 @@ Context for task generation: $ARGUMENTS
 The tasks.md should be immediately executable - each task must be specific enough that an LLM can complete it without additional context.
 
 **Research Tasks**: Questions without obvious answers
-- **Simple**: Agent solves with available tools (Grep, Read, WebSearch, Context7, Supabase docs)
+- **Simple**: Agent solves with available tools (Grep, Read, WebSearch, Docs L1/L2, Supabase docs)
 - **Complex**: Create research prompt in research/ → wait for deepresearch → incorporate
 
 **Planning Phase**: After generating tasks, Phase 0: Planning will be added automatically by the template. This phase includes:

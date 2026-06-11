@@ -319,7 +319,7 @@ See `.github/workflows/` for examples.
 
 - **Prime Directives (PDs)**: Non-negotiable rules (e.g., Return Control Pattern, Quality Gates)
 - **Behavioral Contracts**: What orchestrators/workers/MCPs promise to do
-- **Fallback Strategies**: How to handle Context7 unavailable, quality gate failures, etc.
+- **Fallback Strategies**: How to handle Docs L1/L2 unavailable, quality gate failures, etc.
 - **Emergency Protocols**: Infinite loop detection, file corruption, token exhaustion
 - **Operational Procedures**: File structure, agent selection, plan file format
 
@@ -459,12 +459,14 @@ cat .tmp/current/changes/*.json
 
 ---
 
-### Context7 MCP server not working
+### Docs L1/L2 MCP server not working
 
-**Symptoms**: "Context7 unavailable" warnings in reports
+**Symptoms**: "Docs L1/L2 unavailable" warnings in reports
 
 **Diagnosis**:
 ```bash
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 # Check if Context7 is in active MCP config
 cat .mcp.json | grep context7
 
@@ -478,7 +480,7 @@ cat .mcp.json | grep context7
 3. Verify no firewall blocking outbound requests
 4. Switch to BASE or higher config (Context7 included)
 
-**Fallback**: Workers will continue with reduced confidence if Context7 unavailable.
+**Fallback**: Workers will continue with reduced confidence if Docs L1/L2 unavailable.
 
 ---
 
@@ -508,7 +510,7 @@ Ask Claude Code: "Use validate-report-file skill to check {report-path}"
 - **PD-1**: Orchestrators cannot invoke workers via Task tool
 - **PD-2**: Cannot skip blocking quality gates without user confirmation
 - **PD-3**: Must log all file changes
-- **PD-4**: Must validate with Context7 when available
+- **PD-4**: Must validate with Docs L1/L2 when available
 - **PD-6**: Workers must generate structured reports
 
 **Action**: This is CORRECT behavior. The agent is preventing an anti-pattern. Adjust workflow to comply with PD.

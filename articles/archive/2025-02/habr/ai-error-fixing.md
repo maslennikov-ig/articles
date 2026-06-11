@@ -510,7 +510,7 @@ FOR each error:
      - Types → typescript-types-specialist
      - UI → nextjs-ui-designer
 
-  3. QUERY context7 for relevant docs
+  3. QUERY Docs L1/L2 for relevant docs
 
   4. DELEGATE using Task tool:
      Task(subagent_type="<selected>", prompt="Fix error...")

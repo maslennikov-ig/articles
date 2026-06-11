@@ -53,7 +53,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 2. **Library-First Search** (MANDATORY before research):
    - For each major component (>20 lines expected), search for existing libraries:
      - WebSearch: "npm {functionality} library 2024" or "python {functionality} package"
-     - Context7: documentation for candidate libraries
+     - Docs L1/L2: documentation for candidate libraries
      - Check: weekly downloads >1000, commits in last 6 months, TypeScript/types support
    - Document library decisions in research.md
 
@@ -67,7 +67,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    ```
 
 4. **Research Considerations**:
-   - **Simple research**: Questions solvable with available tools (Grep, Read, WebSearch, Context7) - resolve immediately
+   - **Simple research**: Questions solvable with available tools (Grep, Read, WebSearch, Docs L1/L2) - resolve immediately
    - **Complex research**: Requires deep investigation → create research prompt in `FEATURE_DIR/research/` for deepresearch tool
 
 5. **Consolidate findings** in `research.md` using format:

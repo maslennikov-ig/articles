@@ -76,7 +76,7 @@ You **MUST** consider the user input before proceeding (if not empty).
      * [EXECUTOR: specific-agent-name] - For all other tasks using existing or newly created agents
      * Annotate all tasks with `[EXECUTOR: name]` and `[SEQUENTIAL]`/`[PARALLEL-GROUP-X]`
    - **Step 4: Research Resolution**:
-     * Simple research: solve with agent tools (Grep, Read, WebSearch, Context7, Supabase docs)
+     * Simple research: solve with agent tools (Grep, Read, WebSearch, Docs L1/L2, Supabase docs)
      * Complex research: create research prompt in research/, wait for user deepresearch, incorporate results
    - Output: Updated tasks.md with executor annotations
    - **Atomicity Rule (CRITICAL)**: 1 Task = 1 Agent Invocation
@@ -150,10 +150,11 @@ You **MUST** consider the user input before proceeding (if not empty).
       - [EXECUTOR: subagent-name]? → Delegate to specified subagent
    3. GATHER CONTEXT: Read existing code, search patterns, review docs, check commits
    3.5. LIBRARY SEARCH: Before writing >20 lines of new code, search for existing npm/pypi packages
-      - Use WebSearch + Context7 to find and evaluate libraries
+      - Use WebSearch + Docs L1/L2 to find and evaluate libraries
       - If suitable library found: install and configure instead of implementing from scratch
       - Check: weekly downloads >1000, recent commits, TypeScript support, no critical vulnerabilities
    3.6. FETCH LIBRARY DOCS (MANDATORY): Before writing code that uses ANY library:
+      - Docs L1/L2 policy: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords; Context7 tool names below are L2 fallback only for L1 miss/stale/insufficient.
       - Call `mcp__context7__resolve-library-id` to get library ID
       - Call `mcp__context7__get-library-docs` with relevant topic (e.g., "hooks", "routing", "auth")
       - Use fetched docs to ensure correct API usage and avoid deprecated patterns
