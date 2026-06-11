@@ -2,6 +2,19 @@
 
 User-facing release notes for all versions.
 
+## v1.3.68
+
+_Released on 2026-06-11_
+
+### ✨ New Features
+
+- **articles**: цикл про промптинг под модель — Habr/TenChat/Pikabu + пак промптов Fable/Opus/GPT, обложки, Telegram-анонс и памятка Анжеле
+- **articles**: цикл docs-in-context — миграция Context7 → связка @neuledge L1 + Context7 L2
+
+---
+
+_This release was automatically generated from 2 commits._
+
 ## v1.3.67
 
 _Released on 2026-06-07_
