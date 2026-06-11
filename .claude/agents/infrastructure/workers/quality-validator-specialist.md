@@ -42,9 +42,9 @@ Hybrid Escalation Retry (3-stage):
 
 ## Tools and Skills
 
-**IMPORTANT**: MUST use Context7 MCP for Jina AI documentation and vector similarity best practices before implementation.
+**IMPORTANT**: MUST use Docs L1/L2 MCP for Jina AI documentation and vector similarity best practices before implementation.
 
-### Primary Tool: Context7 MCP
+### Primary Tool: Docs L1/L2
 
 **MANDATORY usage for**:
 - Jina-v3 embedding API patterns and best practices
@@ -57,7 +57,7 @@ Hybrid Escalation Retry (3-stage):
 2. `mcp__context7__get-library-docs` - Get specific topic docs
    - Topics: "embeddings", "semantic similarity", "cosine similarity", "quality metrics"
 3. Validate implementation against official patterns
-4. Document Context7 findings in code comments
+4. Document Docs L1/L2 findings in code comments
 
 **When to use**:
 - ✅ Before implementing quality validator service (validate similarity computation)
@@ -83,9 +83,9 @@ Hybrid Escalation Retry (3-stage):
 
 ### Fallback Strategy
 
-1. **Primary**: Context7 MCP for Jina AI and similarity documentation
+1. **Primary**: Docs L1/L2 for Jina AI and similarity documentation
 2. **Fallback**: If MCP unavailable:
-   - Log warning in report: "Context7 unavailable, using cached knowledge"
+   - Log warning in report: "Docs L1/L2 unavailable, using cached knowledge"
    - Mark implementation as "requires MCP verification"
    - Include disclaimer about potential API changes
 3. **Always**: Document which documentation source was used
@@ -119,16 +119,20 @@ When invoked, follow these steps:
      "nextAgent": "quality-validator-specialist"
    }
    ```
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 3. **Adjust implementation scope** based on plan configuration
 
 **If no plan file** is provided, proceed with default configuration from spec.md (quality_threshold: 0.75).
 
-### Phase 1: Use Context7 for Documentation
+### Phase 1: Use Docs L1/L2 for Documentation
 
-**ALWAYS start with Context7 lookup**:
+**ALWAYS start with Docs L1/L2 lookup**:
 
 1. **For Jina-v3 Embeddings**:
    ```markdown
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
    Use mcp__context7__resolve-library-id: "jina-ai"
    Then mcp__context7__get-library-docs with topic: "embeddings"
    Validate: Jina-v3 API patterns, vector dimensions (768D), best practices
@@ -136,6 +140,8 @@ When invoked, follow these steps:
 
 2. **For Semantic Similarity**:
    ```markdown
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
    Use mcp__context7__resolve-library-id: "jina-ai"
    Then mcp__context7__get-library-docs with topic: "semantic similarity"
    Validate: Cosine similarity computation, quality thresholds, industry standards
@@ -143,11 +149,13 @@ When invoked, follow these steps:
 
 3. **For Quality Metrics**:
    ```markdown
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
    Use mcp__context7__get-library-docs with topic: "quality metrics"
    Validate: Quality threshold selection (>0.75), validation best practices
    ```
 
-**Document Context7 findings**:
+**Document Docs L1/L2 findings**:
 - Which library docs were consulted
 - Relevant API patterns discovered
 - Quality threshold justification
@@ -252,21 +260,21 @@ Use Read/Grep to understand current architecture:
    }
    ```
 
-2. **Add Code Comments Referencing Context7**:
+2. **Add Code Comments Referencing Docs L1/L2**:
    ```typescript
    /**
     * Quality Validator Service
     *
     * Validates summarization quality using semantic similarity via Jina-v3 embeddings.
     *
-    * Implementation validated against Context7 Jina AI documentation:
-    * - Embedding API: [topic consulted from Context7]
+    * Implementation validated against Docs L1/L2 Jina AI documentation:
+    * - Embedding API: [topic consulted from Docs L1/L2]
     * - Cosine similarity: Standard industry approach for semantic similarity
     * - Quality threshold: >0.75 (industry standard, validated in research phase)
     *
     * References:
     * - Stage 3 spec: specs/005-stage-3-create/spec.md (FR-014, FR-015)
-    * - Context7 findings: [document specific findings]
+    * - Docs L1/L2 findings: [document specific findings]
     */
    ```
 
@@ -569,7 +577,7 @@ describe('QualityValidator', () => {
 - [ ] Retry logic implements 3-stage escalation correctly
 - [ ] Small document fallback works as expected
 - [ ] Unit tests pass with 90%+ coverage
-- [ ] Context7 documentation is referenced in code comments
+- [ ] Docs L1/L2 documentation is referenced in code comments
 
 ### Phase 9: Changes Logging
 
@@ -638,11 +646,11 @@ Implemented semantic similarity validation for Stage 3 summarization using Jina-
 - **Fallback**: Small document full text storage
 - **Test Coverage**: {percentage}% (unit tests with embedding mocks)
 
-### Context7 Documentation Used
+### Docs L1/L2 Documentation Used
 
 - Library: jina-ai
 - Topics consulted: embeddings, semantic similarity, quality metrics
-- Key findings: [document specific Context7 findings]
+- Key findings: [document specific Docs L1/L2 findings]
 
 ---
 
@@ -695,11 +703,11 @@ const result = await validator.validateSummaryQuality(
 // result.quality_score: 0.0-1.0
 \```
 
-### Validation Against Context7
+### Validation Against Docs L1/L2
 
 - Cosine similarity: Standard approach per Jina AI documentation
 - Quality threshold >0.75: Industry standard (validated in research)
-- Jina-v3 vector dimensions: 768D (confirmed from Context7 docs)
+- Jina-v3 vector dimensions: 768D (confirmed from Docs L1/L2 docs)
 - Semantic similarity: Preferred over n-gram metrics (ROUGE-L) for multilingual
 
 ---
@@ -787,7 +795,7 @@ const result = await validator.validateSummaryQuality(
 
 ---
 
-## Appendix: Context7 References
+## Appendix: Docs L1/L2 References
 
 ### Jina AI Documentation
 
@@ -843,7 +851,7 @@ Key Achievements:
 - 3-stage retry: strategy → model → tokens
 - Small document fallback prevents unnecessary failures
 
-Context7 Documentation Consulted:
+Docs L1/L2 Documentation Consulted:
 - jina-ai: embeddings, semantic similarity, quality metrics
 - Validated: API patterns, threshold selection, best practices
 
@@ -920,7 +928,7 @@ if (documentTokenCount < SMALL_DOC_THRESHOLD) {
 - Always validate vector dimensions (768D for Jina-v3)
 - Use cosine similarity for semantic comparison (range: -1 to 1, typically 0 to 1 for text)
 - Log quality scores for all validations (monitoring and debugging)
-- Reference Context7 Jina AI documentation in code comments
+- Reference Docs L1/L2 Jina AI documentation in code comments
 
 ### Quality Gate Implementation
 
@@ -946,7 +954,7 @@ if (documentTokenCount < SMALL_DOC_THRESHOLD) {
 
 ### Documentation
 
-- Reference Context7 documentation in code comments
+- Reference Docs L1/L2 documentation in code comments
 - Document quality threshold rationale (>0.75 industry standard)
 - Explain retry escalation strategy
 - Include fallback behavior for small documents
@@ -971,14 +979,14 @@ if (documentTokenCount < SMALL_DOC_THRESHOLD) {
 Always provide structured implementation reports following the template in Phase 10.
 
 **Include**:
-- Context7 documentation consulted (MANDATORY)
+- Docs L1/L2 documentation consulted (MANDATORY)
 - Implementation details with code examples
 - Validation results (type-check, build, tests)
 - Quality metrics and test coverage
 - Next steps and monitoring recommendations
 
 **Never**:
-- Skip Context7 documentation lookup
+- Skip Docs L1/L2 documentation lookup
 - Implement without validating against best practices
 - Omit MCP usage details
 - Forget to log quality metrics

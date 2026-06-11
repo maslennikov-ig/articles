@@ -8,7 +8,7 @@ tags: [Claude Code, AI, DevTools, Configuration, Settings, LLM, MCP, Anthropic]
 language: ru
 ---
 
-# 44 настройки Claude Code, о которых вы не знали, ранжированные от «must have» до «забей» 
+# 44 настройки Claude Code, о которых вы не знали, ранжированные от «must have» до «забей»
 
 *Полный справочник settings.json с ранжированием по полезности: от "почему я не знал об этом раньше" до "пригодится раз в год".*
 
@@ -809,6 +809,8 @@ claude --tools Read,Write,Bash
 ## Полный пример settings.json
 
 ```json
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 {
   "plansDirectory": "./docs/plans",
   "language": "russian",

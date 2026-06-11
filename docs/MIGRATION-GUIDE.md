@@ -192,7 +192,7 @@ echo ".env.local" >> .gitignore
 "Use bug-hunter to scan src/"
 
 # Verify MCP servers working
-"Check Context7 availability"
+"Check Docs L1/L2 availability"
 ```
 
 ---
@@ -323,7 +323,7 @@ cp claude-code-orchestrator-kit/CLAUDE.md ./
 # Should generate metrics report
 
 # Test 3: MCP servers active
-# (Ask Claude Code): "Use Context7 to get React docs"
+# (Ask Claude Code): "Use Docs L1/L2 to get React docs"
 # Should return React documentation
 
 # Test 4: Custom agents work

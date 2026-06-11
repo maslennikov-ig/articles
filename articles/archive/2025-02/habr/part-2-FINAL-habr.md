@@ -160,7 +160,7 @@ find src -name "*.ts" -o -name "*.tsx" | wc -l
 ### Phase 2: Static Analysis & Validation
 
 4. **Optional**: Use `mcp__ide__getDiagnostics({})` if IDE MCP extension available
-5. **REQUIRED**: Check framework documentation for proper patterns using Context7 before flagging issues
+5. **REQUIRED**: Check framework documentation for proper patterns using Docs L1/L2 before flagging issues
 6. Run available linters and type checkers using Bash:
    - For TypeScript/JavaScript: `npx tsc --noEmit`, `npm run lint` or `pnpm lint`
    - For Python: `pylint`, `flake8`, `mypy`
@@ -550,7 +550,7 @@ color: purple
 
 This agent uses the following MCP servers when available:
 
-### Context7 (REQUIRED)
+### Docs L1/L2 (REQUIRED)
 ```javascript
 // Check authentication best practices
 mcp__context7__resolve-library-id({libraryName: "passport"})
@@ -780,6 +780,8 @@ RESULT: Проект чистый, все баги исправлены
 #### .bug-detection-plan.json
 
 ```json
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 {
   "workflow": "bug-management",
   "phase": "detection",
@@ -801,7 +803,7 @@ RESULT: Проект чистый, все баги исправлены
     "optional": ["tests"]
   },
   "mcpGuidance": {
-    "recommended": ["mcp__context7__*"],
+    "recommended": ["@neuledge/context MCP", "mcp__context7__* fallback"],
     "library": "react",
     "reason": "Validate React patterns before flagging as bugs"
   },
@@ -827,6 +829,8 @@ RESULT: Проект чистый, все баги исправлены
 #### .bug-fixing-critical-plan.json
 
 ```json
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 {
   "workflow": "bug-management",
   "phase": "fixing",
@@ -855,7 +859,7 @@ RESULT: Проект чистый, все баги исправлены
     "optional": ["tests"]
   },
   "mcpGuidance": {
-    "recommended": ["mcp__context7__*"],
+    "recommended": ["@neuledge/context MCP", "mcp__context7__* fallback"],
     "library": "node.js",
     "reason": "Check Node.js best practices for connection pooling"
   },

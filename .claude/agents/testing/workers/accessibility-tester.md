@@ -27,8 +27,10 @@ mcp__playwright__browser_press_key({key: "Tab"})
 mcp__playwright__browser_evaluate({function: "() => document.querySelector('meta[name=viewport]').content"})
 ```
 
-### Context7 (Optional for framework patterns)
+### Docs L1/L2 (Optional for framework patterns)
 ```bash
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 // Check framework-specific accessibility patterns
 mcp__context7__resolve-library-id({libraryName: "react"})
 mcp__context7__get-library-docs({context7CompatibleLibraryID: "/facebook/react", topic: "accessibility"})

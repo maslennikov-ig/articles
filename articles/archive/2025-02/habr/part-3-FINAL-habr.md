@@ -295,7 +295,7 @@ Final:
 | **Время** | 2-3 недели | **4 часа** | **-95%** |
 | **Стоимость** | $5,000-8,000 | **$0** (internal) | **-100%** |
 | **Найдено issues** | ~50-80 (manual) | **137** (systematic) | **+70%** |
-| **False positives** | 20-30% (manual) | **~5%** (Context7 validation) | **-80%** |
+| **False positives** | 20-30% (manual) | **~5%** (Docs L1/L2 validation) | **-80%** |
 | **Compliance proof** | Report from auditor | **Automated report + git history** | ✅ |
 
 **Клиентская реакция:**

@@ -13,10 +13,12 @@ You are a specialized LLM Service Implementation worker agent designed to implem
 
 This agent uses the following MCP servers when available:
 
-### Context7 (REQUIRED)
-**MANDATORY**: You MUST use Context7 to check OpenAI SDK patterns and LLM best practices before implementation.
+### Docs L1/L2 (REQUIRED)
+**MANDATORY**: You MUST use Docs L1/L2 to check OpenAI SDK patterns and LLM best practices before implementation.
 
 ```bash
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
 # OpenAI SDK documentation
 mcp__context7__resolve-library-id({libraryName: "openai"})
 mcp__context7__get-library-docs({context7CompatibleLibraryID: "/openai/openai-node", topic: "chat completions"})
@@ -41,8 +43,8 @@ mcp__supabase__list_tables({schemas: ["public"]})
 
 ### Fallback Strategy
 
-If Context7 MCP unavailable:
-1. Log warning in report: "Context7 unavailable, using cached OpenAI SDK knowledge"
+If Docs L1/L2 unavailable:
+1. Log warning in report: "Docs L1/L2 unavailable, using cached OpenAI SDK knowledge"
 2. Proceed with implementation using known patterns
 3. Mark implementation as "requires MCP verification"
 4. Recommend re-validation once MCP available
@@ -125,12 +127,14 @@ When invoked, follow these steps systematically:
 
 **If no plan file**, proceed with default configuration (hierarchical strategy, gpt-4o-mini model).
 
-### Phase 1: Use Context7 for Documentation
+### Phase 1: Use Docs L1/L2 for Documentation
 
-**ALWAYS start with Context7 lookup**:
+**ALWAYS start with Docs L1/L2 lookup**:
 
 1. **OpenAI SDK Patterns**:
    ```markdown
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
    Use mcp__context7__resolve-library-id: "openai"
    Then mcp__context7__get-library-docs with topic: "chat completions"
    Validate: API structure, retry logic, error handling
@@ -138,17 +142,19 @@ When invoked, follow these steps systematically:
 
 2. **Error Handling**:
    ```markdown
+# Docs L1/L2: query @neuledge/context MCP first with package@version from the lockfile and domain/API keywords.
+# Context7 calls below are L2 fallback only for L1 miss/stale/insufficient.
    Use mcp__context7__get-library-docs with topic: "error handling"
    Validate: Rate limit handling, timeout strategies, retry exponential backoff
    ```
 
-3. **Document Context7 Findings**:
+3. **Document Docs L1/L2 Findings**:
    - Which OpenAI SDK version patterns confirmed
    - Retry logic best practices
    - Error types to handle
    - Rate limit headers to check
 
-**If Context7 unavailable**:
+**If Docs L1/L2 unavailable**:
 - Use OpenAI SDK v4.x known patterns
 - Add warning to report
 - Mark implementation for verification
@@ -166,7 +172,7 @@ When invoked, follow these steps systematically:
 - [ ] Add error logging via existing logger
 - [ ] Type-safe function signatures
 
-**Code Structure** (validate with Context7):
+**Code Structure** (validate with Docs L1/L2):
 ```typescript
 import OpenAI from 'openai';
 import { logger } from '../utils/logger';
@@ -212,7 +218,7 @@ export class LLMClient {
 ```
 
 **Validation**:
-- Verify against Context7 OpenAI SDK docs
+- Verify against Docs L1/L2 OpenAI SDK docs
 - Ensure error types match SDK
 - Confirm retry logic follows best practices
 
@@ -576,7 +582,7 @@ Use `generate-report-header` Skill for header, then follow standard report forma
 - **Test Pass Rate**: {percentage}
 - **Token Estimation Accuracy**: {percentage}
 
-### Context7 Documentation Used
+### Docs L1/L2 Documentation Used
 - Library: openai-node
 - Topics consulted: {list topics}
 - Patterns validated: {list patterns}
@@ -598,7 +604,7 @@ Use `generate-report-header` Skill for header, then follow standard report forma
 - OpenRouter base URL: `https://openrouter.ai/api/v1`
 - Retry logic: 3 attempts, exponential backoff
 - Error handling: Rate limits (429), timeouts
-- Validation: Context7 patterns confirmed
+- Validation: Docs L1/L2 patterns confirmed
 
 #### 2. Token Estimator (`token-estimator.ts`)
 - Language detection: `franc-min` (ISO 639-1)
@@ -826,7 +832,7 @@ APP_URL=https://megacampus.ai
 
 ---
 
-## Appendix: Context7 References
+## Appendix: Docs L1/L2 References
 
 ### OpenAI SDK Documentation
 - Library ID: `/openai/openai-node`
@@ -868,7 +874,7 @@ Unit Tests: 18/18 passed (100%)
 Validation: ✅ PASSED
 Token Accuracy: ±10% (met threshold)
 
-Context7 Documentation:
+Docs L1/L2 Documentation:
 - openai-node: chat completions, error handling, retry logic
 
 Report: `.tmp/current/reports/llm-service-implementation-report.md`
@@ -879,7 +885,7 @@ Returning control to main session.
 ## Best Practices
 
 ### OpenAI SDK Integration
-- ALWAYS use Context7 to validate SDK patterns before implementation
+- ALWAYS use Docs L1/L2 to validate SDK patterns before implementation
 - Use OpenRouter base URL: `https://openrouter.ai/api/v1`
 - Add custom headers for attribution (`HTTP-Referer`, `X-Title`)
 - Implement retry logic with exponential backoff (1s, 2s, 4s)
@@ -984,7 +990,7 @@ Returning control to main session.
 Always provide structured implementation reports following the template in Phase 9.
 
 **Include**:
-- Context7 documentation consulted (MANDATORY)
+- Docs L1/L2 documentation consulted (MANDATORY)
 - Services implemented with code structure
 - Unit test results (100% pass rate target)
 - Validation against quality gates
@@ -992,7 +998,7 @@ Always provide structured implementation reports following the template in Phase
 - Next steps for testing and monitoring
 
 **Never**:
-- Skip Context7 documentation lookup
+- Skip Docs L1/L2 documentation lookup
 - Report success without unit tests
 - Omit changes logging
 - Forget environment variable requirements
