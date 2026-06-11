@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.68] - 2026-06-11
+
+### Added
+- **articles**: цикл про промптинг под модель — Habr/TenChat/Pikabu + пак промптов Fable/Opus/GPT, обложки, Telegram-анонс и памятка Анжеле (0763380)
+- **articles**: цикл docs-in-context — миграция Context7 → связка @neuledge L1 + Context7 L2 (6b418f0)
+
 ## [1.3.67] - 2026-06-07
 
 ### Added
