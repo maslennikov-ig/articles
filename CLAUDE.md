@@ -8,7 +8,7 @@
 - Primary workflow comes from global `~/.claude/CLAUDE.md` and the `orchestration-bridge` plugin.
 - For medium/complex, risky, docs-sensitive, delegated, file-changing, or handoff-prone work, use `orchestration-bridge:orchestrator-stage`.
 - Do not use `template-bridge` for new orchestration.
-- Use Docs L1/L2: `@neuledge/context` first with lockfile-routed package/version; Context7 MCP or first-party docs only when L1 is missing, stale, or insufficient.
+- Use Docs L1/L2: `@neuledge/context` first with lockfile-routed package/version; Context7 MCP or first-party docs as fallback only when L1 is missing, stale, or insufficient.
 - Use Beads when available for file-changing, delegated, long, or handoff-prone work.
 - Remote push, PR creation, merge, deploy, force-push, and production mutation require repo contract support and current user authorization.
 
