@@ -7,9 +7,10 @@
 - **Productivity Comparison**: AI-система усиливает каждого специалиста, каждый проект ведут 3-7 человек + AI-агенты
 - **Author**: Игорь Масленников (@maslennikovig в Telegram)
 - **Telegram Channel**: https://t.me/maslennikovigor
-- **GitHub**: https://github.com/maslennikov-ig/claude-code-orchestrator-kit
-- **npm Package**: @anthropics-tool/claude-code-orchestrator-kit
+- **GitHub** (УСТАРЕЛ — НЕ вставлять в статьи): https://github.com/maslennikov-ig/claude-code-orchestrator-kit
+- **npm Package** (устарел): @anthropics-tool/claude-code-orchestrator-kit
 - **License**: MIT (бесплатно и открыто)
+- **Новый harness**: на тестировании, статья выйдет позже — до неё в контактах НЕ упоминаем
 
 ## Current Metrics (December 2025)
 
@@ -21,11 +22,11 @@
 
 ## Contact Preferences
 
-При указании контактов использовать:
-1. GitHub (бесплатные инструменты для автоматизации разработки) — для бизнес-аудитории
-   GitHub (orchestrator kit — агенты, скиллы, команды) — для технической аудитории (Habr)
-2. Telegram @maslennikovig (для прямой связи)
+При указании контактов в статьях использовать ТОЛЬКО Telegram:
+1. Канал — https://t.me/maslennikovigor
+2. Прямая связь — @maslennikovig
 
+НЕ вставлять в статьи ссылку на GitHub `claude-code-orchestrator-kit` — репозиторий давно не обновляется. Статья про новый harness выйдет позже (сейчас на тестировании); до неё GitHub в контактах не упоминаем (можно сослаться, что про harness расскажем отдельно).
 НЕ использовать GitHub Discussions (ссылка не работает).
 
 ## Writing Guidelines
