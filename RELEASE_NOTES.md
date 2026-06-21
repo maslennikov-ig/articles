@@ -2,6 +2,20 @@
 
 User-facing release notes for all versions.
 
+## v1.3.69
+
+_Released on 2026-06-21_
+
+### ✨ New Features
+
+- **articles**: цикл «Разработчики больше не нужны?» — разбор исследования Anthropic про экспертизу
+- **articles**: цикл SalesTest — бенчмарк умения LLM продавать
+- **articles**: телеграм-пост — проекты для выпускников (win-win-win) + Кира
+
+---
+
+_This release was automatically generated from 3 commits._
+
 ## v1.3.68
 
 _Released on 2026-06-11_
