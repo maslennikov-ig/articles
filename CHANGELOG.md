@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.69] - 2026-06-21
+
+### Added
+- **articles**: цикл «Разработчики больше не нужны?» — разбор исследования Anthropic про экспертизу (f84c026)
+- **articles**: цикл SalesTest — бенчмарк умения LLM продавать (be517e6)
+- **articles**: телеграм-пост — проекты для выпускников (win-win-win) + Кира (9670a65)
+
 ## [1.3.68] - 2026-06-11
 
 ### Added
