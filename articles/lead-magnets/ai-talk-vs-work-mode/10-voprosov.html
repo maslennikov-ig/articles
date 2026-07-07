@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>10 вопросов себе, чтобы не потерять контроль над ИИ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:        #0d0d0d;
+    --bg-card:   #161616;
+    --bg-card-2: #1c1c1c;
+    --border:    #2a2a2a;
+    --border-2:  #383838;
+    --text:      #e5e2e1;
+    --text-dim:  #b5b3b2;
+    --text-mute: #8a8a8a;
+    --accent:    #00f5d4;
+    --accent-2:  #00d4b5;
+    --warn:      #ffb84d;
+    --good:      #6ee7b7;
+  }
+
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, system-ui, 'Helvetica Neue', sans-serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    margin: 0; padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: 14mm 13mm; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600; letter-spacing: -0.01em;
+    color: var(--text); margin: 0 0 0.4em;
+  }
+  h1 { font-size: 28pt; line-height: 1.1; letter-spacing: -0.02em; }
+  h2 { font-size: 16pt; margin-top: 1.4em; }
+  h3 { font-size: 12pt; margin-top: 1.2em; color: var(--accent); }
+  p { margin: 0 0 0.7em; color: var(--text-dim); }
+  strong { color: var(--text); font-weight: 600; }
+  em { color: var(--accent); font-style: normal; }
+  a { color: var(--accent); text-decoration: none; }
+  ul { padding-left: 0; list-style: none; margin: 0.4em 0 1em; }
+  ul li { margin-bottom: 0.55em; color: var(--text-dim); position: relative; padding-left: 1.4em; }
+  ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+  code {
+    background: var(--bg-card); border: 1px solid var(--border);
+    padding: 1px 6px; border-radius: 4px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9.5pt; color: var(--accent);
+  }
+
+  .hero {
+    border: 1px solid var(--border); border-radius: 14px;
+    background: linear-gradient(135deg, #131313 0%, #0d0d0d 100%);
+    padding: 34px; margin-bottom: 26px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -50%; right: -10%; width: 60%; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(0,245,212,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-brand {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 13pt; color: var(--text); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-brand::before {
+    content: ''; display: inline-block; width: 8px; height: 8px;
+    background: var(--accent); border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0,245,212,0.7);
+  }
+  .hero-eyebrow {
+    font-family: 'Space Grotesk', sans-serif; font-size: 9pt; font-weight: 500;
+    color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em;
+    margin-bottom: 14px;
+  }
+  .hero h1 { font-size: 27pt; line-height: 1.08; margin-bottom: 14px; }
+  .hero .lede { color: var(--text-dim); font-size: 11.5pt; max-width: 94%; margin: 0; }
+  .hero-meta {
+    display: flex; gap: 28px; margin-top: 24px; padding-top: 20px;
+    border-top: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .meta-block .label {
+    font-size: 8.5pt; color: var(--text-mute);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;
+  }
+  .meta-block .value {
+    font-family: 'Space Grotesk', sans-serif; font-size: 12pt; font-weight: 600; color: var(--text);
+  }
+  .meta-block .value.accent { color: var(--accent); }
+
+  .intro { color: var(--text-dim); font-size: 11pt; margin: 0 0 6px; }
+
+  /* Вопросы */
+  .q {
+    display: flex; gap: 15px; align-items: flex-start;
+    padding: 13px 0; border-bottom: 1px solid var(--border);
+    page-break-inside: avoid;
+  }
+  .q:last-child { border-bottom: none; }
+  .q .num {
+    flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(0,245,212,0.1); border: 1px solid rgba(0,245,212,0.35);
+    color: var(--accent); font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600; font-size: 12.5pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .q .qt { color: var(--text); font-size: 11.5pt; line-height: 1.45; padding-top: 4px; }
+
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px 26px; margin: 14px 0;
+    page-break-inside: avoid;
+  }
+  .card.featured {
+    border-color: rgba(0,245,212,0.35);
+    background: linear-gradient(180deg, rgba(0,245,212,0.04), transparent 80%), var(--bg-card);
+  }
+  .card h3 { margin-top: 0; }
+
+  .footer {
+    margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    color: var(--text-mute); font-size: 9pt;
+  }
+  .footer .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--text); }
+  .small-cap { font-size: 8.5pt; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.12em; }
+
+  h2 { page-break-before: always; }
+  h2.no-break { page-break-before: avoid; }
+  h2, h3 { page-break-after: avoid; }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-brand">AiDevTeam</div>
+    <div class="hero-eyebrow">Памятка • Работа с ИИ</div>
+    <h1>10 вопросов себе, чтобы не потерять контроль над ИИ</h1>
+    <p class="lede">Когда долго работаешь с моделью, контроль утекает незаметно: сначала перестаёшь спорить, потом — перечитывать, а в какой-то момент отдаёшь ИИ не работу, а <em>суждение</em>. Здесь десять вопросов, которые возвращают тебя в кресло ведущего, — но задавать все сразу не нужно, начни с трёх главных. Повесь рядом с монитором.</p>
+    <div class="hero-meta">
+      <div class="meta-block">
+        <div class="label">Автор</div>
+        <div class="value">Игорь Масленников</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Зачем</div>
+        <div class="value accent">остаться ведущим</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Где обсудить</div>
+        <div class="value">@maslennikovigor</div>
+      </div>
+    </div>
+  </section>
+
+  <p class="intro">Есть два режима работы с ИИ. В режиме <strong>«поболтать»</strong> ты споришь и задаёшь вопросы охотно. В режиме <strong>«поработать»</strong> — наоборот, тихо перестаёшь спорить и жмёшь «дальше-дальше-дальше». Подвох в том, что трение и вопросы нужнее всего именно в работе — там, где ты их выключаешь. Это не про лень: опрос Microsoft и Carnegie Mellon (319 специалистов) показал, что чем выше доверие к модели, тем меньше критического мышления, — и простой опытностью это не лечится. Лечится — вопросами к себе.</p>
+
+  <h2 class="no-break">Не нужно задавать все сразу</h2>
+  <p>Десять вопросов разом не задаёт никто — это невозможно и не нужно. Держи в голове три главных, а остальные доставай по ситуации. Это не чек-лист «пройти от и до», а набор, из которого выдёргиваешь нужное под текущий момент.</p>
+
+  <div class="card featured">
+    <h3 style="margin-top:0;">Три главных — с них начни</h3>
+    <div class="q"><div class="num">1</div><div class="qt">Кто сейчас ведущий — я или модель? Я делегирую работу — или уже суждение?</div></div>
+    <div class="q"><div class="num">2</div><div class="qt">Я <strong>читаю</strong> то, что выдала модель, — или пробегаю начало и жму «дальше»?</div></div>
+    <div class="q"><div class="num">3</div><div class="qt">Я спросил альтернативы — или взял первый гладкий вариант?</div></div>
+  </div>
+
+  <h3>Ещё семь — достаёшь по ситуации</h3>
+  <div class="q"><div class="num">4</div><div class="qt">В каком я вообще режиме — «поболтать» или «поработать» — и заметил ли, когда переключился?</div></div>
+  <div class="q"><div class="num">5</div><div class="qt">Я попросил модель назвать минусы и риски её же решения?</div></div>
+  <div class="q"><div class="num">6</div><div class="qt">Я сформулировал своё ожидание <strong>до</strong> того, как увидел ответ?</div></div>
+  <div class="q"><div class="num">7</div><div class="qt">Нет ли уже готовой реализации или shared-компонента — или мы плодим дубль?</div></div>
+  <div class="q"><div class="num">8</div><div class="qt">Смогу ли я объяснить это решение другому человеку своими словами?</div></div>
+  <div class="q"><div class="num">9</div><div class="qt">Чем я проверю утверждение модели — тестом, доками, бенчмарком, — а не её красноречием?</div></div>
+  <div class="q"><div class="num">10</div><div class="qt">Когда я последний раз делал паузу и спрашивал «не увлёкся ли я»?</div></div>
+
+  <h2>Если коротко — что делать</h2>
+  <p>Принцип один: вернуть трение туда, где оно окупается. Не «выключить ИИ», а специально создать сопротивление.</p>
+  <ul>
+    <li>Помечай режим до старта: <strong>Explore</strong> (исследуем вместе) или <strong>Execute</strong> (делаем по готовому плану).</li>
+    <li>Проси 3–5 альтернатив с минусами, а не один гладкий ответ.</li>
+    <li>Сначала сформулируй своё ожидание, потом смотри ответ модели.</li>
+    <li>Не коммить то, что не смог бы объяснить словами другому человеку.</li>
+    <li>Ревьюй не только diff, но и саму задачу с допущениями.</li>
+    <li>Проверяй артефактами (тесты, доки, бенчмарки), а не красноречием модели.</li>
+    <li>Держи часть работы без ИИ, чтобы навык суждения не ржавел.</li>
+  </ul>
+
+  <div class="card featured">
+    <h3>Мои личные приёмы (работают на мне)</h3>
+    <ul>
+      <li><strong>Бумажка на мониторе.</strong> Внизу маячит: «обязательно задавай модели вопросы». Раздражает — и поэтому не даёт забыть.</li>
+      <li><strong>Перерыв раз в ~30 минут.</strong> Оторваться и спросить себя: не увлёкся ли я, туда ли всё идёт.</li>
+      <li><strong>Турник у двери.</strong> Воды пью много, хожу часто — и каждый раз по дороге вишу на турнике, сколько смогу, +1 секунда в день. Минимальная нагрузка, пауза, переключение — и возвращаюсь с чистой головой.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div>
+      <span class="brand">AiDevTeam</span> — Игорь Масленников<br />
+      <span class="small-cap">Telegram: @maslennikovigor • @maslennikovig</span>
+    </div>
+    <div style="text-align: right;">
+      Памятка к статье<br />
+      <span class="small-cap">«Тихая болезнь эпохи ИИ»</span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.70] - 2026-07-07
+
+### Added
+- **articles**: пост-раздача кита для Telegram + Шаг 0 в памятке Анжеле (5cd4c61)
+
 ## [1.3.69] - 2026-06-21
 
 ### Added
