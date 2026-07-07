@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.70
+
+_Released on 2026-07-07_
+
+### ✨ New Features
+
+- **articles**: пост-раздача кита для Telegram + Шаг 0 в памятке Анжеле
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.69
 
 _Released on 2026-06-21_
