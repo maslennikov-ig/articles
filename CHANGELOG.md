@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.72] - 2026-07-23
+
+### Fixed
+- **articles**: двойной бенчмарк — 23 июля это дата прогона, а не выхода моделей (2b86c60)
+
 ## [1.3.71] - 2026-07-23
 
 ### Added
