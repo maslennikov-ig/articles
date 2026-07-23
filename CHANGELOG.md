@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.74] - 2026-07-23
+
+### Fixed
+- **articles**: humanizer-проход по статье двойного бенчмарка — 6 правок (параллелизмы, staccato, анонсы) (d114523)
+
 ## [1.3.73] - 2026-07-23
 
 ### Fixed
