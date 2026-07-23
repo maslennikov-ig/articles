@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.71] - 2026-07-23
+
+### Added
+- **articles**: разбор GPT-Live от OpenAI + Telegram-анонс и памятка Анжеле (784f00b)
+
 ## [1.3.70] - 2026-07-07
 
 ### Added
