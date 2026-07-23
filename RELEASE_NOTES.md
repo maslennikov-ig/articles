@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.71
+
+_Released on 2026-07-23_
+
+### ✨ New Features
+
+- **articles**: разбор GPT-Live от OpenAI + Telegram-анонс и памятка Анжеле
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.70
 
 _Released on 2026-07-07_
