@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.73] - 2026-07-23
+
+### Fixed
+- **articles**: второй проход cleanup-ai-noise по статье двойного бенчмарка — 3 правки (3146894)
+
 ## [1.3.72] - 2026-07-23
 
 ### Fixed

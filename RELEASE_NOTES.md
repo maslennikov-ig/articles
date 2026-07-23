@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.73
+
+_Released on 2026-07-23_
+
+### 🐛 Bug Fixes
+
+- **articles**: второй проход cleanup-ai-noise по статье двойного бенчмарка — 3 правки
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.72
 
 _Released on 2026-07-23_
