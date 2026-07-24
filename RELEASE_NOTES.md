@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.79
+
+_Released on 2026-07-24_
+
+### ✨ New Features
+
+- **articles**: 4 обложки цикла двойного бенчмарка (PNG по промтам 1-4) + Шаг 0 в памятке Анжелы обновлён на готовые файлы
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.78
 
 _Released on 2026-07-24_
