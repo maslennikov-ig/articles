@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.75] - 2026-07-24
+
+### Fixed
+- **articles**: Kimi K3 в рекомендациях — «можно, но аккуратно» вместо «не брать», с тремя оговорками (экономика, непредсказуемость, мониторинг обрывов) (75574ff)
+
 ## [1.3.74] - 2026-07-23
 
 ### Fixed

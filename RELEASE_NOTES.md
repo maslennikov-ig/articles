@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.75
+
+_Released on 2026-07-24_
+
+### 🐛 Bug Fixes
+
+- **articles**: Kimi K3 в рекомендациях — «можно, но аккуратно» вместо «не брать», с тремя оговорками (экономика, непредсказуемость, мониторинг обрывов)
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.74
 
 _Released on 2026-07-23_
