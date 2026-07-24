@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.78
+
+_Released on 2026-07-24_
+
+### ✨ New Features
+
+- **articles**: Telegraph-версия двойного бенчмарка + актуализация скилла telegraph-article (контакты без GitHub, 34 паттерна, анти-подводки, устаревшие метрики) + шаг Telegraph в памятке Анжелы
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.77
 
 _Released on 2026-07-24_
