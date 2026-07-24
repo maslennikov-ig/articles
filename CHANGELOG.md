@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.76] - 2026-07-24
+
+### Fixed
+- **articles**: опечатка «заказа/» → «заказа.» в статье двойного бенчмарка (45a68d4)
+
 ## [1.3.75] - 2026-07-24
 
 ### Fixed
