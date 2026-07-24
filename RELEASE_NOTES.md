@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.76
+
+_Released on 2026-07-24_
+
+### 🐛 Bug Fixes
+
+- **articles**: опечатка «заказа/» → «заказа.» в статье двойного бенчмарка
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.75
 
 _Released on 2026-07-24_
