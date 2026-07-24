@@ -1,6 +1,6 @@
 ---
 name: ai-text-checker
-description: Use proactively for detecting and rewriting AI-generated text patterns in article drafts before publication. Specialist for 33 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Reads article from .tmp/current/articles/, applies two-layer remediation (remove patterns then restore liveness), saves backup, edits in-place, returns structured diff report with Needs-human-decision items. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
+description: Use proactively for detecting and rewriting AI-generated text patterns in article drafts before publication. Specialist for 34 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty, forward-teasers/подводки) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Reads article from .tmp/current/articles/, applies two-layer remediation (remove patterns then restore liveness), saves backup, edits in-place, returns structured diff report with Needs-human-decision items. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
 color: cyan
 ---
 
@@ -294,6 +294,16 @@ Symptom: the author keeps declaring their own honesty/fairness with words instea
 2. **Empty self-reference with zero informational content**: `я не стал выдумывать цифры`, `вынес за скобки, а не придумал`, `я ничего не приукрашиваю`, `говорю как есть` — the reader already infers this; spelling it out signals AI text.
 Fix: delete the word/phrase — the fact speaks for itself. `честно оговариваю: X` → `X`. `Ref честно выиграл` → `Ref выиграл`. `я не стал выдумывать им цифры` → delete (already obvious from `BLOCKED`/context). Keep `честно` only on the rare occasion it carries a real contrast (`думал соврать, но скажу честно` — almost never in practice).
 Detection: count the root `честн`; > 1 occurrence per article → flag the surplus; any `честно` used as an intensifying parenthetical without real contrast → auto-remove. Do NOT confuse with legitimate "honesty" as a *topic* (methodological transparency, "не выдумывал цифры заблокированным") — there, rephrase without the stamp-word rather than dropping the substance.
+
+**A34. Подводки, форвард-тизеры и церемониальная лирика (announcement instead of content)**
+Symptom: sentences that announce, tease, or ceremonially frame content instead of delivering it. The author removes these by hand in every article — treat as high-priority. Five sub-forms:
+1. **Forward-teasers**: `Дальше будет видно, зачем`, `об этом ниже/позже`, `А в нижней части таблицы — история, ради которой я, собственно, и сел писать эту статью`, `Сейчас будет тезис, с которым многие не согласятся`, `и вот тут начинается самое интересное`.
+2. **Section lead-in announcements**: an opening sentence that describes what the section is about to do instead of doing it: `Сводка без лирики — как я бы ставил эти модели в прод`, `Отдельная папка находок этого прогона — вещи, из которых складывается…`. Fix: the section starts with its first fact.
+3. **Ceremonial punchline setups / aphoristic closers**: `Ради этого всё и затевалось`, `Если нужна одна фраза, ради которой стоило… — вот она:`, aphorism-bows closing a section (`Средний балл такое не ловит — ловят глаза на транскриптах`).
+4. **«Представьте»-dramatization**: `Представьте это в окне чата у живого клиента` + a scene extrapolated beyond the measured fact.
+5. **Evaluative tails**: `— и она поучительная`, `— история показательная`, `но ровно из них складывается впечатление клиента` — a significance tail glued to a sentence that already made its point.
+Fix: delete the подводка/tail, keep the content it pointed at. Auto-remove sub-forms 1, 2, 5. Flag as Needs-human-decision sub-forms 3 and 4 — occasionally they are genuinely authorial; cap at ~1 kept instance per article.
+Detection: `дальше|ниже|позже` + `будет видно|узнаете|расскажу|вернёмся`; `ради котор\w+ .*(сел писать|затевалось|стоило)`; `представьте`; `вот она:`; sentence-final dash + evaluative adjective (`показательн|поучительн|любопытн|примечательн`); first sentence of a section that names the section's genre («сводка», «разбор», «папка находок») instead of stating a fact.
 
 ### Layer B — Project-specific stamps (extracted from existing article-skills)
 

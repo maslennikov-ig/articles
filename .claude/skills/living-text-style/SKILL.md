@@ -1,13 +1,13 @@
 ---
 name: living-text-style
-description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-article, vcru-article, dzen-article, pikabu-article, tenchat-article, telegraph-article, telegram-article, telegram-announcement). Injects 13 hard don'ts + Voice & Soul techniques + канцелярит replacement table into the author's context so the draft comes out living instead of AI-stamped. Mirror of `ai-text-checker` detective rules, cross-referenced via ↔ A{X} tags.
+description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-article, vcru-article, dzen-article, pikabu-article, tenchat-article, telegraph-article, telegram-article, telegram-announcement). Injects 14 hard don'ts + Voice & Soul techniques + канцелярит replacement table into the author's context so the draft comes out living instead of AI-stamped. Mirror of `ai-text-checker` detective rules, cross-referenced via ↔ A{X} tags.
 ---
 
 # Living Text Style — Preventive Layer
 
 This skill is the preventive companion to `ai-text-checker` (detective). The
 detective catalogs AI-writing patterns and cleans drafts after the fact.
-This skill teaches the author to avoid the worst 13 patterns up-front and to
+This skill teaches the author to avoid the worst 14 patterns up-front and to
 write with voice instead of producing a sterile, easy-to-scrub text.
 
 ## When to invoke
@@ -18,7 +18,7 @@ write with voice instead of producing a sterile, easy-to-scrub text.
 
 Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cost.
 
-## Hard don'ts (top 13 — самые ядовитые AI-маркеры)
+## Hard don'ts (top 14 — самые ядовитые AI-маркеры)
 
 | # | Не делай | Почему | ↔ Detector |
 |---|----------|--------|------------|
@@ -35,10 +35,11 @@ Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cos
 | 11 | **Bold** на каждом ключевом слове | bold overuse | ↔ A14 |
 | 12 | Подряд эмодзи как буллет-маркеры (🚀💡✅) | emoji decoration | ↔ A17 |
 | 13 | «честно», «честно говоря», «если честно», «честная оговорка» + само-очевидные «я не стал выдумывать цифры», «вынес за скобки, а не придумал» | перформативная честность / пустой само-референс | ↔ A33 |
+| 14 | Подводки и тизеры: «дальше будет видно, зачем», «сейчас будет тезис…», «история, ради которой я сел писать эту статью», «сводка без лирики —…», «представьте это…» + афоризмы-бантики в конце секций («ради этого всё и затевалось») и оценочные хвосты («— и она поучительная») | анонс вместо контента / церемониальная лирика; автор вырезает это руками в каждой статье | ↔ A34 |
 
 ## Voice & Soul (как добавить голос)
 
-A clean text without voice is still obviously AI. After avoiding the 12 don'ts
+A clean text without voice is still obviously AI. After avoiding the 14 don'ts
 above, apply these techniques so the result sounds like a living person:
 
 - **Have opinions** — react to facts, don't just report them. «Честно, не знаю,
@@ -99,7 +100,7 @@ above, apply these techniques so the result sounds like a living person:
 
 Platform-specific tightening (anglicisms, em-dash density, rhetorical questions)
 lives in `ai-text-checker` Layer C. The preventive layer is platform-agnostic:
-the 12 don'ts above apply everywhere.
+the 14 don'ts above apply everywhere.
 
 ## Maintenance contract
 
