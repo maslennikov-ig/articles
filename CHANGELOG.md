@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.79] - 2026-07-24
+
+### Added
+- **articles**: 4 обложки цикла двойного бенчмарка (PNG по промтам 1-4) + Шаг 0 в памятке Анжелы обновлён на готовые файлы (01efa10)
+
 ## [1.3.78] - 2026-07-24
 
 ### Added
