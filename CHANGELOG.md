@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.77] - 2026-07-24
+
+### Added
+- **skills**: паттерн A34 «подводки и церемониальная лирика» — ai-text-checker + don't #14 в living-text-style + лимиты отступлений и чек-лист в habr-article (7a3d707)
+
 ## [1.3.76] - 2026-07-24
 
 ### Fixed

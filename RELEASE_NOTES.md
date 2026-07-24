@@ -2,6 +2,18 @@
 
 User-facing release notes for all versions.
 
+## v1.3.77
+
+_Released on 2026-07-24_
+
+### ✨ New Features
+
+- **Skills**: паттерн A34 «подводки и церемониальная лирика» — ai-text-checker + don't #14 в living-text-style + лимиты отступлений и чек-лист в habr-article
+
+---
+
+_This release was automatically generated from 1 commits._
+
 ## v1.3.76
 
 _Released on 2026-07-24_
