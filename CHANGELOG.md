@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.78] - 2026-07-24
+
+### Added
+- **articles**: Telegraph-версия двойного бенчмарка + актуализация скилла telegraph-article (контакты без GitHub, 34 паттерна, анти-подводки, устаревшие метрики) + шаг Telegraph в памятке Анжелы (8d71fdb)
+
 ## [1.3.77] - 2026-07-24
 
 ### Added
