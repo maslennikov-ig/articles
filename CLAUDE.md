@@ -1,7 +1,5 @@
 # CLAUDE.md
 
-@../AGENTS.md
-
 ## Claude Code CLI Adapter
 
 - Primary workflow comes from global `~/.claude/CLAUDE.md` and the `orchestration-bridge` plugin.
