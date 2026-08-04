@@ -211,7 +211,16 @@ Fix: Use plain «это», «есть», «у ... есть».
 
 **A9. Negative parallelisms**
 Patterns: `не просто X, а Y`, `это не только X, но и Y`, `дело не в X, дело в Y`
-Fix: Drop the "not just" framing, state Y directly.
+Also — and this form is the most frequent in Russian drafts — the affirmation-first
+tail: `X, а не Y` / `X, но не Y` («оплата по фактическому списанию, а не по прайсу»,
+«это инструкция, а не бенчмарк»). Upstream `lint.py` catches only the negation-first
+forms; the tail is caught by the local rule `13b хвост-противопоставление` in
+`lint_ru.py`.
+Fix: apply the deletion test — cut the second half and reread. If the meaning holds,
+the tail was decoration and goes. Keep it only where Y is a real, non-obvious
+alternative the reader would otherwise assume («не в скорости, а в стабильности»).
+Two tails in one text are already a pattern; more than three is a fingerprint.
+Author's rule, 2026-08-04.
 
 **A10. Forced rule of three**
 Symptom: Three-item enumerations everywhere ("X, Y, Z" with synthetic third item).
