@@ -1,6 +1,6 @@
 ---
 name: cleanup-ai-noise
-description: Use at the end of any article-writing skill (habr-article, vcru-article, dzen-article, pikabu-article, telegraph-article, tenchat-article, telegram-article, telegram-announcement) before publication. Saves the draft to .tmp/current/articles/, invokes the ai-text-checker agent with platform context, presents the cleanup report and Needs-human-decision items to the author. Detective companion to the preventive skill `living-text-style` (invoked at ФАЗА 0 before drafting).
+description: Use at the end of any article-writing skill (habr-article, vcru-article, dzen-article, pikabu-article, telegraph-article, tenchat-article, telegram-article, telegram-announcement, site-article) before publication. Saves the draft to .tmp/current/articles/, invokes the ai-text-checker agent with platform and mode, presents the findings to the author. Default mode=report returns a findings table and never modifies the draft — the author edits. mode=edit is opt-in and forbidden for Habr, whose 2026 rules ban text edited by a neural network. Detective companion to the preventive skill `living-text-style` (invoked at ФАЗА 0 before drafting).
 allowed-tools: Read, Write, Bash, Task
 ---
 
@@ -16,7 +16,14 @@ Do NOT invoke for non-article content.
 
 ## Inputs
 
-- `platform` (required): one of `habr | vc | dzen | pikabu | telegraph | tenchat | telegram | telegram-announcement`
+- `platform` (required): one of `habr | vc | dzen | pikabu | telegraph | tenchat | telegram | telegram-announcement | site`
+- `mode` (required): `report` | `edit`
+  - `report` — агент возвращает таблицу находок и **не трогает файл**. Дефолт.
+  - `edit` — агент правит файл in-place с backup. Только по явной просьбе автора.
+  - **Для `platform=habr` допустим только `report`.** Правила Хабра версии 2026
+    запрещают публиковать текст, сгенерированный, написанный **или
+    отредактированный** нейросетью. Если автор просит `edit` для Хабра —
+    объясни правило и предложи `report`; не выполняй.
 - The final draft text from ФАЗА 2 of the calling article-skill (it lives in conversation context)
 
 ## Steps
@@ -46,23 +53,47 @@ Call the `Task` tool with:
 
 ```
 subagent_type: ai-text-checker
-description:   AI-noise cleanup for {platform} draft
+description:   AI-noise audit for {platform} draft
 prompt:        |
   file_path: .tmp/current/articles/{filename}
   platform: {platform}
+  mode: {mode}
 
   Run the full ai-text-checker workflow on this draft.
 ```
 
+`mode` передаётся всегда и явно. Пропуск поля агент трактует как `report`, но
+полагаться на дефолт не надо — режим должен быть виден в вызове.
+
 Wait for the agent to return.
 
-### 5. Read the cleaned file
+### 5. Read the result
 
-After the agent returns, `Read` the file at `path`. The file is now the post-cleanup version (the agent edited in-place).
+**mode=report:** файл не менялся — читать его заново не нужно. Возьми таблицу
+находок из ответа агента и передай её автору целиком, без сокращений.
+
+**mode=edit:** `Read` the file at `path`. The file is now the post-cleanup
+version (the agent edited in-place).
 
 ### 6. Present results to the author
 
 Output to the user a Russian-language summary. The agent prints the actual backup path in its report — pass it through verbatim.
+
+**mode=report** (дефолт):
+
+```
+Аудит AI-шума завершён. Файл не изменялся.
+
+Файл: {file_path}
+Площадка: {platform} · режим: report
+
+{полная таблица находок от агента + блок «Требует решения автора» + три строки итога}
+
+Правки вносит автор. Дальше — ручной чек-лист «Не робот» из ФАЗА 3
+текущего article-скилла, затем корректура и чтение вслух.
+```
+
+**mode=edit** (только не-Хабр, по явной просьбе):
 
 ```
 Чистка AI-шума завершена.
@@ -78,7 +109,12 @@ Backup (исходник):   {BACKUP_PATH from the agent's report — under .tmp
 
 ## Output
 
-The author sees:
+In `mode=report` (default) the author sees:
+- Findings table with quotes and two local options each — **the draft is untouched**
+- Items needing a human decision
+- Reminder that the author edits, then runs proofreading and a read-aloud pass
+
+In `mode=edit` the author sees:
 - Path to cleaned text + backup (centralized in `.tmp/article-backups/{platform}/`)
 - Agent's structured report (metrics, layer statistics, top edits, items needing human decision)
 - Reminder to run the manual «Не робот» checklist
