@@ -1,6 +1,6 @@
 ---
 name: ai-text-checker
-description: Use proactively for detecting and reporting AI-generated text patterns in article drafts before publication. Specialist for 34 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty, forward-teasers/подводки) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Two modes. mode=report (default, MANDATORY for Habr): returns a findings table with quotes and two local options each, NEVER touches the file. mode=edit (non-Habr only, explicit request): applies two-layer remediation in-place with a backup. Habr rules 2026 forbid text generated, written OR edited by a neural network, so mode=edit is rejected for platform=habr. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
+description: Use proactively for detecting and reporting AI-generated text patterns in article drafts before publication. Specialist for 42 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty, forward-teasers/подводки, плюс инфостиль: оценка вместо факта, усилители, размытые числа, перегруженное предложение, синтаксические узлы, однородные члены, абстракция без опоры) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Two modes. mode=report (default, MANDATORY for Habr): returns a findings table with quotes and two local options each, NEVER touches the file. mode=edit (non-Habr only, explicit request): applies two-layer remediation in-place with a backup. Habr rules 2026 forbid text generated, written OR edited by a neural network, so mode=edit is rejected for platform=habr. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
 color: cyan
 ---
 
@@ -160,8 +160,9 @@ Re-read only the spans you modified plus any spans you flagged "ambiguous" in Ph
   абзаца. Не «переписать раздел».
 - Если правка требует факта, которого нет в тексте, вариант формулируется как
   вопрос автору. **Ничего не выдумывать:** ни цифр, ни кейсов, ни источников.
-- Не предлагать замену длинного тире на короткое или дефис — это меняет
-  символ, а не конструкцию.
+- Не выносить в находки начертание тире. Замена `—` на `–` уже сделана
+  скриптом в начале ФАЗЫ 3 (правило автора от 04.08.2026); частоту тире
+  проверяет `voice_audit.py`, а не этот агент.
 - Не трогать то, что паспорт голоса
   (`.claude/skills/voice-check/references/voice-passport.md`) помечает как
   авторскую особенность. Прочитай его раздел «Мои несовершенства — не трогать»
@@ -175,7 +176,17 @@ Re-read only the spans you modified plus any spans you flagged "ambiguous" in Ph
 
 This catalog is the authoritative list for the project. Article-skills must NOT duplicate it; they reference this agent.
 
-### Layer A — 33 patterns (adapted from Wikipedia "Signs of AI writing", Russian-localized, extended with канцелярит, rhetoric and performative honesty)
+### Layer A — patterns A1–A42
+
+Sources: Wikipedia "Signs of AI writing" (Russian-localized), humanizer-ru,
+the author's own edits (A33–A35), and Ильяхов/Сарычева, «Пиши, сокращай»
+(A36–A42 and the extended A26). The инфостиль block is not about lexicon —
+it catches работу со смыслом: оценка без факта, размытое число, перегруженное
+предложение. Полные словари — `.claude/skills/living-text-style/references/infostyle.md`.
+
+Conflict rule: если находка противоречит паспорту голоса
+(`voice-check/references/voice-passport.md`), выигрывает паспорт — это прямые
+указания автора, книга их не отменяет.
 
 **A1. Inflated significance / legacy / scale**
 Markers: `является важным/ключевым/значимым этапом`, `свидетельствует о`, `подчёркивает важность`, `отражает масштабные тенденции`, `символизирует`, `знаменует собой`, `задаёт вектор развития`, `вносит неоценимый вклад`, `играет ключевую/решающую роль`, `оставляет неизгладимый след`, `ознаменовал новую эру`, `является краеугольным камнем`
@@ -235,7 +246,10 @@ Pattern: `от X до Y` where X and Y aren't on a comparable scale.
 Fix: List items as a normal sentence, not a "range".
 
 **A13. Em-dash overuse**
-Symptom: Multiple `—` per paragraph imitating "energetic" style.
+Symptom: Multiple тире per paragraph imitating "energetic" style. Считай оба
+начертания (`—` и `–`): к моменту проверки текст уже нормализован скриптом
+`—` → `–`, поэтому искать только U+2014 бессмысленно. Находка — плотность, а не
+символ.
 Fix: Replace with comma, period, or restructure. **Caveat**: leave em-dashes that mark dialogue, definitions («X — это Y»), or appositions where they're standard. If unsure, flag for human decision.
 
 **A14. Bold overuse**
@@ -294,9 +308,18 @@ Fix: Replace with a concrete plan/date or delete.
 Markers: `в рамках`, `на данный момент`, `осуществлять`, `данный`, `вышеупомянутый`, `нижеследующий`, `в целях`, `на основании`, `в соответствии с`, `надлежащий`, `имеет место быть`
 Fix: Translate into normal Russian. `в целях X` → `чтобы X`. `надлежащий` → `подходящий` / `нужный`.
 
-**A26. Excessive introductory phrases**
-Markers: `стоит отметить, что`, `необходимо подчеркнуть, что`, `важно учитывать тот факт, что`, `нельзя не обратить внимание на`, `следует упомянуть, что`, `не менее важным является`
+**A26. Excessive introductory phrases / вводные (расширен по Ильяхову)**
+Четыре подкласса. Первый был здесь раньше, остальные три добавлены 2026-08-06.
+
+1. **Рамки-анонсы**: `стоит отметить, что`, `необходимо подчеркнуть, что`, `важно учитывать тот факт, что`, `нельзя не обратить внимание на`, `следует упомянуть, что`, `не менее важным является`.
+2. **Вводные общего словаря** — удаляются без потери смысла: `безусловно`, `бесспорно`, `разумеется`, `конечно`, `очевидно`, `несомненно`, `естественно`, `действительно`, `на самом деле`, `по сути`, `в принципе`, `в сущности`, `в общем`, `в итоге`, `в конце концов`, `казалось бы`, `как правило`, `как ни странно`, `судя по всему`, `таким образом`, `стало быть`, `собственно`, `впрочем`, `к слову`, `иначе говоря`, `другими словами`, `грубо говоря`, `проще говоря`, `строго говоря`, `надо полагать`, `пожалуй`, `похоже`, `выходит`, `оказывается`, `само собой`, `одним словом`, `прежде всего`, `более того`, `вдобавок`, `допустим`, `скажем`, `к примеру`.
+3. **Общеизвестное**: `как известно`, `не секрет, что`, `всем понятно`, `общеизвестно`. Если это и так известно — писать незачем; если неизвестно — выдача неизвестного за известное, то есть неправда. Fix: удалить или показать, откуда взялось общее место.
+4. **Словесная нумерация**: `во-первых`, `во-вторых`, `в-третьих`, `далее`, `наконец`, `и последнее` как маркеры структуры. Инструмент устной речи; на письме мысли делятся абзацами. Цифры остаются только в пошаговой инструкции или там, где на пункт будет ссылка.
+5. **«Кстати» и скобки**: `кстати` — клей для неуместного куска (пришлось кстати — помечать не надо; некстати — «кстати» не спасёт). Всё в скобках заявляет, что оно неважное: либо удалить, либо достать наружу.
+
 Fix: Delete the framing phrase; the sentence stands on its own.
+Detection hint: парные запятые, тире или скобки в первой трети предложения — тревожный сигнал; проверить, можно ли выбросить введённое ими.
+Caveat: `на мой взгляд` / `я считаю` удаляются только как хедж в связке с другими смягчителями (см. A23). Заявленная позиция автора не трогается — см. «Иерархия правил» в `living-text-style/references/infostyle.md`.
 
 **A27. «Мир / сфера / область» as abstract wrapper**
 Markers: `в мире X`, `в сфере X`, `в области X`, `пространство X` (abstract), `поле X` (abstract), `арена X`
@@ -386,6 +409,66 @@ Fix: flag only, never auto-remove. All three overlap with the author's legitimat
 Detection: subordinate clause containing a 1st-person verb of perception (`смотрю|слежу|интересует|цепляет`) placed between the subject and the fact; a colon whose right side restates the left side without a new fact/number/name; 1st-person emotional-state sentence directly preceding a conclusion paragraph.
 Note on evidence: derived from two hand-edits on one post (`qwen3-8-max-release`). Treat as a hypothesis until confirmed on further texts — a single edit is not a law.
 
+**A36. Оценка вместо факта (источник: Ильяхов — «Пиши, сокращай», гл. 1.3)**
+Symptom: субъективная характеристика на месте проверяемого факта. Читателю чужая оценка не передаётся — собственный опыт всегда сильнее. Механизм вреда — **ложное чувство проделанной работы**: слово написано, факт не найден, автор считает мысль донесённой.
+Markers (стемы, ловим словоформы): `эффективн`, `качественн`, `надёжн`, `мощн`, `удобн`, `отличн`, `превосходн`, `прекрасн`, `потрясающ`, `впечатляющ`, `внушительн`, `солидн`, `достойн`, `оптимальн`, `уникальн`, `инновационн`, `революционн`, `прорывн`, `продвинут`, `выдающ`, `безупречн`, `первоклассн`, `высококачественн`, `беспрецедентн`, `колоссальн`, `грандиозн`, `масштабн`, `значим`, `существенн`, `перспективн`, `современн`, `профессиональн`, `компетентн`, `настоящ` («настоящие профессионалы»).
+Fix (по убыванию силы): факт с числом → сценарий, в котором свойство видно → история. `модель показала отличные результаты` → `модель набрала 89 из 100, на 6 баллов выше прошлой версии`. `удобный интерфейс` → `открываешь один файл и сразу видишь диф`.
+Не путать с объективным свойством: `красный`, `стальной`, `гибкий кабель`, `простое число` — не оценки. Подозрительность к прилагательному — установка, механическое удаление — нет.
+Sub-form: **кавычки для иронии** (`эти ваши «оптимизации»`) — тоже оценка, интонация автора в них неочевидна. Иронию подавать содержанием.
+Overlap: A4 ловит рекламную лексику («может похвастаться», «в самом сердце»), A36 — обычные рабочие оценки в технических текстах. Не двойной счёт: одно место — одна категория, приоритет у A36.
+
+**A37. Усилитель поверх оценки**
+Symptom: оценка, наложенная на оценку. Усилитель перетягивает внимание на себя и ослабляет главное слово; читателю он сообщает, что автор очень старается его убедить.
+Markers: `абсолютно`, `совершенно`, `полностью`, `целиком`, `максимально`, `минимально`, `предельно`, `крайне`, `весьма`, `чрезвычайно`, `невероятно`, `действительно`, `по-настоящему`, `поистине`, `истинно`, `подлинно`, `безоговорочно`, `бесспорно`, `несомненно`, `наиболее`, `самый`, `радикально`, `кардинально`, `решительно`, `напрочь`, `начисто`, `фактически`, `именно`, `прямо`, `явно`, `довольно-таки`.
+Fix: удалить усилитель; если после этого фраза выглядит голой — значит, за ней и не было доказательства, ставить факт. `у нас максимально выгодные тарифы` → `безлимит за 350 ₽ в месяц`.
+Detection: усилитель непосредственно перед прилагательным/наречием/оценкой. Одиночный `очень` в разговорной вставке автора — не находка (см. паспорт голоса).
+
+**A38. Размытое количество и рейтинг**
+Symptom: неопределённость там, где есть или должно быть точное число. Особенно бьёт по статьям с собственными замерами.
+Markers: `более \d`, `свыше \d`, `около \d`, `порядка \d`, `примерно \d`, `не менее \d`, `до \d+`, `от \d+` (нижняя граница в цене), `входим в топ-\d`, `в тройке лидеров`, `одни из лидеров`, `занимаем лидирующие позиции`, `некая компания`, `некоторое время назад`, `некоторые коллеги`, `различные виды`, `ряд специалистов`.
+Fix:
+- точное число, либо осмысленное округление, либо число с датой замера: `на 1 августа — 20 тысяч`;
+- «более восьми вышек» вместо «девять вышек» — образец того, как не надо;
+- **округление до полезного читателю уровня**: `1 593 768 ₽` → `1,6 млн ₽`; `299 792 458 м/с` → `300 тысяч км/с`. Избыточно точные большие числа читаются как шум и пропускаются глазом;
+- рейтинги: честное место (`18-е из 160`) или польза от размера вместо места;
+- неопределённые местоимения оставлять только там, где неопределённость и есть смысл (`кто-то слил данные, кто — выясняем`).
+Overlap: A5 — про размытые источники («по данным отраслевых отчётов»), A38 — про размытые количества. Разные находки.
+
+**A39. Перегруженное предложение (информативность)**
+Symptom: в одном предложении несколько новых для читателя сущностей. Перегруз определяется не длиной, а числом новых мыслей. Новая мысль — это либо знакомство с незнакомым, либо взаимодействие двух знакомых понятий; **и то и другое в одном предложении сразу — нельзя**.
+Norm: одна новая мысль на предложение для неподготовленного читателя, до трёх для технической аудитории при хорошей структуре. Больше трёх — находка.
+Fix (три лекарства, выбирать по контексту):
+1. удалить лишнюю сущность или заменить знакомой (`облачный сервис` → `программа`);
+2. обобщить перед перечнем: `мошенники используют три инструмента: скиммер, накладку и камеры` — обобщение даёт читателю опору даже при незнакомых словах;
+3. объяснить по цепочке: сначала промежуточные сущности, затем целевая.
+Detection: предложение, вводящее 3+ терминов, ранее не встречавшихся в тексте, и одновременно описывающее их взаимодействие. Flag, не auto-fix: деление зависит от того, какая сущность для аудитории новая, а это знает только автор.
+
+**A40. Синтаксические узлы**
+Symptom: конструкции, которые заставляют читателя держать в голове первую половину фразы, пока он читает вторую. Ловятся чтением вслух, правятся делением.
+Sub-forms:
+1. **Слипшиеся бессоюзные**: части живут отдельно — `Мы делаем сайты для малого бизнеса, наши клиенты — парикмахерские`. Fix: точка.
+2. **Вложенное подчинение**: придаточное внутри придаточного (`из-за закона, который приняли несмотря на то, что…`). Fix: разделить и переформулировать.
+3. **Разделённые конструкции**: `как… так и`, `не только… но и`, `если… то`, `с одной стороны… с другой` с длинным наполнением между частями. Fix: перечень — `после встречи сделайте три вещи: …`.
+4. **Рамки косвенной речи, воли и познания**: `сказал, что`, `я считаю, что`, `мы видим, как`, `я бы хотел, чтобы`. Fix: снять рамку, оставить факт — `мы видим рост акций на 25%` → `акции выросли на 25%`. **Caveat**: не трогать там, где рамка несёт позицию автора или чужое авторство утверждения.
+5. **Слабое подлежащее**: действие приписано тому, кто действовать не может — `внедрение системы обеспечит прирост продаж`, `наличие справки не гарантирует`. Fix: назвать действующее лицо.
+6. **Парцелляция**: обрывки без подлежащего и сказуемого — `Которая не скатывается через пять минут`. Тест: прочитать предложение в отрыве от соседей; бессмысленно — находка. **Не путать с короткими полными предложениями** — это обязательный приём ритма (habr-article, ФАЗА 2), находкой не является.
+Overlap: 3 частично пересекается с A9 (негативный параллелизм). Если конструкция и разделённая, и параллелизм — считать одной находкой по A9.
+
+**A41. Однородные члены, близкие по смыслу**
+Symptom: ряд слов, которые для автора разные, а для читателя одно и то же: `аккуратный и вдумчивый`, `быстро, точно и пунктуально`, `коротким, лаконичным, сухим и сдержанным`, `подавленное выражение гнева, недовольства или несогласия`.
+Fix: оставить самый точный, остальные удалить. Далёкие по смыслу и несущие информацию ряды — оставить и усилить примером. Если после сокращения выяснилось, что за рядом ничего не стояло, — это повод переписать фрагмент, а не сократить его.
+Overlap: A10 (rule of three) ловит навязчивую триаду как форму; A41 — синонимический ряд любой длины. Одно место — одна находка, приоритет у A41.
+
+**A42. Абстракция без конкретной опоры и факт вне мира читателя**
+Two sub-forms.
+1. **Голая абстракция**: `качество`, `сервис`, `подход`, `взаимодействие`, `контроль`, `система`, `норма`, `активность`, `понимание`, `порядок`, `оптимизация` — без конкретики рядом. Правило не «больше конкретики», а **всё абстрактное поддержать конкретным**: обобщение работает после конкретики, а не вместо неё. Fix: разложить заявление на слова и к каждому подобрать осязаемое.
+2. **Факт, который читателю не с чем сравнить**: балл `89` сам по себе; `6,9 мм`; `2,4 триллиона`. Fix: привязка к прошлому замеру, к другой модели, к порогу или к бытовой мерке — характеристику при этом не удалять, а дополнять.
+Подвиды, которые ломают доверие:
+- **неизмеримые точные числа**: `865 329 микрогранул`, `99% людей читают` — наукообразная фигура речи вместо факта;
+- **бесполезные факты**: количество сотрудников, строк кода и выпитого кофе, если читатель пришёл с другим вопросом;
+- **соседство чисел**: `999 ГБ за $90 в год` — читатель разделит одно на другое. Проверить, какой вывод напрашивается, и не подставлять неверный;
+- **перегрузка фактами**: отбирать под задачу текста.
+
 ### Layer B — Project-specific stamps (extracted from existing article-skills)
 
 These were duplicated across 8 article-skills. Centralized here:
@@ -418,14 +501,18 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - "Кодер" used interchangeably with "инженер" / "разработчик" → suggest distinction
 - Hidden marketing of own services without proportional reader value → flag
 - Position AGAINST community ("программисты не нужны") — even if unintended → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 3 per article → flag (A32)
+- **Цифра без опоры** (A42.2): собственный балл/метрика без привязки к прошлому замеру, другой модели или порогу → flag. На Хабре это первое, что спрашивают в комментариях
+- **Неизмеримое точное число** (A42): процент или счёт, который никто не мог измерить → flag как удар по доверию
+- **Соседство чисел** (A42): два числа рядом, из которых напрашивается деление или умножение → проверить, верен ли напрашивающийся вывод
+- **Регалии без пользы** (A36 + правила доверия): размер команды, число агентов, награды, имена клиентов без объяснения, что это даёт читателю → flag
 
 **`vc`** — VC.ru:
 - ROI / growth claims without methodology → flag
 - Missing critique of limitations / alternatives → flag
 - Marketing tone without business substance → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`dzen`** — Yandex Dzen:
@@ -433,7 +520,7 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - Missing first-paragraph hook → flag
 - Information density too low for the algorithm → flag
 - Anglicisms (A28) — STRICT: broad audience; translate jargon with a clear equivalent
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`pikabu`** — Pikabu:
@@ -441,27 +528,27 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - Missing self-irony or character → flag
 - Elitist tone → flag
 - Anglicisms (A28) — STRICT: translate everything except proper nouns / unavoidable abbreviations
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format tolerates fewer)
 
 **`telegraph`** — Telegraph (Telegram long-form):
 - 70/30 prose-to-format ratio violated (stricter than the 60/40 default) → flag
 - Long unbroken paragraphs that hurt mobile readability → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`tenchat`** — TenChat (B2B):
 - Missing real business context (Zeus algorithm needs concreteness) → flag
 - Profile / positioning gaps → flag
 - Anglicisms (A28) — STRICT: business audience prefers Russian; translate jargon with a clear equivalent
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 3 per article → flag (A32)
 
 **`telegram`** — Telegram short posts:
 - Missing personal detail (at least one per post) → flag
 - Marketing tone instead of conversational → flag
 - Repeated CTA / signature phrasing across posts → flag
-- Em-dash density: > 2 em-dashes per paragraph → flag (do NOT auto-replace `—` with `-`; em-dash is the Russian typographic standard)
+- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
 - Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format)
 
 **`telegram-announcement`** — Telegram article announcements:
@@ -494,7 +581,7 @@ Emit this to stdout as the final action. Russian for the author, structure prese
 ## Статистика по слоям
 | Слой | Найдено | Исправлено | Требует решения |
 |---|---|---|---|
-| A. 33 паттерна (Wikipedia + канцелярит + риторика + честность) | {N} | {N} | {N} |
+| A. Паттерны A1–A42 (Wikipedia + канцелярит + риторика + честность + инфостиль) | {N} | {N} | {N} |
 | B. Штампы проекта | {N} | {N} | {N} |
 | C. Платформо-специфика ({platform}) | {N} | {N} | {N} |
 
