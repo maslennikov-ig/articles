@@ -1,6 +1,6 @@
 ---
 name: living-text-style
-description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-article, vcru-article, dzen-article, pikabu-article, tenchat-article, telegraph-article, telegram-article, telegram-announcement, site-article). Injects 18 hard don'ts + Voice & Soul techniques + канцелярит replacement table + инфостиль (оценка→факт, одна мысль на предложение, развязывание синтаксических узлов, абзац и раздел) into the author's context so the draft comes out living instead of AI-stamped. Mirror of `ai-text-checker` detective rules, cross-referenced via ↔ A{X} tags. Full словари — references/infostyle.md.
+description: Invoke at ФАЗА 0 of any article-skill BEFORE drafting (habr-article, vcru-article, dzen-article, pikabu-article, tenchat-article, telegraph-article, telegram-article, telegram-announcement, site-article). Injects 20 hard don'ts + Voice & Soul techniques + канцелярит replacement table + инфостиль (оценка→факт, одна мысль на предложение, развязывание синтаксических узлов, абзац и раздел) into the author's context so the draft comes out living instead of AI-stamped. Mirror of `ai-text-checker` detective rules, cross-referenced via ↔ A{X} tags. Full словари — references/infostyle.md.
 ---
 
 # Living Text Style — Preventive Layer
@@ -24,7 +24,7 @@ humanizer-ru, правки автора). Второй — информацио�
 
 Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cost.
 
-## Hard don'ts (18 — самые ядовитые AI-маркеры)
+## Hard don'ts (20 — самые ядовитые AI-маркеры)
 
 | # | Не делай | Почему | ↔ Detector |
 |---|----------|--------|------------|
@@ -45,11 +45,13 @@ Do not skip. Skipping degrades draft quality and inflates ФАЗА 3 cleanup cos
 | 15 | Оценка вместо факта: «отличные результаты», «эффективный подход», «удобный интерфейс», «надёжный», «мощный», «качественный» | читателю чужая оценка не передаётся, его собственный опыт сильнее. Даёт ложное чувство проделанной работы: слово написано, факт не найден | ↔ A36 |
 | 16 | Усилитель поверх оценки: «максимально выгодный», «абсолютно», «действительно», «по-настоящему», «крайне», «весьма», «совершенно» | оценка, наложенная на оценку. Перетягивает внимание и ослабляет главное слово. Усилитель без доказательства — ничто | ↔ A37 |
 | 17 | Размытое число: «более 20 моделей», «около 90 баллов», «порядка», «свыше», «в топ-10», «от X» | читатель отбрасывает «более» как шум и запоминает само число — слово только занимает место. Прямо бьёт по бенчмарк-статьям | ↔ A38 |
+| 18a | Риторические вопросы пачкой: «Знакомо? Что делать? Почему так вышло?» | имитация вовлечения. Один вопрос — приём, три подряд — маркер. Пороги по площадкам в детективе | ↔ A32 |
+| 18b | «Это позволяет…», «Это обеспечивает…», «Это даёт возможность…» | безличная связка вместо действия: непонятно, кто и что делает | ↔ Layer B |
 | 18 | Вводные-паразиты и словесная нумерация: «безусловно», «разумеется», «как известно», «на самом деле», «по сути», «казалось бы», «кстати» + «во-первых / во-вторых / далее / наконец» | вводные удаляются без потери смысла; нумерация словами — инструмент устной речи, на письме мысли делятся абзацами | ↔ A26 |
 
 ## Voice & Soul (как добавить голос)
 
-A clean text without voice is still obviously AI. After avoiding the 18 don'ts
+A clean text without voice is still obviously AI. After avoiding the 20 don'ts
 above, apply these techniques so the result sounds like a living person:
 
 - **Have opinions** — react to facts, don't just report them. «Не знаю, как к
@@ -140,6 +142,37 @@ above, apply these techniques so the result sounds like a living person:
   скатывается…») — достроить. Короткие полные предложения — наоборот, приём
   ритма, их не трогаем.
 
+## Разгон перед фактом и разжёвывание после него (↔ A35)
+
+Откалибровано на правках самого автора, а не на общих AI-маркерах. Три формы:
+
+- **Оптика перед фактом.** «Цифра, на которую я смотрю, — не 2,4 триллиона, а
+  95 миллиардов» → «Важная цифра — не 2,4 триллиона, а 95 миллиардов».
+  Придаточное с «я» откладывает факт и ничего к нему не добавляет. Той же
+  семьи: «показатель, который меня интересует», «метрика, за которой я слежу».
+- **Пояснение после двоеточия, дублирующее понятный тезис.** Двоеточие у этого
+  автора разворачивает мысль в новую, а не поясняет очевидную. Понятный тезис
+  оставляем голым.
+- **Драматизация состояния как связка.** «И вот тут я сам с собой не
+  договорюсь», «тут я надолго завис» прямо перед выводом, который факты и так
+  поддерживают.
+
+Граница: разговорная вставка — авторская подпись, её не трогаем. Решает то,
+несёт ли придаточное информацию.
+
+## Переводной порядок слов (↔ проход 6 hostile-editor)
+
+Русская фраза, собранная по английской схеме. Признаки: «это является»,
+«делает это возможным», «одна из самых важных вещей»; жёсткое SVO там, где
+рема должна уйти в конец; определение перед определяемым цепочкой из трёх
+существительных; калька «в терминах X». Лечится переносом смыслового центра
+в конец предложения.
+
+Сюда же цепочки родительных падежей (↔ A30): четыре и больше существительных
+в родительном подряд — «система управления процессами обработки заявок».
+Разбивается глаголом или предлогом.
+
+
 ## Абзац и раздел
 
 - Первое предложение абзаца — не просто верная мысль, а полезная: не
@@ -168,7 +201,7 @@ above, apply these techniques so the result sounds like a living person:
 
 Platform-specific tightening (anglicisms, em-dash density, rhetorical questions)
 lives in `ai-text-checker` Layer C. The preventive layer is platform-agnostic:
-the 18 don'ts above apply everywhere.
+the 20 don'ts above apply everywhere.
 
 ## Maintenance contract
 

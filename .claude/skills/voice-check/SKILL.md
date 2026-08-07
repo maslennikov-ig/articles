@@ -36,7 +36,7 @@ article-скилла) скрипты `voice_audit.py` и `lint_ru.py` запус
 
 | Площадка | scope |
 |---|---|
-| Хабр, vc.ru, сайт, Дзен, TenChat | `longform` |
+| Хабр, vc.ru, сайт, Дзен, TenChat, Пикабу | `longform` |
 | Telegram, Telegraph, анонсы | `shortform` |
 
 **3. Прогони числовой аудит.**

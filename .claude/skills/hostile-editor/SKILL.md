@@ -19,7 +19,8 @@ allowed-tools: Read, Bash, Glob, Grep
 ## Вход
 
 - Файл черновика (обязательно)
-- Площадка: `habr | vc | dzen | pikabu | telegraph | tenchat | telegram | site`
+- Площадка: `habr | vc | dzen | pikabu | telegraph | tenchat | telegram |
+  telegram-announcement | site`
 - `references/voice-passport.md` из скилла `voice-check` (обязательно прочитать)
 - Исходный пакет автора, если он есть (`promts/*-materials.md`) — чтобы
   отличить факт из источника от факта, который модель придумала по дороге

@@ -10,7 +10,7 @@ Trigger skill that wires an article-writing flow into the `ai-text-checker` agen
 
 ## When to Use
 
-Invoke from **ФАЗА 3** of any article-writing skill, BEFORE the manual «Не робот» checklist. The article-writing skill produces the draft text in conversation; this skill persists it, runs the agent, and presents the result.
+Invoke from **ФАЗА 3** of any article-writing skill, BEFORE the calling skill's own manual checklist («Не робот» у семи площадок; у `site-article` это SEO-чеклист ФАЗЫ 4, у `telegram-announcement` — проверка перед публикацией). The article-writing skill produces the draft text in conversation; this skill persists it, runs the agent, and presents the result.
 
 Do NOT invoke for non-article content.
 
@@ -89,8 +89,9 @@ Output to the user a Russian-language summary. The agent prints the actual backu
 
 {полная таблица находок от агента + блок «Требует решения автора» + три строки итога}
 
-Правки вносит автор. Дальше — ручной чек-лист «Не робот» из ФАЗА 3
-текущего article-скилла, затем корректура и чтение вслух.
+Правки вносит автор. Дальше — ручной чек-лист вызвавшего скилла (у семи
+площадок «Не робот», у `site-article` — SEO-чеклист, у `telegram-announcement` —
+проверка перед публикацией), затем корректура и чтение вслух.
 ```
 
 **mode=edit** (только не-Хабр, по явной просьбе):
@@ -103,7 +104,7 @@ Backup (исходник):   {BACKUP_PATH from the agent's report — under .tmp
 
 {полный текст отчёта от агента — таблицы статистики, ключевые правки, спорные места}
 
-Дальше — ручной чек-лист «Не робот» из ФАЗА 3 текущего article-скилла.
+Дальше — ручной чек-лист вызвавшего скилла.
 Если в блоке «Требует решения автора» есть пункты — реши их вручную перед публикацией.
 ```
 
@@ -117,7 +118,7 @@ In `mode=report` (default) the author sees:
 In `mode=edit` the author sees:
 - Path to cleaned text + backup (centralized in `.tmp/article-backups/{platform}/`)
 - Agent's structured report (metrics, layer statistics, top edits, items needing human decision)
-- Reminder to run the manual «Не робот» checklist
+- Reminder to run the calling skill's manual checklist
 
 ## Backup convention (IMPORTANT)
 

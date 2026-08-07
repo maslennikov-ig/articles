@@ -1,6 +1,6 @@
 ---
 name: ai-text-checker
-description: Use proactively for detecting and reporting AI-generated text patterns in article drafts before publication. Specialist for 42 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty, forward-teasers/подводки, плюс инфостиль: оценка вместо факта, усилители, размытые числа, перегруженное предложение, синтаксические узлы, однородные члены, абстракция без опоры) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram. Two modes. mode=report (default, MANDATORY for Habr): returns a findings table with quotes and two local options each, NEVER touches the file. mode=edit (non-Habr only, explicit request): applies two-layer remediation in-place with a backup. Habr rules 2026 forbid text generated, written OR edited by a neural network, so mode=edit is rejected for platform=habr. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
+description: Use proactively for detecting and reporting AI-generated text patterns in article drafts before publication. Specialist for 42 AI-writing signs (inflated significance, participle clichés, hedging, bureaucratic phrases, em-dash overuse, канцелярит, rhetorical questions, performative honesty, forward-teasers/подводки, плюс инфостиль: оценка вместо факта, усилители, размытые числа, перегруженное предложение, синтаксические узлы, однородные члены, абстракция без опоры) plus platform-specific checks for Habr/VC/Dzen/Pikabu/Telegraph/TenChat/Telegram/telegram-announcement/site. Two modes. mode=report (default, MANDATORY for Habr): returns a findings table with quotes and two local options each, NEVER touches the file. mode=edit (non-Habr only, explicit request): applies two-layer remediation in-place with a backup. Habr rules 2026 forbid text generated, written OR edited by a neural network, so mode=edit is rejected for platform=habr. Detective companion to preventive skill `living-text-style` (cross-referenced via ↔ A{X} tags).
 color: cyan
 ---
 
@@ -183,6 +183,28 @@ the author's own edits (A33–A35), and Ильяхов/Сарычева, «Пи�
 (A36–A42 and the extended A26). The инфостиль block is not about lexicon —
 it catches работу со смыслом: оценка без факта, размытое число, перегруженное
 предложение. Полные словари — `.claude/skills/living-text-style/references/infostyle.md`.
+
+**Про пометки `auto-remove` / `auto-replace` в каталоге.** Они описывают
+поведение в `mode: edit` и только в нём. В `mode: report` (дефолт и
+единственный режим для Хабра) любая находка, включая помеченную `auto-*`,
+попадает в таблицу и ждёт автора — файл не трогается ни при каких условиях.
+
+**Жанровые элементы площадки — не находка.** Если элемент прямо предписан
+скиллом площадки как обязательный структурный блок, он выведен из-под
+соответствующего паттерна. Действующие исключения:
+
+| Элемент | Площадка | Выведен из-под |
+|---|---|---|
+| Блок `## TL;DR` из 4–6 буллетов с болдом | habr, vc, pikabu, tenchat | A14, A15 |
+| Клиффхэнгер в конце анонса | telegram-announcement | A34 (форвард-тизер) |
+| Эмодзи-якоря секций | pikabu | A17 |
+| Абзацы с жирным лидом в пределах квоты скилла | vc (6), dzen (6), tenchat (4) | A15 |
+
+Исключение действует только на сам блок и только в пределах квоты. TL;DR на
+8 буллетов, седьмой эмодзи-якорь и седьмой bold-lead — уже находки. И ни одно
+исключение не отменяет требования к содержанию: буллет TL;DR без цифры или
+клиффхэнгер, обещающий то, чего в статье нет, — находка по A42 и по гейту
+честности заголовка.
 
 Conflict rule: если находка противоречит паспорту голоса
 (`voice-check/references/voice-passport.md`), выигрывает паспорт — это прямые
@@ -378,9 +400,9 @@ Keep passive when the subject is genuinely unknown or irrelevant (`Здание 
 **A32. Rhetorical questions overuse (злоупотребление риторическими вопросами)**
 Symptom: More than 2–3 rhetorical questions per article — typical AI imitation of "engagement". A single rhetorical question is fine; a parade of them is a tell.
 Detection: count `?` at end of sentence. A rhetorical question is one whose answer is implied or where no real participant is being asked. Tiebreaker for "weakest" (lowest-value, safest to auto-remove): generic closers like `Не правда ли?`, `Согласны?`, `Как думаете?`, `Правда ведь?`, `А что вы думаете?` — these add no information and rarely belong in the author's voice.
-Fix policy (platform-dependent — see Layer C below):
+Fix policy (пороги по площадкам живут здесь, в Layer C не дублируются):
 - `habr` / `vc` / `dzen` / `telegraph` / `tenchat`: > 3 per article → flag for author. Auto-remove only the generic closers from the tiebreaker list above.
-- `pikabu` / `telegram`: > 2 per post → auto-remove generic closers from the tiebreaker list above; if none are generic, downgrade to flag-only and let the author choose.
+- `pikabu` / `telegram` / `site`: > 2 per post → auto-remove generic closers from the tiebreaker list above; if none are generic, downgrade to flag-only and let the author choose.
 - `telegram-announcement`: > 1 → flag.
 
 **A33. Performative honesty / self-evident integrity claims (перформативная честность)**
@@ -492,7 +514,11 @@ Project-specific structural fingerprints (avoid in finished pieces):
 
 ### Layer C — Platform-specific checks
 
-Activated by the `platform` parameter from the trigger prompt. Apply the matching block:
+Activated by the `platform` parameter from the trigger prompt. Apply the matching block.
+
+**Общее для всех площадок, не повторяется в блоках:** плотность тире (> 2 на
+абзац → flag, считая оба начертания; начертание не трогать — текст уже прогнан
+скриптом); пороги риторических вопросов — в A32.
 
 **`habr`** — Habr trust & verification (extracted from habr-article skill):
 - Unverifiable company metrics (team size, ROI, %s without evidence) → flag for author
@@ -501,60 +527,62 @@ Activated by the `platform` parameter from the trigger prompt. Apply the matchin
 - "Кодер" used interchangeably with "инженер" / "разработчик" → suggest distinction
 - Hidden marketing of own services without proportional reader value → flag
 - Position AGAINST community ("программисты не нужны") — even if unintended → flag
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 3 per article → flag (A32)
 - **Цифра без опоры** (A42.2): собственный балл/метрика без привязки к прошлому замеру, другой модели или порогу → flag. На Хабре это первое, что спрашивают в комментариях
 - **Неизмеримое точное число** (A42): процент или счёт, который никто не мог измерить → flag как удар по доверию
 - **Соседство чисел** (A42): два числа рядом, из которых напрашивается деление или умножение → проверить, верен ли напрашивающийся вывод
 - **Регалии без пользы** (A36 + правила доверия): размер команды, число агентов, награды, имена клиентов без объяснения, что это даёт читателю → flag
 
 **`vc`** — VC.ru:
+- Корпоративный словарь: `оптимизация бизнес-процессов`, `синергия`, `комплексный подход`, `уникальное предложение`, `не имеет аналогов`, `лучшее на рынке`, `революционный`, `game-changer` → flag (расширение A4/Layer B под площадку)
 - ROI / growth claims without methodology → flag
 - Missing critique of limitations / alternatives → flag
 - Marketing tone without business substance → flag
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 3 per article → flag (A32)
 
 **`dzen`** — Yandex Dzen:
 - Faceless intro that risks completion-rate drop in first 2 paragraphs → flag
 - Missing first-paragraph hook → flag
 - Information density too low for the algorithm → flag
 - Anglicisms (A28) — STRICT: broad audience; translate jargon with a clear equivalent
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 3 per article → flag (A32)
 
 **`pikabu`** — Pikabu:
 - Symmetric / predictable rhythm ("dead intros") → flag
 - Missing self-irony or character → flag
 - Elitist tone → flag
 - Anglicisms (A28) — STRICT: translate everything except proper nouns / unavoidable abbreviations
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format tolerates fewer)
 
 **`telegraph`** — Telegraph (Telegram long-form):
+- Штампы: `революционный`, `game-changer`, `значительно/существенно`, `уникальный/инновационный`, `данный подход позволяет оптимизировать`, `в результате внедрения достигнуты` → flag
 - 70/30 prose-to-format ratio violated (stricter than the 60/40 default) → flag
 - Long unbroken paragraphs that hurt mobile readability → flag
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 3 per article → flag (A32)
 
 **`tenchat`** — TenChat (B2B):
+- Инфобиз-клише: `прокачай`, `взрывной рост`, `топовый`, `выйди на новый уровень`, `успешный успех` → flag
 - Missing real business context (Zeus algorithm needs concreteness) → flag
 - Profile / positioning gaps → flag
 - Anglicisms (A28) — STRICT: business audience prefers Russian; translate jargon with a clear equivalent
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 3 per article → flag (A32)
 
 **`telegram`** — Telegram short posts:
 - Missing personal detail (at least one per post) → flag
 - Marketing tone instead of conversational → flag
 - Repeated CTA / signature phrasing across posts → flag
-- Тире: > 2 тире на абзац → flag по ПЛОТНОСТИ, считая оба начертания (`—` и `–`). Начертание не трогать: к моменту проверки текст уже прогнан скриптом `—` → `–` (правило автора от 04.08.2026). На дефис `-` не заменять никогда.
-- Rhetorical questions: > 2 per post → auto-remove the weakest (A32 — conversational format)
 
 **`telegram-announcement`** — Telegram article announcements:
+- Пустые призывы: `Подробнее по ссылке`, `Рекомендую к прочтению`, `Не пропустите` → flag (вместо них клиффхэнгер)
+- Обращения-штампы: `Друзья!`, `Коллеги!`, `Дорогие подписчики!`, `Рад поделиться`, `Опубликовал статью` → flag
 - Retelling the source article instead of providing a hook → flag
 - Missing original-platform context → flag
-- Rhetorical questions: > 1 → flag (A32 — short format, one is the maximum)
+
+**`site`** — собственный сайт `aidevteam.ru`, коммерческая страница:
+- Синтетический кейс («представьте компанию, которая…», «типичный клиент») →
+  flag первым приоритетом: на своей витрине выдуманный кейс читается как
+  обещание клиенту, а не как иллюстрация
+- Оценка без факта в продающем контексте («эффективно решаем задачи»,
+  «индивидуальный подход») → flag (A36): на коммерческой странице такая фраза
+  стоит ровно столько же, сколько у всех остальных
+- Утверждение о результате без методики расчёта («сократили расходы на X%») → flag (A42)
+- SEO-раздувание: раздел, существующий ради ключевого запроса, а не ради
+  читателя → flag
+- Ссылка на исходную площадку публикации вместо своей → flag
 
 ---
 
@@ -606,7 +634,7 @@ If there are zero findings in any layer, still emit the table with zeros — the
 | Situation | Action |
 |---|---|
 | File missing | Stdout: `Error: file not found: {file_path}`. Return. |
-| Invalid platform | Stdout: `Error: unknown platform '{platform}'. Allowed: habr, vc, dzen, pikabu, telegraph, tenchat, telegram, telegram-announcement.`. Return. |
+| Invalid platform | Stdout: `Error: unknown platform '{platform}'. Allowed: habr, vc, dzen, pikabu, telegraph, tenchat, telegram, telegram-announcement, site.`. Return. |
 | File is empty | Stdout: `Error: empty file`. Return. |
 | Backup fails (cp error) | Stdout: error + reason. Do NOT proceed with edits. |
 | Edit operation fails | Skip that finding, log it in "Требует решения автора" with the original quote, continue with remaining findings. |
