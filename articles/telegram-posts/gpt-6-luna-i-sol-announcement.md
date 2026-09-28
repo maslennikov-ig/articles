@@ -2,7 +2,7 @@
 platform: telegram
 channel: https://t.me/maslennikovigor
 author: Igor Maslennikov
-date: 2026-09-29
+date: 2026-09-28
 purpose: Анонс статьи «GPT-6 Luna и Sol: проверили новинки OpenAI на своих задачах» на aidevteam.ru
 article_platform: site
 article_file: articles/site/gpt-6-luna-i-sol.md
