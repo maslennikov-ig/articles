@@ -39,6 +39,7 @@ cta:
   label: "Открыть живой лидерборд моделей"
   href: "/benchmarks"
 status: "published"
+telegramPostUrl: "https://t.me/maslennikovigor/274"
 ---
 
 # GPT-6 Luna и Sol: проверили новинки OpenAI на своих задачах
