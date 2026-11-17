@@ -7,6 +7,8 @@ description: Написание коротких постов для Telegram-к
 
 Скилл для написания коротких постов в Telegram-канал от имени Игоря Масленникова.
 
+For an explicit request to publish, follow the [Content Factory MCP guide](references/content-factory-publication.md). Review native Telegram headings and attachment placement in the final HTML.
+
 ## Когда использовать
 
 - Пользователь просит написать пост для Telegram
