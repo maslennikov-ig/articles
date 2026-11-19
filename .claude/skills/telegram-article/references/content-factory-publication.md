@@ -51,7 +51,8 @@ The connector maps the slots to Telegram's
    MCP setup, use the connector details in Content Factory's approved-apps settings.
 2. Use up to ten owned workspace assets. Find existing assets with
    `media_library` and verify them with `media_inspect`. For an authorized
-   local photo, use the `photo` argument of `media_upload` when advertised.
+   local photo, call `media_prepare_photo` with its `photo` argument. On older
+   connectors that only advertise `media_upload(photo)`, use that compatible route.
    Generate a fresh base64url proof from 32 random bytes. Keep it local and send
    only `name` (basename), `size`, `sha256` (of the file), and
    `uploadProofSha256` (of the proof string) to MCP. Use lowercase hex hashes.
@@ -75,8 +76,15 @@ The connector maps the slots to Telegram's
    (one UUID for this publication), `channelId`, `html`, `format` and the
    ordered `mediaIds`. Omit `mediaIds` for rich text without attachments. Use
    `coverMediaId` only for compatibility with a one-photo caption.
-   Present the returned confirmation question to the author. Once they confirm,
-   repeat the call with identical arguments plus the returned `confirmation`.
+   When the author wants a final review for immediate publication, make this
+   first call **before showing the final version**. It checks the exact payload
+   and sends nothing to Telegram. In one reply show the reviewed post with its
+   images, name the destination and end with the tool’s exact question.
+   An affirmative reply such as «да, публикуй» approves that preview. Repeat
+   the same call with its original arguments and the returned `confirmation`.
+   Keep the code private. A changed post, channel or attachment needs a fresh
+   preview. For a writing-only request, return the draft without preparing a
+   send. If the connector declines an expired code, ask its fresh question.
    Follow any approval prompt shown by the chat host. A request to schedule for
    later does not authorize this immediate-send tool.
 5. After queuing or a timeout, read `telegram_publication_status` with the same
